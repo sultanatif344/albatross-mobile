@@ -4,12 +4,12 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #3880ff;
+  --ion-color-primary: #146545;
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
-  --ion-color-primary-tint: #4c8dff;
+  --ion-color-primary-shade: #146545;
+  --ion-color-primary-tint: #146545;
 
   /** secondary **/
   --ion-color-secondary: #3dc2ff;
@@ -28,12 +28,12 @@
   --ion-color-tertiary-tint: #6370ff;
 
   /** success **/
-  --ion-color-success: #2dd36f;
+  --ion-color-success: #146545;
   --ion-color-success-rgb: 45, 211, 111;
   --ion-color-success-contrast: #ffffff;
   --ion-color-success-contrast-rgb: 255, 255, 255;
-  --ion-color-success-shade: #28ba62;
-  --ion-color-success-tint: #42d77d;
+  --ion-color-success-shade: #146545;
+  --ion-color-success-tint: #146545;
 
   /** warning **/
   --ion-color-warning: #ffc409;
@@ -74,6 +74,8 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  --ion-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -104,12 +106,12 @@
     --ion-color-tertiary-shade: #5d58e0;
     --ion-color-tertiary-tint: #7974ff;
 
-    --ion-color-success: #2fdf75;
+    --ion-color-success: #146545;
     --ion-color-success-rgb: 47,223,117;
     --ion-color-success-contrast: #000000;
     --ion-color-success-contrast-rgb: 0,0,0;
-    --ion-color-success-shade: #29c467;
-    --ion-color-success-tint: #44e283;
+    --ion-color-success-shade: #146545;
+    --ion-color-success-tint: #146545;
 
     --ion-color-warning: #ffd534;
     --ion-color-warning-rgb: 255,213,52;
@@ -145,6 +147,8 @@
     --ion-color-light-contrast-rgb: 255,255,255;
     --ion-color-light-shade: #1e2023;
     --ion-color-light-tint: #383a3e;
+
+    background: whitesmoke;
   }
 
   /*
@@ -229,4 +233,7 @@
 
     --ion-card-background: #1e1e1e;
   }
+  // @font-face {
+  //   font-family:';
+  // }
 }

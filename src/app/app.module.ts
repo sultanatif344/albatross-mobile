@@ -8,10 +8,13 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DayviewComponent } from './components/dayview/dayview.component';
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [],
+  entryComponents: [
+    // DayviewComponent
+  ],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
     StatusBar,

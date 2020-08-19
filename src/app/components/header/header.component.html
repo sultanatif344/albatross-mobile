@@ -1,0 +1,44 @@
+<ion-title>
+  <ion-grid *ngIf="showScheduleBar">
+    <ion-row>
+      <!-- <app-dayview></app-dayview> -->
+      <ion-col>
+        <ion-row>
+          <ion-icon class="ion-margin-top text-primary space-between" name="calendar"></ion-icon>
+          <ion-text class="text-primary space-between"><h1>July</h1></ion-text>
+          <ion-text class="text-primary ion-margin-top"><h6>2020</h6></ion-text>
+        </ion-row>
+      </ion-col>
+      <ion-col>
+        <ion-button class="ion-margin-top" size="small" shape="round" color="light" (click)="switchToDayView()">
+          <ion-text class="text-primary"><p>Day</p></ion-text>
+        </ion-button>
+        <ion-button class="ion-margin-top" size="small" shape="round" color="light" (click)="switchToWeekView()">
+          <ion-text class="text-primary"><p>Week</p></ion-text>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-grid>
+    <ion-row>
+      <!-- <app-dayview></app-dayview> -->
+      
+      <ion-col *ngIf="showBackButton">
+        <ion-icon name="arrow-back" color="success" class="ion-margin-top" (click)="goBack()"></ion-icon>
+      </ion-col>
+
+      <ion-card style=" width:250px; height:40px;" class="ion-margin-top" *ngIf="SearchBarVisible">
+        <ion-row>
+           <ion-input placeholder="Search For Instructors" class="ion-margin-bottom"></ion-input>
+           <ion-button fill="clear">
+           <ion-icon name="search" color="success" style="margin-bottom:25px"></ion-icon>  
+          </ion-button>
+          </ion-row>
+    </ion-card>
+    <ion-text color="success" class="ion-text-start ion-no-margin"><h1 *ngIf="showTitle" style="margin-right:100px;">{{title}}</h1></ion-text>
+    </ion-row>
+  </ion-grid>
+</ion-title>
+

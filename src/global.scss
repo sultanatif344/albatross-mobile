@@ -24,3 +24,24 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+
+.text-primary{
+    color:#146545;
+}
+.background-primary{
+    background-color: whitesmoke;
+}
+
+.text-secondary{
+    color: yellow;
+}
+
+.background-secondary{
+    background: yellow;
+}
+
+.bold{
+ font-weight: bold;   
+}

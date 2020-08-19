@@ -1,0 +1,317 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>InstructorDashboard</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <app-header [showScheduleBar]="true" [showTitle]="false" (switchView)="setFlag($event)" (switchView)="unsetFlag($event)" [SearchBarVisible]="false" [showBackButton]="false"></app-header>
+
+
+
+
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 1</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-card *ngIf="flag">
+    <ion-card-content>
+      <ion-button class="ion-no-shadow" size="large" color="light">
+        <ion-text>
+          <h1 class="bold">24</h1>
+          <p>fri</p>
+        </ion-text>
+      </ion-button>
+      <ion-button size="large" color="light">
+        <ion-text>
+          <h1 class="bold">25</h1>
+          <p>sat</p>
+        </ion-text>
+      </ion-button>
+      <ion-button size="large" color="light">
+        <ion-text>
+          <h1 class="bold">26</h1>
+          <p>sun</p>
+        </ion-text>
+      </ion-button>
+      <ion-button size="large" color="light">
+        <ion-text>
+          <h1 class="bold">27</h1>
+          <p>mon</p>
+        </ion-text>
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid>
+<ion-row *ngIf="flag">
+  <ion-text><h6 class="ion-margin-start bold">Todays Lessons</h6></ion-text> 
+</ion-row>
+<ion-card *ngIf="flag" (click)="navigateToLessonDetailPage()">
+  <ion-card-content>
+    <ion-row>
+      <ion-col>
+      <ion-text color="dark"><h2 class="bold">8:00AM</h2></ion-text>
+    </ion-col>
+
+    <ion-col size="8">
+      <ion-text color="dark"><p class="bold">Gabriel Sutton</p></ion-text>
+    </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+      <ion-text color="dark"><h2 class="bold">10:00AM</h2></ion-text>
+    </ion-col>
+
+    <ion-col size="8">
+      <ion-text color="dark"><p class="bold">The Basics of Typography</p></ion-text>
+    </ion-col>
+      
+    </ion-row>
+  </ion-card-content>
+</ion-card>
+
+
+<ion-card *ngIf="flag">
+  <ion-card-content>
+    <ion-row>
+      <ion-col >
+      <ion-text color="dark"><h2 class="bold">9:00AM</h2></ion-text>
+    </ion-col>
+
+
+      <ion-col size="8">
+      <ion-text color="dark"><p class="bold">Design Psychology</p></ion-text>
+    </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+      <ion-text color="dark"><h2 class="bold">10:00AM</h2></ion-text>
+    </ion-col>
+
+
+      <ion-col size="8">
+      <ion-text color="dark"><p class="bold">Norma Ortiz</p></ion-text>
+    </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>
+
+
+
+</ion-grid>
+  
+
+
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <ion-title size="large">Tab 1</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-card class="ion-no-margin" *ngIf="!flag">
+  <ion-card-header>
+    
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-row>
+    <ion-button class="ion-no-shadow" size="large" color="light">
+      <ion-text>
+        <h6 class="small-size">Mon-Sun</h6>
+        <p class="small-size">20 July to  26 july</p>
+      </ion-text>
+    </ion-button>
+    <ion-button size="large" color="light">
+      <ion-text>
+        <ion-text>
+          <h6 class="small-size">Mon-Sun</h6>
+          <p class="small-size">13 July to  19 july</p>
+        </ion-text>
+      </ion-text>
+    </ion-button>
+  </ion-row>
+  <ion-row>
+    <ion-button size="large" color="light">
+      <ion-text>
+        <ion-text>
+          <h6 class="small-size">Mon-Sun</h6>
+          <p class="small-size">27 July to  2 Aug</p>
+        </ion-text>
+      </ion-text>
+    </ion-button>
+    <ion-button size="large" color="light">
+      <ion-text>
+        <ion-text>
+          <h6 class="small-size">Mon-Sun</h6>
+          <p class="small-size">6 july to 12 july</p>
+        </ion-text>
+      </ion-text>
+    </ion-button>
+  </ion-row>
+  </ion-card-content>
+</ion-card>
+
+<ion-grid *ngIf="!flag">
+<ion-row>
+<ion-text><h6 class="ion-margin-start bold">Friday 18 July, Lessons</h6></ion-text> 
+</ion-row>
+<ion-card>
+<ion-card-content>
+  <ion-row>
+    <ion-col>
+    <ion-text color="dark"><h2 class="bold">8:00AM</h2></ion-text>
+  </ion-col>
+
+
+    <ion-col size="8">
+    <ion-text color="dark"><p class="bold">The Basics of Typography</p></ion-text>
+  </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+    <ion-text color="dark"><h2 class="bold">10:00AM</h2></ion-text>
+  </ion-col>
+
+
+    <ion-col size="8">
+    <ion-text color="dark"><p class="bold">Gabriel Sutton</p></ion-text>
+  </ion-col>
+  </ion-row>
+</ion-card-content>
+</ion-card>
+
+
+<ion-card>
+<ion-card-content>
+  <ion-row>
+    <ion-col >
+    <ion-text color="dark"><h2 class="bold">9:00AM</h2></ion-text>
+  </ion-col>
+
+
+    <ion-col size="8">
+    <ion-text color="dark"><p class="bold">Design Psychology</p></ion-text>
+  </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+    <ion-text color="dark"><h2 class="bold">10:00AM</h2></ion-text>
+  </ion-col>
+
+
+    <ion-col size="8">
+    <ion-text color="dark"><p class="bold">Norma Ortiz</p></ion-text>
+  </ion-col>
+  </ion-row>
+</ion-card-content>
+</ion-card>
+
+
+<ion-row>
+  <ion-text><h6 class="ion-margin-start bold">Saturday 25 July, Lessons</h6></ion-text> 
+  </ion-row>
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <ion-col>
+        <ion-text color="dark"><h2 class="bold">8:00AM</h2></ion-text>
+      </ion-col>
+    
+    
+        <ion-col size="8">
+        <ion-text color="dark"><p class="bold">The Basics of Typography</p></ion-text>
+      </ion-col>
+      </ion-row>
+    
+      <ion-row>
+        <ion-col>
+        <ion-text color="dark"><h2 class="bold">10:00AM</h2></ion-text>
+      </ion-col>
+    
+    
+        <ion-col size="8">
+        <ion-text color="dark"><p class="bold">Gabriel Sutton</p></ion-text>
+      </ion-col>
+      </ion-row>
+    </ion-card-content>
+    </ion-card>
+    
+    
+    <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <ion-col >
+        <ion-text color="dark"><h2 class="bold">9:00AM</h2></ion-text>
+      </ion-col>
+    
+    
+        <ion-col size="8">
+        <ion-text color="dark"><p class="bold">Design Psychology</p></ion-text>
+      </ion-col>
+      </ion-row>
+    
+      <ion-row>
+        <ion-col>
+        <ion-text color="dark"><h2 class="bold">10:00AM</h2></ion-text>
+      </ion-col>
+    
+    
+        <ion-col size="8">
+        <ion-text color="dark"><p class="bold">Norma Ortiz</p></ion-text>
+      </ion-col>
+      </ion-row>
+    </ion-card-content>
+    </ion-card>
+</ion-grid>
+
+<ion-row>
+  <ion-text class="ion-margin-start"><h6 class="bold">Your Tasks</h6></ion-text>
+  </ion-row>
+  
+  <ion-row>
+  <ion-col>
+    <ion-card class="set-card-width">
+      <ion-card-header class="ion-no-padding">
+        <ion-card-subtitle class="ion-margin-top ion-margin-start bold subheading">
+          <span class="awaydot"></span> Deadline
+        </ion-card-subtitle>
+        <ion-card-title class="ion-margin-start">
+          <ion-text class="subheading"><p class="bold">Noah Elijah</p></ion-text>
+        </ion-card-title> 
+      </ion-card-header>
+      <ion-card-content>
+        <ion-text color="dark" class="ion-no-margin bold">
+          The Basics of Typography
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+  
+  <ion-col>
+    <ion-card class="set-card-width">
+      <ion-card-header class="ion-no-padding">
+        <ion-card-subtitle class="ion-margin-top ion-margin-start bold subheading">
+          <span class="closedot"></span>Deadline
+        </ion-card-subtitle>
+        <ion-card-title class="ion-margin-start">
+          <ion-text><p class="bold subheading">Liam Lucas</p></ion-text>
+        </ion-card-title> 
+      </ion-card-header>
+      <ion-card-content>
+        <ion-text color="dark" class="ion-no-margin bold">
+          The Basics of Typography
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+  
+  </ion-row>
+</ion-content>
