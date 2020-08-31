@@ -1,6 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { GetScheduledLessons } from 'src/app/store/actions/scheduledlessons.actions';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.states';
 // import { App } from '@ionic/angular'
 
 @Component({
@@ -14,11 +17,15 @@ export class Tab1Page {
   public showScheduleBar:boolean;
   public SearchBarVisible:boolean;
   public showBackButton:boolean;
-  constructor(private router: Router, private navController: NavController) {}
+  constructor(private router: Router, private navController: NavController, private store:Store<AppState>) {}
 
   ngOnInit(){
     this.flag = true;
     this.showScheduleBar = true;
+    // this.store.select<any>('users').subscribe( data=>
+    //   this.store.dispatch(new GetScheduledLessons(data.authState.token))
+    // )
+   
   }
   
   setFlag(event){

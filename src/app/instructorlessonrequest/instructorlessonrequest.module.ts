@@ -8,6 +8,7 @@ import { InstructorlessonrequestPageRoutingModule } from './instructorlessonrequ
 
 import { InstructorlessonrequestPage } from './instructorlessonrequest.page';
 import { HeaderComponent } from '../components/header/header.component';
+import { InstructorlessonsComponent } from '../components/instructorlessons/instructorlessons.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { HeaderComponent } from '../components/header/header.component';
     IonicModule,
     InstructorlessonrequestPageRoutingModule
   ],
-  declarations: [InstructorlessonrequestPage,HeaderComponent]
+  declarations: [InstructorlessonrequestPage,HeaderComponent,InstructorlessonsComponent]
 })
 export class InstructorlessonrequestPageModule {}

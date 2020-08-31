@@ -17,7 +17,7 @@ export class WelcomePage implements OnInit {
     this.position = event;
     console.log(this.position);
   }
-  navigateToStudentDashboard(){
+  navigateToDashboard(){
     this.router.navigateByUrl('');
   }
   // navigateToDashboard(){

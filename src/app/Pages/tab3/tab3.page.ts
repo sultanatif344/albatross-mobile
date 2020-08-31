@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.states';
+import { Logout } from 'src/app/store/actions/auth.actions';
 
 @Component({
   selector: 'app-tab3',
@@ -10,7 +13,7 @@ import { NavController } from '@ionic/angular';
 export class Tab3Page {
 
   title:string
-  constructor(private router: Router,private navController:NavController) {}
+  constructor(private router: Router,private navController:NavController,private store:Store<AppState>) {}
 
 ngOnInit(){
   this.title = "Account";
@@ -28,7 +31,7 @@ ngOnInit(){
   }
 
   logout(){
-    this.router.navigateByUrl("loginsignup");
+    this.store.dispatch(new Logout);
   }
   
 }

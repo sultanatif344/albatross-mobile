@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { LoginsignupPageRoutingModule } from './loginsignup-routing.module';
 
 import { LoginsignupPage } from './loginsignup.page';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from 'src/app/store/effects/auth.effects';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginsignupPageRoutingModule
+    LoginsignupPageRoutingModule,
+    EffectsModule.forFeature([AuthEffects]),
   ],
   declarations: [LoginsignupPage]
 })

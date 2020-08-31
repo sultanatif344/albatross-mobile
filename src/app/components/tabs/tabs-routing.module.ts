@@ -23,22 +23,22 @@ const routes: Routes = [
         path: 'settings',
         loadChildren: () => import('../../Pages/settings/settings.module').then(m => m.SettingsPageModule)
       },
-      {
-        path: 'instructor-dashboard',
-        loadChildren: () => import('../../Pages/instructor-dashboard/instructor-dashboard.module').then(m => m.InstructorDashboardPageModule)
-      },
+      // {
+      //   path: 'instructor-dashboard',
+      //   loadChildren: () => import('../../Pages/instructor-dashboard/instructor-dashboard.module').then(m => m.InstructorDashboardPageModule)
+      // },
       {
         path: 'instructorlessonrequest',
-        loadChildren: () => import('../../Pages/tab2/tab2.module').then(m => m.Tab2PageModule)
+        loadChildren: () => import('../../instructorlessonrequest/instructorlessonrequest.module').then(m => m.InstructorlessonrequestPageModule)
       },
-      {
-        path: 'instructoraccounts',
-        loadChildren: () => import('../../Pages/tab3/tab3.module').then(m => m.Tab3PageModule)
-      },
-      {
-        path: 'settings',
-        loadChildren: () => import('../../Pages/settings/settings.module').then(m => m.SettingsPageModule)
-      },
+      // {
+      //   path: 'instructoraccounts',
+      //   loadChildren: () => import('../../Pages/tab3/tab3.module').then(m => m.Tab3PageModule)
+      // },
+      // {
+      //   path: 'settings',
+      //   loadChildren: () => import('../../Pages/settings/settings.module').then(m => m.SettingsPageModule)
+      // },
       // {
       //   path: 'Instructordashboard',
       //   loadChildren: () => import('../../Pages/Instructor-dashboard/Instructor-dashboard.module').then(m => m.InstructorDashboardPageModule)

@@ -22,23 +22,23 @@
     <ion-label fill="clear" class="ion-margin-bottom" style="color:darkgrey">Username or email</ion-label>
   <ion-row class="ion-margin-left">
     
-    <ion-icon color="success" name="person-outline" class="ion-margin-top"></ion-icon><ion-input class="border-top border-bottom" placeholder="Your Name"></ion-input>
+    <ion-icon color="success" name="person-outline" class="ion-margin-top"></ion-icon><ion-input class="border-top border-bottom" placeholder="Your email" [(ngModel)]="user.email"></ion-input>
   </ion-row>
   <ion-label fill="clear" class="ion-margin-top" style="color:darkgrey">Password</ion-label>
   <ion-row class="ion-margin-top ion-margin-left">
     <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon>
-    <ion-input placeholder="Password"></ion-input>
+    <ion-input type="password" placeholder="Password" [(ngModel)]="user.password"></ion-input>
   </ion-row>
 
-  <ion-row class="ion-margin-top ion-margin-left">
+  <!-- <ion-row class="ion-margin-top ion-margin-left">
     <ion-item>
       <ion-label fill="clear" class="ion-margin-top" style="color:darkgrey">Choose Position</ion-label>
-    <ion-select value="03" [(ngModel)]="position" (ionChange)="selectposition(position)">
-      <ion-select-option value="Teacher">Teacher</ion-select-option>
-      <ion-select-option value="Student">Student</ion-select-option>
+    <ion-select value="03" [(ngModel)]="position" (ionChange)="selectposition()">
+      <ion-select-option value="teacher">Teacher</ion-select-option>
+      <ion-select-option value="student">Student</ion-select-option>
     </ion-select>  
   </ion-item>
-  </ion-row>
+  </ion-row> -->
   
 </ion-grid>
 <ion-item class="ion-margin-top" slot="start" style="margin-right:15%;">
@@ -55,32 +55,32 @@
     <ion-label fill="clear" class="ion-margin-bottom" style="color:darkgrey">Your Name</ion-label>
   <ion-row class="ion-margin-left">
     
-    <ion-icon color="success" name="person-outline" class="ion-margin-top"></ion-icon><ion-input class="border-top border-bottom" placeholder="Your Name"></ion-input>
+    <ion-icon color="success" name="person-outline" class="ion-margin-top"></ion-icon><ion-input class="border-top border-bottom" placeholder="Your Name" [(ngModel)]="user.name"></ion-input>
   </ion-row>
   <ion-label fill="clear" class="ion-margin-top" style="color:darkgrey">Phone Number</ion-label>
   <ion-row class="ion-margin-top ion-margin-left">
     <ion-icon name="phone-portrait-outline" color="success" class="ion-margin-top"></ion-icon>
-    <ion-input placeholder="Number"></ion-input>
+    <ion-input placeholder="Number" [(ngModel)]="user.mobilenumber"></ion-input>
   </ion-row>
 
   <ion-label fill="clear" class="ion-margin-bottom" style="color:darkgrey">Email</ion-label>
   <ion-row class="ion-margin-top ion-margin-left">
     <ion-icon name="mail-outline" color="success" class="ion-margin-top"></ion-icon>
-    <ion-input placeholder="Email"></ion-input>
+    <ion-input placeholder="Email" [(ngModel)]="user.email"></ion-input>
   </ion-row>
 
   <ion-label fill="clear" class="ion-margin-bottom" style="color:darkgrey">Password</ion-label>
   <ion-row class="ion-margin-top ion-margin-left">
     <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon>
-    <ion-input placeholder="Password"></ion-input>
+    <ion-input placeholder="Password" [(ngModel)]="user.password"></ion-input>
   </ion-row>
 </ion-grid>
 <ion-row class="ion-margin-top ion-margin-left">
   <ion-item>
     <ion-label fill="clear" class="ion-margin-top" style="color:darkgrey">Choose Position</ion-label>
-  <ion-select value="03" [(ngModel)]="position" (ionChange)="selectposition(position)">
-    <ion-select-option value="Teacher">Teacher</ion-select-option>
-    <ion-select-option value="Student">Student</ion-select-option>
+  <ion-select value="03" [(ngModel)]="user.role" (ionChange)="selectposition()">
+    <ion-select-option value="instructor">Instructor</ion-select-option>
+    <ion-select-option value="student">Student</ion-select-option>
   </ion-select>  
 </ion-item>
 </ion-row>
@@ -90,8 +90,8 @@
   <ion-text class="ion-margin-right" style="margin-bottom:5%;"><a style="color: #146545">Forget?</a></ion-text>
 </ion-item>
 </div>
-<ion-button expand="block" size="large" class="ion-padding-horizontal ion-margin-top" shape="round" color="success" *ngIf="flag" (click)="navigateToDashboard()"><ion-text style="font-weight: lighter; font-style: normal;">Sign in</ion-text></ion-button>
-<ion-button expand="block" size="large" class="ion-padding-horizontal ion-margin-bottom" shape="round" color="success" *ngIf="!flag"><ion-text style="font-weight: lighter; font-style: normal;">Sign Up</ion-text></ion-button>
+<ion-button expand="block" size="large" class="ion-padding-horizontal ion-margin-top" shape="round" color="success" *ngIf="flag" (click)="login()"><ion-text style="font-weight: lighter; font-style: normal;">Sign in</ion-text></ion-button>
+<ion-button expand="block" size="large" class="ion-padding-horizontal ion-margin-bottom" shape="round" color="success" *ngIf="!flag" (click)="signUp()"><ion-text style="font-weight: lighter; font-style: normal;">Sign Up</ion-text></ion-button>
 
 
 </ion-content>

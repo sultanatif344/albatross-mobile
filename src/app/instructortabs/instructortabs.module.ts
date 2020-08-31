@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { InstructortabsPageRoutingModule } from '../instructortabs/instructortabs-routing.module';
+// import { InstructortabsPageRoutingModule } from '../instructortabs/instructortabs-routing.module';
 
 import { InstructortabsPage } from './instructortabs.page';
 
@@ -13,7 +13,7 @@ import { InstructortabsPage } from './instructortabs.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    InstructortabsPageRoutingModule
+    // InstructortabsPageRoutingModule
   ],
   declarations: [InstructortabsPage]
 })
