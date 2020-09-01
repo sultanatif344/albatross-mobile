@@ -12,7 +12,10 @@ import { RequestnotificationsComponent } from 'src/app/components/requestnotific
 import { DayviewComponent } from 'src/app/components/dayview/dayview.component';
 import { WeekviewComponent } from 'src/app/components/weekview/weekview.component';
 import { EffectsModule } from '@ngrx/effects';
-import { ScheduledLessonsEffects } from 'src/app/store/effects/scheduledlessons.effects';
+import { ScheduledLessonsEffects } from 'src/app/scheduledlessons/effects/scheduledlessons.effects';
+import { StoreModule } from '@ngrx/store';
+import { scheduledLessonsReducer } from 'src/app/scheduledlessons/reducers/scheduledlessons.reducer';
+
 // import { DayviewComponent } from '../components/dayview/dayview.component';
 
 @NgModule({
@@ -22,6 +25,7 @@ import { ScheduledLessonsEffects } from 'src/app/store/effects/scheduledlessons.
     FormsModule,
     // ExploreContainerComponentModule,
     Tab1PageRoutingModule,
+    StoreModule.forFeature('scheduledlessons',scheduledLessonsReducer),
     EffectsModule.forFeature([ScheduledLessonsEffects]),
   ],
   // entryComponents:[DayviewComponent],

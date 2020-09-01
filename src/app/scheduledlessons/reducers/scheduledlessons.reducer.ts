@@ -1,7 +1,7 @@
 import { ScheduledLessons } from 'src/app/models/scheduledlessons';
 // import { InitialState } from '@ngrx/store/src/models';
 import { ScheduledLessonsActions, ScheduledLessonActionTypes } from '../actions/scheduledlessons.actions';
-import { initialState } from './auth.reducers';
+import { initialState } from '../../store/reducers/auth.reducers';
 
 export interface scheduledlessonsState{
     list: ScheduledLessons[],

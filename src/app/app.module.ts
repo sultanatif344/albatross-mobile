@@ -17,7 +17,7 @@ import { StoreModule } from '@ngrx/store';
 import { AuthReducer } from './store/reducers/auth.reducers';
 import { AuthGuardService as authGuard} from './services/auth-guard.service'; 
 import { reducers } from './store/reducers';
-import { ScheduledLessonsEffects } from './store/effects/scheduledlessons.effects';
+import { ScheduledLessonsEffects } from './scheduledlessons/effects/scheduledlessons.effects';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [

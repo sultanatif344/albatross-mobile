@@ -1,6 +1,6 @@
 import { Actions } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
-import { AuthActionTypes } from './auth.actions';
+import { AuthActionTypes } from '../../store/actions/auth.actions';
 
 
 
@@ -14,7 +14,7 @@ export enum ScheduledLessonActionTypes{
 export class GetScheduledLessons implements Action{
     readonly type = ScheduledLessonActionTypes.GET_LESSONS;
 
-    constructor(public payload:any){}
+    constructor(){}
 }
 
 export class GetScheduledLessonsSuccess implements Action{

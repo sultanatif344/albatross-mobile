@@ -1,8 +1,8 @@
 import { ActionReducerMap } from '@ngrx/store';
 import * as auth from './reducers/auth.reducers';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { scheduledlessonsState } from './reducers/scheduledlessons.reducer';
-import * as schedule from './reducers/scheduledlessons.reducer'
+import { scheduledlessonsState } from '../scheduledlessons/reducers/scheduledlessons.reducer';
+import * as schedule from '../../app/scheduledlessons/reducers/scheduledlessons.reducer';
 
 export interface AppState{
     authState: auth.UserState;

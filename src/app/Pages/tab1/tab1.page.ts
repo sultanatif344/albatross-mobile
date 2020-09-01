@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { GetScheduledLessons } from 'src/app/store/actions/scheduledlessons.actions';
+import { GetScheduledLessons } from 'src/app/scheduledlessons/actions/scheduledlessons.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.states';
 // import { App } from '@ionic/angular'
@@ -22,9 +22,7 @@ export class Tab1Page {
   ngOnInit(){
     this.flag = true;
     this.showScheduleBar = true;
-    // this.store.select<any>('users').subscribe( data=>
-    //   this.store.dispatch(new GetScheduledLessons(data.authState.token))
-    // )
+      this.store.dispatch(new GetScheduledLessons())
    
   }
   
