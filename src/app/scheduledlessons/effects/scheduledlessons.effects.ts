@@ -19,7 +19,7 @@ export class ScheduledLessonsEffects{
         })
         return token
     }
-    @Effect() loadShopping$ = this.actions$
+    @Effect() getScheduledLessons$ = this.actions$
     .pipe(
       ofType<GetScheduledLessons>(ScheduledLessonActionTypes.GET_LESSONS),
       mergeMap(

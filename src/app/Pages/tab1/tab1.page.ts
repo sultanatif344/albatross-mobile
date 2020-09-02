@@ -19,7 +19,7 @@ export class Tab1Page {
   public showBackButton:boolean;
   constructor(private router: Router, private navController: NavController, private store:Store<AppState>) {}
 
-  ngOnInit(){
+  ngOnInit(){ 
     this.flag = true;
     this.showScheduleBar = true;
       this.store.dispatch(new GetScheduledLessons())
