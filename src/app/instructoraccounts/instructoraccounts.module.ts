@@ -8,14 +8,16 @@ import { InstructoraccountsPageRoutingModule } from './instructoraccounts-routin
 
 import { InstructoraccountsPage } from './instructoraccounts.page';
 import { HeaderComponent } from '../components/header/header.component';
+import { SharedModule } from '../sharedmodules/sharedmodules.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InstructoraccountsPageRoutingModule
+    InstructoraccountsPageRoutingModule,
+    SharedModule
   ],
-  declarations: [InstructoraccountsPage,HeaderComponent]
+  declarations: [InstructoraccountsPage]
 })
 export class InstructoraccountsPageModule {}

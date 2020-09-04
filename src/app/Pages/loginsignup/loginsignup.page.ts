@@ -20,6 +20,7 @@ export class LoginsignupPage implements OnInit {
   getState:Observable<any>;
   username:string;
   password:string;
+  public isError:boolean;
   // @Output() onSignIn = new EventEmitter<string>();
   constructor(private router: Router,private store:Store<AppState>) {}
 
@@ -27,6 +28,13 @@ export class LoginsignupPage implements OnInit {
     this.flag = true;
     console.log(this.position);
     console.log(this.user.role);
+
+    this.store.select<any>('users').subscribe(data=>{
+      // this.currentUser = data.authState.user;
+      // console.log(this.currentUser);
+      console.log(data.authState);
+      this.isError = data.authState.errorMessage;
+    });
   };
 
   switchToSignUp(){

@@ -9,14 +9,16 @@ import { InstructorlessonrequestPageRoutingModule } from './instructorlessonrequ
 import { InstructorlessonrequestPage } from './instructorlessonrequest.page';
 import { HeaderComponent } from '../components/header/header.component';
 import { InstructorlessonsComponent } from '../components/instructorlessons/instructorlessons.component';
+import { SharedModule } from '../sharedmodules/sharedmodules.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InstructorlessonrequestPageRoutingModule
+    InstructorlessonrequestPageRoutingModule,
+    SharedModule
   ],
-  declarations: [InstructorlessonrequestPage,HeaderComponent,InstructorlessonsComponent]
+  declarations: [InstructorlessonrequestPage,InstructorlessonsComponent]
 })
 export class InstructorlessonrequestPageModule {}

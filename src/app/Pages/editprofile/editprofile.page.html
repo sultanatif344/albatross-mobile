@@ -21,6 +21,6 @@
     </ion-grid>
   </ion-title>
 
-  <app-studentfields *ngIf="role==='student'"></app-studentfields>
-  <app-teacherfields *ngIf="role==='Instructor'"></app-teacherfields>
+  <app-studentfields *ngIf="currentUser.role=='student'"></app-studentfields>
+  <app-teacherfields *ngIf="currentUser.role=='instructor'"></app-teacherfields>
 </ion-content>

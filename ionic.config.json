@@ -1,5 +1,7 @@
 {
   "name": "albatross-mobile-ui",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

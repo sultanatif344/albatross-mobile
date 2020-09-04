@@ -13,9 +13,16 @@ export class EditprofilePage implements OnInit {
   constructor(private navController:NavController,private store:Store<AppState>) { }
 
 
-  role:string;
+  currentUser:any;
   ngOnInit() {
-    this.role="Instructor";
+    this.store.select<any>('users').subscribe(data=>{
+      this.currentUser = data.authState.user
+    })
+  }
+
+
+  EditProfile(){
+    
   }
   goBack(){
     this.navController.back();

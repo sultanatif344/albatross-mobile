@@ -18,6 +18,9 @@ import { AuthReducer } from './store/reducers/auth.reducers';
 import { AuthGuardService as authGuard} from './services/auth-guard.service'; 
 import { reducers } from './store/reducers';
 import { ScheduledLessonsEffects } from './scheduledlessons/effects/scheduledlessons.effects';
+import { ScheduledlessonsService } from './services/scheduledlessons.service';
+import { InstructorloadService } from './services/instructorload.service';
+import { StudentEffects } from './studentstore/effects/student.effects';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [
@@ -28,13 +31,15 @@ import { ScheduledLessonsEffects } from './scheduledlessons/effects/scheduledles
     IonicModule.forRoot(), 
     AppRoutingModule,
     HttpClientModule,
-    EffectsModule.forRoot([]),   
+    EffectsModule.forRoot([StudentEffects]),   
     StoreModule.forRoot(reducers)
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AuthService,
+    ScheduledlessonsService,
+    InstructorloadService,
     authGuard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
 

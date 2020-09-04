@@ -16,6 +16,15 @@ export class ScheduledlessonsService {
 
   constructor(private http: HttpClient, private store: Store<AppState>) {}
 
+  token:any = () => {
+    let token;
+    this.store.select<any>('users').subscribe(data=>{
+        console.log(data.authState.user.token)
+        token = data.authState.user.token
+    })
+    return token
+}
+
   getLessons(token:string):Observable<any>{
     
     console.log(token, 'token')

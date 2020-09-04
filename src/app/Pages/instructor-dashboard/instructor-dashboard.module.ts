@@ -8,14 +8,16 @@ import { InstructorDashboardPageRoutingModule } from './instructor-dashboard-rou
 
 import { InstructorDashboardPage } from './instructor-dashboard.page';
 import { HeaderComponent } from 'src/app/components/header/header.component';
+import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InstructorDashboardPageRoutingModule
+    InstructorDashboardPageRoutingModule,
+    SharedModule
   ],
-  declarations: [InstructorDashboardPage,HeaderComponent]
+  declarations: [InstructorDashboardPage]
 })
 export class InstructorDashboardPageModule {}

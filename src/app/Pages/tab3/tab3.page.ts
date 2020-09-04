@@ -31,7 +31,7 @@ ngOnInit(){
   }
 
   logout(){
-    this.store.dispatch(new Logout);
+    this.store.dispatch(new Logout());
   }
   
 }

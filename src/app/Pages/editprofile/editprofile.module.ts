@@ -9,14 +9,16 @@ import { EditprofilePageRoutingModule } from './editprofile-routing.module';
 import { EditprofilePage } from './editprofile.page';
 import { StudentfieldsComponent } from 'src/app/components/studentfields/studentfields.component';
 import { TeacherfieldsComponent } from 'src/app/components/teacherfields/teacherfields.component';
+import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditprofilePageRoutingModule
+    EditprofilePageRoutingModule,
+    SharedModule
   ],
-  declarations: [EditprofilePage,StudentfieldsComponent,TeacherfieldsComponent]
+  declarations: [EditprofilePage]
 })
 export class EditprofilePageModule {}

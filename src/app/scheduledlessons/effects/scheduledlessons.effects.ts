@@ -21,7 +21,7 @@ export class ScheduledLessonsEffects{
     }
     @Effect() getScheduledLessons$ = this.actions$
     .pipe(
-      ofType<GetScheduledLessons>(ScheduledLessonActionTypes.GET_LESSONS),
+      ofType(ScheduledLessonActionTypes.GET_LESSONS),
       mergeMap(
         () =>{  
             let test;

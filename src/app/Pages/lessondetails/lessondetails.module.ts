@@ -8,14 +8,16 @@ import { LessondetailsPageRoutingModule } from './lessondetails-routing.module';
 
 import { LessondetailsPage } from './lessondetails.page';
 import { DetailsOflessonsComponent } from 'src/app/components/details-oflessons/details-oflessons.component';
+import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LessondetailsPageRoutingModule
+    LessondetailsPageRoutingModule,
+    SharedModule
   ],
-  declarations: [LessondetailsPage,DetailsOflessonsComponent]
+  declarations: [LessondetailsPage]
 })
 export class LessondetailsPageModule {}

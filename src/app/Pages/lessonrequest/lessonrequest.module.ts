@@ -8,14 +8,16 @@ import { LessonrequestPageRoutingModule } from './lessonrequest-routing.module';
 
 import { LessonrequestPage } from './lessonrequest.page';
 import { InstructordescriptionComponent } from 'src/app/components/instructordescription/instructordescription.component';
+import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LessonrequestPageRoutingModule
+    LessonrequestPageRoutingModule,
+    SharedModule
   ],
-  declarations: [LessonrequestPage, InstructordescriptionComponent]
+  declarations: [LessonrequestPage]
 })
 export class LessonrequestPageModule {}

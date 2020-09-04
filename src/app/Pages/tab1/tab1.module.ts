@@ -15,6 +15,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { ScheduledLessonsEffects } from 'src/app/scheduledlessons/effects/scheduledlessons.effects';
 import { StoreModule } from '@ngrx/store';
 import { scheduledLessonsReducer } from 'src/app/scheduledlessons/reducers/scheduledlessons.reducer';
+import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
 
 // import { DayviewComponent } from '../components/dayview/dayview.component';
 
@@ -27,10 +28,11 @@ import { scheduledLessonsReducer } from 'src/app/scheduledlessons/reducers/sched
     Tab1PageRoutingModule,
     StoreModule.forFeature('scheduledlessons',scheduledLessonsReducer),
     EffectsModule.forFeature([ScheduledLessonsEffects]),
+    SharedModule
   ],
   // entryComponents:[DayviewComponent],
   declarations: [Tab1Page,
-    HeaderComponent,
+    // HeaderComponent,
     LessonsBarComponent,
     WeeklessonsbarComponent,
     RequestnotificationsComponent,

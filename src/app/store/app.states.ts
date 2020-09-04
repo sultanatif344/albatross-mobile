@@ -3,9 +3,10 @@ import * as auth from './reducers/auth.reducers';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { scheduledlessonsState } from '../scheduledlessons/reducers/scheduledlessons.reducer';
 import * as schedule from '../../app/scheduledlessons/reducers/scheduledlessons.reducer';
+import { StudentState } from '../studentstore/reducers/student.reducers';
 
 export interface AppState{
-    authState: auth.UserState;
+    authState:auth.UserState;
     // scheduledlessonsState:scheduledlessonsState;
 }
 
