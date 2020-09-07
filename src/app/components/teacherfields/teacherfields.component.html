@@ -16,7 +16,7 @@
     <ion-row class="ion-margin-left">
       <ion-col size="12">
       <ion-card>
-      <ion-input name="name" [(ngModel)]="name"></ion-input>
+      <ion-input [(ngModel)]="name" ngDefaultControl></ion-input>
     </ion-card>
   </ion-col>
     </ion-row>
@@ -25,7 +25,7 @@
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
       <ion-card>
-      <ion-input name="timezone" [(ngModel)]="timeZone"></ion-input>
+      <ion-input [(ngModel)]="timeZone" ngDefaultControl></ion-input>
     </ion-card>
   </ion-col>
     </ion-row>
@@ -36,7 +36,19 @@
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
       <ion-card>
-      <ion-input name="language" [(ngModel)]="language"></ion-input>
+        <ion-row>
+          <ion-col>
+            <ion-input [(ngModel)]="language" ngDefaultControl></ion-input>
+          </ion-col>
+          <ion-col size="12" class="ion-no-padding">
+          <ion-button color="success" (click)="AddLanguage(language)">Add Field</ion-button>
+        </ion-col>
+        <ion-item-group *ngIf="languageArr.length">
+          <ion-item *ngFor="let language of languageArr">
+                <ion-label>{{language}}</ion-label>
+          </ion-item>
+        </ion-item-group>
+    </ion-row>
     </ion-card>
   </ion-col>
 
@@ -47,18 +59,15 @@
       <ion-col size="12">
       <ion-card>
         <ion-row>
-          <ion-col size="3">
-            <ion-input name="dexterity" [(ngModel)]="dexterity"></ion-input>
+          <ion-col>
+            <ion-input [(ngModel)]="dexterity" ngDefaultControl></ion-input>
           </ion-col>
-          <ion-col size="12">
-          <ion-button color="success">Add Field</ion-button>
+          <ion-col size="12" class="ion-no-padding">
+          <ion-button color="success" (click)="AddLessons(dexterity)">Add Field</ion-button>
         </ion-col>
-        <ion-item-group>
-          <ion-item>
-                <ion-label>Posture</ion-label>
-          </ion-item>
-          <ion-item>
-                <ion-label>Swing</ion-label>
+        <ion-item-group *ngIf="dexterityArr.length">
+          <ion-item *ngFor="let dexterity of dexterityArr">
+                <ion-label>{{dexterity}}</ion-label>
           </ion-item>
         </ion-item-group>
     </ion-row>
@@ -71,7 +80,19 @@
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
       <ion-card>
-      <ion-input name="lessonsoffered" [(ngModel)]="type_of_lessons_offered"></ion-input>
+        <ion-row>
+          <ion-col>
+            <ion-input [(ngModel)]="type_of_lessons_offered" ngDefaultControl></ion-input>
+          </ion-col>
+          <ion-col size="12" class="ion-no-padding">
+          <ion-button color="success" (click)="AddTypesOfLessonsOffered(type_of_lessons_offered)">Add Field</ion-button>
+        </ion-col>
+        <ion-item-group *ngIf="type_of_lessons_offeredArr.length">
+          <ion-item *ngFor="let typeoflessons of type_of_lessons_offeredArr">
+                <ion-label>{{typeoflessons}}</ion-label>
+          </ion-item>
+        </ion-item-group>
+    </ion-row>
     </ion-card>
   </ion-col>
    </ion-row>
@@ -82,7 +103,7 @@
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
       <ion-card>
-      <ion-input name="description" [(ngModel)]="description"></ion-input>
+      <ion-input [(ngModel)]="description" ngDefaultControl></ion-input>
     </ion-card>
   </ion-col>
    </ion-row>
@@ -93,7 +114,7 @@
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
       <ion-card>
-      <ion-input name="affiliation" [ngModel]="affiliation"></ion-input>
+      <ion-input [(ngModel)]="affiliation" ngDefaultControl></ion-input>
     </ion-card>
   </ion-col>
    </ion-row>
@@ -104,7 +125,7 @@
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
       <ion-card>
-      <ion-input name="rates" [(ngModel)]="rates"></ion-input>
+      <ion-input [(ngModel)]="rates" ngDefaultControl></ion-input>
     </ion-card>
   </ion-col>
    </ion-row>
@@ -114,7 +135,19 @@
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
       <ion-card>
-      <ion-input name="timeslots" [(ngModel)]="timeslots"></ion-input>
+        <ion-row>
+          <ion-col>
+            <ion-input [(ngModel)]="slots" ngDefaultControl></ion-input>
+          </ion-col>
+          <ion-col size="12" class="ion-no-padding">
+          <ion-button color="success" (click)="AddAvailableTimeSlots(slots)">Add Field</ion-button>
+        </ion-col>
+        <ion-item-group *ngIf="timeslots.length">
+          <ion-item *ngFor="let slots of timeslots">
+                <ion-label>{{slots}}</ion-label>
+          </ion-item>
+        </ion-item-group>
+    </ion-row>
     </ion-card>
   </ion-col>
    </ion-row>
@@ -122,6 +155,6 @@
 
     
   </ion-grid>
-  <ion-button expand="full" size="medium" class="ion-padding-horizontal ion-margin-top" color="success"><ion-text style="font-weight: lighter; font-style: normal;" (click)="UpdateProfile()">Update Profile</ion-text></ion-button>
+  <ion-button expand="full" size="medium" class="ion-padding-horizontal ion-margin-top" color="success" (click)="UpdateProfile()"><ion-text style="font-weight: lighter; font-style: normal;" >Update Profile</ion-text></ion-button>
   <!-- <ion-button expand="block" size="large" class="ion-padding-horizontal ion-margin-top" shape="round" color="success"><ion-text style="font-weight: lighter; font-style: normal;">Sign in</ion-text></ion-button> -->
   </div>

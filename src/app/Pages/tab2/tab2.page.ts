@@ -3,9 +3,10 @@ import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AppState } from 'src/app/store/app.states';
 import { Store } from '@ngrx/store';
-import { LoadInstructorList, LoadInstructorListSuccess } from 'src/app/studentstore/actions/student.actions';
+import { LoadInstructorList, LoadInstructorListSuccess, LoadInstructorListFailure } from 'src/app/studentstore/actions/student.actions';
 import { InstructorloadService } from 'src/app/services/instructorload.service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tab2',
@@ -35,6 +36,10 @@ export class Tab2Page {
     })
     this.instructorService.loadInstructor(this.currentUser.token).subscribe(data=>{
       this.store.dispatch(new LoadInstructorListSuccess(data))
+      catchError((err)=>{
+        this.store.dispatch(new LoadInstructorListFailure(err));
+        return of([]);
+    })
     });
 
 

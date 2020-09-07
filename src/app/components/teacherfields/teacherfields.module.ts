@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EditprofilePageRoutingModule } from './editprofile-routing.module';
+// import { EditprofilePageRoutingModule } from './editprofile-routing.module';
 
-import { EditprofilePage } from './editprofile.page';
+// import { EditprofilePage } from './editprofile.page';
 import { StudentfieldsComponent } from 'src/app/components/studentfields/studentfields.component';
 import { TeacherfieldsComponent } from 'src/app/components/teacherfields/teacherfields.component';
 import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
@@ -18,10 +18,9 @@ import { InstructorReducer } from 'src/app/Instructorstore/Reducer/Instructor.re
     CommonModule,
     FormsModule,
     IonicModule,
-    EditprofilePageRoutingModule,
     SharedModule,
-    // StoreModule.forFeature('Instructor',InstructorReducer),
+    StoreModule.forFeature('Instructor',InstructorReducer),
   ],
-  declarations: [EditprofilePage]
+  declarations: []
 })
-export class EditprofilePageModule {}
+export class TeacherFieldsModule {}

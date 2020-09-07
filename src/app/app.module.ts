@@ -21,6 +21,8 @@ import { ScheduledLessonsEffects } from './scheduledlessons/effects/scheduledles
 import { ScheduledlessonsService } from './services/scheduledlessons.service';
 import { InstructorloadService } from './services/instructorload.service';
 import { StudentEffects } from './studentstore/effects/student.effects';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TeacherFieldsModule } from './components/teacherfields/teacherfields.module';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [
@@ -31,6 +33,7 @@ import { StudentEffects } from './studentstore/effects/student.effects';
     IonicModule.forRoot(), 
     AppRoutingModule,
     HttpClientModule,
+    TeacherFieldsModule,
     EffectsModule.forRoot([StudentEffects]),   
     StoreModule.forRoot(reducers)
   ],
@@ -40,6 +43,8 @@ import { StudentEffects } from './studentstore/effects/student.effects';
     AuthService,
     ScheduledlessonsService,
     InstructorloadService,
+    FormsModule,
+    ReactiveFormsModule,
     authGuard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
 

@@ -11,7 +11,7 @@ export class EditProfileService {
 
   constructor(private http:HttpClient) { }
 
-  private editProfile_URL = "https://albatross-v1.herokuapp.com/api/v1/instructor/editprofile"
+  private editProfile_URL = 'https://albatross-v1.herokuapp.com/api/v1/instructor/editprofile'
 
   EditProfile(teacherFields:Instructor,token:string):Observable<any>{
     let headers = new HttpHeaders({

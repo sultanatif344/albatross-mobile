@@ -22,7 +22,7 @@ import { StudentEffects } from 'src/app/studentstore/effects/student.effects';
     FormsModule,
     // ExploreContainerComponentModule,
     Tab2PageRoutingModule,
-    StoreModule.forFeature('Instructors',studentreducer),
+    StoreModule.forFeature('student',studentreducer),
     EffectsModule.forFeature([StudentEffects]),
     SharedModule
   ],
