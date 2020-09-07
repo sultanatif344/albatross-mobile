@@ -9,6 +9,11 @@ export interface InstructorState{
     error:Error
 }
 
+export interface RequestState{
+    list: Array<Object>
+    error:Error
+}
+
 export const InitialState: InstructorState = {
     obj:{
         // photo:'no-photo.jpg',
@@ -27,7 +32,12 @@ export const InitialState: InstructorState = {
 }
 
 
-export function InstructorReducer(state:InstructorState = InitialState,actions:InstructorActions){
+export const RequestInitialState = {
+    list:[{}],
+    error:undefined
+}
+
+export function InstructorReducer(state:InstructorState = InitialState,actions:InstructorActions,requestrecievestate:RequestState = RequestInitialState){
 
     switch(actions.type){
         case InstructorActionTypes.EDIT_INSTRUCTOR_PROFILE:{
@@ -52,6 +62,18 @@ export function InstructorReducer(state:InstructorState = InitialState,actions:I
                 ...state,
                 error:actions.payload,
                 loading:false
+            }
+        }
+        case InstructorActionTypes.GET_LESSON_REQUESTS_SUCCESS:{
+            return{
+                ...requestrecievestate,
+                list:actions.payload
+            }
+        }
+        case InstructorActionTypes.GET_LESSON_REQUESTS_FAILURE:{
+            return{
+                ...requestrecievestate,
+                error:actions.payload
             }
         }
     }

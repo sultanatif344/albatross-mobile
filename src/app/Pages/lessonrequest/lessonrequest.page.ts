@@ -6,6 +6,7 @@ import { AppState, selectAuthState } from 'src/app/store/app.states';
 import { Store } from '@ngrx/store';
 import { Instructor } from 'src/app/models/instructor';
 import { InstructorState } from 'src/app/Instructorstore/Reducer/Instructor.reducer';
+import { RequestInstructor } from 'src/app/studentstore/actions/student.actions';
 @Component({
   selector: 'app-lessonrequest',
   templateUrl: './lessonrequest.page.html',
@@ -15,6 +16,7 @@ export class LessonrequestPage implements OnInit {
 
   public instructorDetail:Instructor;
   public selectedInstructor:Instructor;
+  public id?: string;
   constructor(private navController: NavController, private router:ActivatedRoute,
     private instructorDetailsService:InstructordetailService,
     private store:Store<AppState>
@@ -22,6 +24,7 @@ export class LessonrequestPage implements OnInit {
 
     ngOnInit() {
     this.router.params.subscribe(async data=>{
+      this.id = data.id;
       console.log(data.id);
     this.displaydetails(data.id)
   })

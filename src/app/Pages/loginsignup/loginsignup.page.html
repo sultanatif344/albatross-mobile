@@ -6,14 +6,20 @@
 
 <ion-content>
   <img src="../../assets/logo/albatross-logo.png" style="margin-left:10%;" width="300px" height="130px">
-      <ion-card class="align-center">
-        <ion-card-content>
-          <ion-row>
-            <ion-button fill="clear" size="small" class="text-center" (click)="switchToSignIn()"><ion-text color="dark">SignIn</ion-text></ion-button>
-            <ion-button fill="clear" size="small" (click)="switchToSignUp()"><ion-text color="dark" class="ion-margin-left"><div style="margin-left: 15px;">SignUp</div></ion-text></ion-button>
-        </ion-row>
-    </ion-card-content>
-    </ion-card>
+  <div style="display:flex; justify-content: center; align-items: center;">
+        <ion-row class="ion-margin-vertical" style="width: 200px; display: flex; align-self: center;">
+          <ion-col>
+              <ion-col class="ion-text-center ion-no-padding">
+                <ion-button [ngClass]="{active:flag==true}" fill="clear" size="medium" class="text-center" (click)="switchToSignIn()" color="light"><ion-text color="medium" style="font-size: small; font-weight: lighter;">Sign in</ion-text></ion-button>
+              </ion-col>
+              
+              <ion-col class="ion-text-center ion-no-padding">
+                <ion-button [ngClass]="{active:flag==false}" fill="clear" size="medium" (click)="switchToSignUp()" color="light"><ion-text color="medium" class="ion-margin-right ion-text-center"><div style="margin-left: 5px; font-size: small; font-weight: lighter;">Sign up</div></ion-text></ion-button>
+                <!-- <div [ngClass]="{flag==true ? moveactive :false}"></div>  -->
+              </ion-col>
+            </ion-col>
+          </ion-row>
+        </div>
 
     
 

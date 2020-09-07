@@ -27,6 +27,27 @@ ion-content{
     background-color: whitesmoke;
 }
 
+.active{
+    background: #146545;
+    border: none;
+    border-radius: 15%;
+    height: 50px;
+    width: 90px;
+    ion-text{
+        color: white;
+    }
+}
+
+.moveactive{
+    margin-left:20px;
+    width: 50px;
+     height:2px;
+     background: #146545;
+    //  transform: translateX(50px);
+}
+
+
+
 
 
 

@@ -1,5 +1,5 @@
-<ion-grid>
-  <ion-row>
+<ion-grid *ngIf="requestedlessons.length!=null">
+  <ion-row *ngFor="let lessons in requestedlessons">
     <ion-col>
       <ion-card>
   <ion-card-content>
@@ -7,7 +7,7 @@
       <h6 style="font-size: small;">Online Lessons Available > OBS >Verified</h6>
     </ion-card-subtitle>
     <ion-card-title>
-    <h1 class="ion-margin-start">Jessica Haines</h1>
+    <h1 class="ion-margin-start">{{lessons.name}}</h1>
   </ion-card-title>
     <ion-text>
       <p>
@@ -26,7 +26,7 @@
 </ion-row>
 
 
-<ion-row>
+<!-- <ion-row>
 <ion-col>
 <ion-card>
 <ion-card-content>
@@ -44,11 +44,11 @@
 <ion-row>
 <ion-button color="success">Accept</ion-button>
 <ion-button color="danger">Reject</ion-button>
-<!-- <ion-label style="margin-left: 160px; background: darkgreen;" color="light">$20</ion-label> -->
+<ion-label style="margin-left: 160px; background: darkgreen;" color="light">$20</ion-label> -->
 
-</ion-row>
+<!-- </ion-row>
 </ion-card-content>
 </ion-card>
 </ion-col>
-</ion-row>
+</ion-row>  -->
 </ion-grid>
