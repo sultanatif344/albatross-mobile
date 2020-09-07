@@ -53,7 +53,7 @@ export function AuthReducer(state:UserState = initialState,action:AuthActions){
         case AuthActionTypes.LOGIN_FAILURE:{
             return{
                 ...state,
-                isAuthenticated:true,
+                isAuthenticated:false,
                 errorMessage: 'Incorrect email or password'
             }
         }

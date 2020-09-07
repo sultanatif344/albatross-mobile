@@ -1,7 +1,7 @@
-<ion-grid>
+<ion-grid *ngIf="InstructorDescription.length!=0">
   <ion-row>
     <ion-col>
-      <ion-card (click)="goToLessonRequest()" *ngFor="let description of InstructorDescription">
+      <ion-card (click)="goToLessonRequest(description)" *ngFor="let description of InstructorDescription">
         <ion-card-content>
           <ion-card-subtitle>
             <h6 style="font-size: small;">Online Lessons Available > OBS >Verified</h6>

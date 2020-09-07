@@ -1,4 +1,4 @@
-<ion-grid>
+<ion-grid *ngIf="instructorDescription!=null">
   <ion-row>
     <ion-col size="3">
     <img src="../../assets/images/img4.png" width="50px" height="50px"/>
@@ -6,7 +6,7 @@
   
   <ion-col size="8">
     <p class="ion-no-margin" style="font-size: small;">Online Lessons Available-OBS-<ion-text color="success">Verified</ion-text></p>  
-    <ion-text><h3 class="ion-no-margin">Gabriel Sutton</h3></ion-text> 
+    <ion-text><h3 class="ion-no-margin">{{instructorDescription.user.name}}</h3></ion-text> 
     <ion-text><p class="ion-no-margin">Education Consultant Qualified 
       Teacher, highly experienced Private Tutor
     </p></ion-text> 

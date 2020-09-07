@@ -3,7 +3,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { Observable, throwError, of } from 'rxjs';
 import { AuthActionTypes, LogIn, LogInSuccess, LogInFailure, SignUp, SignUpSuccess } from '../actions/auth.actions';
-import { tap, map, switchMap, catchError } from 'rxjs/operators';
+import { tap, map, switchMap, catchError, retry, retryWhen } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { userInfo } from 'os';
 import { Store } from '@ngrx/store';
@@ -25,14 +25,19 @@ LogIn:Observable<any> = this.actions.pipe(
         console.log(user);
         return new LogInSuccess({token: user.token,email:user.user.email, role:user.user.role});
     }),
-    catchError((err)=>{
-        this.store.dispatch(new LogInFailure(err));
-        return of([]);
-    })
+    retryWhen(errors=>
+        errors.pipe(
+            catchError(err=>
+                of(new LogInFailure(err))
+                // return of([]);
+            )   
+        )
+    )
     // catchError(err=>{
     //     return of(new LogInFailure(err))
     // })
 )
+
     
 
 

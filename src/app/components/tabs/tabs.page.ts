@@ -19,7 +19,6 @@ export class TabsPage {
   public state:AppState;
   public currentUser:any;
   public userItem: User; 
-  public 
   constructor(private store:Store<AppState>) {
     // this.roleState$ = this.store.pipe(select('authState','user','role'));
   }

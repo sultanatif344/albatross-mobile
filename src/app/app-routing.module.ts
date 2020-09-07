@@ -42,7 +42,7 @@ const routes: Routes = [
     canActivate:[AuthGuard]
   },
   {
-    path: 'requestlesson',
+    path: 'requestlesson/:id',
     loadChildren: () => import('../app/Pages/lessonrequest/lessonrequest.module').then( m => m.LessonrequestPageModule),
     canActivate:[AuthGuard]
   },

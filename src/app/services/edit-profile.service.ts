@@ -18,6 +18,6 @@ export class EditProfileService {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer '+token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
   })    
-    return this.http.post(this.editProfile_URL,teacherFields,{headers:headers})
+    return this.http.put(this.editProfile_URL,teacherFields,{headers:headers})
   }
 }

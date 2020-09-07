@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { InstructorloadService } from 'src/app/services/instructorload.service';
 import { LoadInstructorListSuccess, LoadInstructorList } from 'src/app/studentstore/actions/student.actions';
 import { Observable } from 'rxjs';
+// import {  } from 'protractor';
 
 @Component({
   selector: 'app-recommendations',
@@ -14,7 +15,8 @@ export class RecommendationsComponent implements OnInit {
   currentUser: any;
   Instructor: Observable<any>;
   @Input() InstructorDescription: Array<any>;
-
+  id:string;
+  @Output() emittedId = new EventEmitter<string>()
   constructor(private router:Router, private store:Store,private instructorService:InstructorloadService) { }
 
   ngOnInit() {
@@ -40,8 +42,10 @@ export class RecommendationsComponent implements OnInit {
   }
 
 
-  goToLessonRequest(){
-    this.router.navigateByUrl('requestlesson');
+  goToLessonRequest(event){
+    this.id = event.id;
+    console.log(this.id);    
+    this.router.navigateByUrl(`/requestlesson/${this.id}`);
   }
 
 }

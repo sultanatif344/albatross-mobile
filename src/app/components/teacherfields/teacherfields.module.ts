@@ -19,7 +19,7 @@ import { InstructorReducer } from 'src/app/Instructorstore/Reducer/Instructor.re
     FormsModule,
     IonicModule,
     SharedModule,
-    StoreModule.forFeature('Instructor',InstructorReducer),
+    StoreModule.forFeature('instructor',InstructorReducer),
   ],
   declarations: []
 })
