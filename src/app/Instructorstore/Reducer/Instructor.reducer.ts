@@ -14,6 +14,16 @@ export interface RequestState{
     error:Error
 }
 
+
+export interface RequestStatusState{
+    obj:Object,
+    error:Error
+}
+// export interface PasswordState{
+//     obj:Object,
+//     error:Error
+// }
+
 export const InitialState: InstructorState = {
     obj:{
         // photo:'no-photo.jpg',
@@ -37,7 +47,19 @@ export const RequestInitialState = {
     error:undefined
 }
 
-export function InstructorReducer(state:InstructorState = InitialState,actions:InstructorActions,requestrecievestate:RequestState = RequestInitialState){
+export const RequestStatusInitialState = {
+    obj:{},
+    error:undefined
+}
+
+// export const PasswordInitialState = {
+//     obj:{
+//         currentPassword:,
+//         newPassword:
+//     }
+// }
+
+export function InstructorReducer(state:InstructorState = InitialState,actions:InstructorActions,requestrecievestate:RequestState = RequestInitialState,requeststatus:RequestStatusState){
 
     switch(actions.type){
         case InstructorActionTypes.EDIT_INSTRUCTOR_PROFILE:{
@@ -76,6 +98,18 @@ export function InstructorReducer(state:InstructorState = InitialState,actions:I
                 error:actions.payload
             }
         }
+        case InstructorActionTypes.ACCEPT_REQUEST_SUCCESS:{
+            return{
+                ...requeststatus,
+                obj:actions.payload
+            }
+        }
+        // case InstructorActionTypes.ACCEPT_REQUEST_FAILURE:{
+        //     return{
+        //         ...requeststatus,
+        //         error:actions.
+        //     }
+        // }
     }
 
 

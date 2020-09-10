@@ -4,6 +4,8 @@ import { NavController } from '@ionic/angular';
 import { GetScheduledLessons } from 'src/app/scheduledlessons/actions/scheduledlessons.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.states';
+import { ModalController } from '@ionic/angular';
+// import { CalendarModal, CalendarModalOptions } from 'ion2-calendar';
 // import { App } from '@ionic/angular'
 
 @Component({
@@ -17,13 +19,17 @@ export class Tab1Page {
   public showScheduleBar:boolean;
   public SearchBarVisible:boolean;
   public showBackButton:boolean;
+  public calendar_is_active:boolean
+  public id?:string;
+  
   constructor(private router: Router, private navController: NavController, private store:Store<AppState>) {}
 
   ngOnInit(){ 
     this.flag = true;
     this.showScheduleBar = true;
       this.store.dispatch(new GetScheduledLessons())
-   
+    // this.calendar_is_active
+    // console.log(this.date);
   }
   
   setFlag(event){
@@ -34,7 +40,17 @@ export class Tab1Page {
   unsetFlag(event){
     this.flag = event;
   }
-  navigateToLessonDetailPage(){
-    this.router.navigateByUrl("lessondetails");
+
+  activateCalendar(event){
+    this.calendar_is_active = event;
   }
+ 
+  // navigateToLessonDetailPage(id:string){
+  //   this.router.navigateByUrl(`/lessondetails/${id}`);
+  // }
+
+  // onChange($event) {
+  // this.date = new Date($event);
+  // console.log(this.date);    
+  // }
 }

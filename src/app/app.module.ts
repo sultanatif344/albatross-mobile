@@ -23,6 +23,7 @@ import { InstructorloadService } from './services/instructorload.service';
 import { StudentEffects } from './studentstore/effects/student.effects';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TeacherFieldsModule } from './components/teacherfields/teacherfields.module';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [

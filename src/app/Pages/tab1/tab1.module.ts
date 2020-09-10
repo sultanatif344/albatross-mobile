@@ -16,6 +16,8 @@ import { ScheduledLessonsEffects } from 'src/app/scheduledlessons/effects/schedu
 import { StoreModule } from '@ngrx/store';
 import { scheduledLessonsReducer } from 'src/app/scheduledlessons/reducers/scheduledlessons.reducer';
 import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
+import { CalendarComponent } from 'src/app/components/calendar/calendar.component';
+// import {CalendarModule} from 'ion2-calendar'
 
 // import { DayviewComponent } from '../components/dayview/dayview.component';
 
@@ -28,7 +30,8 @@ import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
     Tab1PageRoutingModule,
     StoreModule.forFeature('scheduledlessons',scheduledLessonsReducer),
     EffectsModule.forFeature([ScheduledLessonsEffects]),
-    SharedModule
+    SharedModule,
+    // CalendarModule
   ],
   // entryComponents:[DayviewComponent],
   declarations: [Tab1Page,
@@ -37,7 +40,8 @@ import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
     WeeklessonsbarComponent,
     RequestnotificationsComponent,
     DayviewComponent,
-    WeekviewComponent
+    WeekviewComponent,
+    // CalendarComponent
   ]
 })
 export class Tab1PageModule {}

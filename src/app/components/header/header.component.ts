@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController,ModalController } from '@ionic/angular';
+// import { CalendarModal,CalendarModalOptions } from 'ion2-calendar';
 
 
 @Component({
@@ -16,9 +17,11 @@ export class HeaderComponent implements OnInit {
   @Input() title:string;
   @Input() showTitle:boolean;
   @Output() switchView=new EventEmitter<boolean>();
+  @Output() onActivateCalendar=new EventEmitter<boolean>();
   flag : boolean;
+  calendar_is_active:boolean
   ngOnInit() {
-    
+    this.calendar_is_active = false;
   }
 
   goBack(){
@@ -28,7 +31,10 @@ export class HeaderComponent implements OnInit {
   // onClick(){
   //   this.switchView.emit("switchToDayView");
   // }
-
+  ActivateCalendar(){
+    this.calendar_is_active = !this.calendar_is_active;
+    this.onActivateCalendar.emit(this.calendar_is_active);
+  }
   switchToWeekView(){
     this.flag = false; 
     this.switchView.emit(this.flag);
@@ -40,5 +46,18 @@ export class HeaderComponent implements OnInit {
     this.switchView.emit(this.flag);
     console.log("event fired");
   }
+//   async openCalendar(){
+//     const options: CalendarModalOptions = {
+//       pickMode:'single',
+//       title: 'BASIC',
+//       color:'success'
+//     };
 
+//   let myCalendar =  await this.modalCtrl.create({
+//     component: CalendarModal,
+//     componentProps: { options }
+//   });
+
+//   myCalendar.present();
+// }
 }

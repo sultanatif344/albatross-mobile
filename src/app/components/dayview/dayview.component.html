@@ -1,7 +1,7 @@
 <ion-row>
   <ion-text><h6 class="ion-margin-start bold">Todays Lessons</h6></ion-text> 
 </ion-row>
-<ion-card *ngFor="let scheduledlessons of scheduledLessons | async" (click)="onClick()">
+<ion-card *ngFor="let scheduledlessons of scheduledLessons.data" (click)="goToLessonRequest(scheduledlessons)">
   <ion-card-content>
     <ion-row>
       <ion-col>
@@ -19,37 +19,11 @@
     </ion-col>
 
     <ion-col size="8">
-      <ion-text color="dark"><p class="bold">The Basics of Typography</p></ion-text>
+      <ion-text color="dark"><p class="bold">{{scheduledlessons.description}}</p></ion-text>
     </ion-col>
       
     </ion-row>
   </ion-card-content>
 </ion-card>
 
-
-<ion-card>
-  <ion-card-content>
-    <ion-row>
-      <ion-col >
-      <ion-text color="dark"><h2 class="bold">9:00AM</h2></ion-text>
-    </ion-col>
-
-
-      <ion-col size="8">
-      <ion-text color="dark"><p class="bold">Design Psychology</p></ion-text>
-    </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-      <ion-text color="dark"><h2 class="bold">10:00AM</h2></ion-text>
-    </ion-col>
-
-
-      <ion-col size="8">
-      <ion-text color="dark"><p class="bold">Norma Ortiz</p></ion-text>
-    </ion-col>
-    </ion-row>
-  </ion-card-content>
-</ion-card>
 

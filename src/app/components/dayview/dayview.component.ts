@@ -16,15 +16,17 @@ import { scheduledlessonsState } from 'src/app/scheduledlessons/reducers/schedul
 })
 export class DayviewComponent implements OnInit {
 
-  scheduledLessons:Observable<Array<ScheduledLessons>>;
+  public scheduledLessons:Array<ScheduledLessons>;
   @Output() navigateToLessonDetails_Event = new EventEmitter();
+  id: string;
   constructor(private router: Router, private store:Store<scheduledlessonsState>) { }
 
   ngOnInit() {
       // console.log(data.authState.user.token)
       this.store.dispatch(new GetScheduledLessons())
     this.store.select<any>('scheduledlessons').subscribe(data=>{
-      console.log(data);
+      this.scheduledLessons = data.list;
+      console.log(this.scheduledLessons);
     });
     // this.scheduledLessons.subscribe(data=>{
     //   console.log(data);
@@ -32,10 +34,14 @@ export class DayviewComponent implements OnInit {
   }
 
 
-
-
-  onClick(){
-    this.navigateToLessonDetails_Event.emit()
+  goToLessonRequest(event){
+    this.id = event._id
+    console.log(this.id);    
+    this.router.navigateByUrl(`/lessondetails/${this.id}`);
   }
+
+  // onClick(){
+  //   this.navigateToLessonDetails_Event.emit()
+  // }
   
 }

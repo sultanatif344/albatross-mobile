@@ -21,11 +21,13 @@
     </ion-grid>
   </ion-title> -->
 
-  <app-header [showScheduleBar]="true" [showTitle]="false" (switchView)="setFlag($event)" (switchView)="unsetFlag($event)" [SearchBarVisible]="false" [showBackButton]="false"></app-header>
+  <app-header [showScheduleBar]="true" [showTitle]="false" (switchView)="setFlag($event)" (switchView)="unsetFlag($event)" [SearchBarVisible]="false" [showBackButton]="false" (onActivateCalendar)="activateCalendar($event)"></app-header>
 
 
 
+  <!-- <ion-calendar *ngIf="calendar_is_active" [(ngModel)]="date" (onChange)="onChange($event)"  [type]="type" [format]="'YYYY-MM-DD'">
 
+  </ion-calendar> -->
 
   <ion-header collapse="condense">
     <ion-toolbar>

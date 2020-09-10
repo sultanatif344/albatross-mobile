@@ -18,7 +18,8 @@ export class InstructorlessonsComponent implements OnInit {
     this.store.select<any>('users').subscribe(data =>{
       return this.booklessonservice.getrequestedlesson(data.authState.user.token)
       .subscribe(data=>{
-        console.log(data)
+        this.requestedlessons = data.data;
+        console.log(this.requestedlessons);
       })    
     })
   }

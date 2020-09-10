@@ -26,9 +26,7 @@ export class ScheduledLessonsEffects{
         () =>{  
             let test;
             console.log(this.token(),'dsadsadsa')
-            test = this.scheduledLessonsService.getLessons(this.token())
-            console.log(test)
-            return test
+            return this.scheduledLessonsService.getLessons(this.token())
         } 
         //   .pipe(
         //      map(data => {
@@ -36,7 +34,11 @@ export class ScheduledLessonsEffects{
         //     }),
         //     catchError(error => of(new GetScheduledLessonsFailure(error)))
         //   )
-      )
+      ),
+      map(data=>{
+          return new GetScheduledLessonsSuccess(data)
+      }),
+      catchError(error=>of(new GetScheduledLessonsFailure(error)))
   )
     // @Effect()
     // pollingStarted$ = () =>
