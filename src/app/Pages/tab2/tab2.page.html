@@ -1,7 +1,7 @@
 
 
 <ion-content [fullscreen]="true">
-  <app-header [showScheduleBar]="false" [SearchBarVisible]="true" [showBackButton]="true"></app-header>
+  <app-header [showScheduleBar]="false" [SearchBarVisible]="true" [showBackButton]="true" (sendName)="searchInstructor(event)"></app-header>
           
   <!-- <ion-header collapse="condense">
     <ion-toolbar>

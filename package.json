@@ -29,6 +29,7 @@
     "@syncfusion/ej2-angular-calendars": "^18.2.56",
     "cordova-android": "9.0.0",
     "google-calendar": "^1.3.2",
+    "ionic2-calendar": "^0.6.6",
     "moment": "^2.27.0",
     "rxjs": "~6.5.1",
     "sweetalert2": "^9.17.1",

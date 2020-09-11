@@ -19,7 +19,7 @@ export class StudentEffects{
     @Effect() instructorload$ = this.actions$.pipe(
         ofType(StudentActionTypes.LOAD_INSTRUCTOR_LIST),
         mergeMap(
-            ()=> this.InstructorloadService.loadInstructor(this.token)
+            ()=> this.InstructorloadService.loadInstructor("",this.token)
             .pipe(  
                 map(data=>{
                     console.log(data);

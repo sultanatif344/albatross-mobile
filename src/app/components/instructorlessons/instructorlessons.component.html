@@ -15,8 +15,8 @@
       </p>
     </ion-text>
     <ion-row>
-      <ion-button color="success">Accept</ion-button>
-      <ion-button color="danger">Reject</ion-button>
+      <ion-button color="success"(click)="acceptLesson(lessons)">Accept</ion-button>
+      <ion-button color="danger"(click)="declineLesson(lessons)">Reject</ion-button>
     <!-- <ion-label style="margin-left: 160px; background: darkgreen;" color="light">$20</ion-label> -->
     
   </ion-row>

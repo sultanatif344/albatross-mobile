@@ -17,7 +17,8 @@ export class Tab2Page {
 
   public currentUser:any;
   public Instructor:Observable<any>;
-  public InstructorDescription:Array<any>
+  public InstructorDescription:Array<any>;
+  public instructorName:string
   constructor(private navController:NavController, private router:Router,private store:Store<AppState>, private instructorService:InstructorloadService) {}
 
 
@@ -34,7 +35,7 @@ export class Tab2Page {
       this.currentUser = data.users.authState.user
       // this.instructorService.loadInstructor(data.users.authState.user.token);
     })
-    this.instructorService.loadInstructor(this.currentUser.token).subscribe(data=>{
+    this.instructorService.loadInstructor("",this.currentUser.token).subscribe(data=>{
       this.store.dispatch(new LoadInstructorListSuccess(data))
       catchError((err)=>{
         this.store.dispatch(new LoadInstructorListFailure(err));
@@ -56,5 +57,11 @@ export class Tab2Page {
   }
   goToLessonRequest(){
     this.router.navigateByUrl("lessonrequest");
+  }
+
+  searchInstructor(event){
+    this.instructorService.loadInstructor(event,this.currentUser.token).subscribe(data=>{
+      this.InstructorDescription = data.data
+    })
   }
 }

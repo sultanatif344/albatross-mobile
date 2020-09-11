@@ -10,23 +10,33 @@ import { Observable } from 'rxjs';
 })
 export class InstructorloadService {
 
+  private headers; 
+  // private instructorName="";
   constructor(private http:HttpClient) { }
 
-  private instructorLoad_URL = 'https://albatross-v1.herokuapp.com/api/v1/instructor/';
-  
-
-  
-  
-  loadInstructor(token:string):Observable<any>{
+  loadInstructor(name:string,token:string):Observable<any>{
+    let instructorLoad_URL = `https://albatross-v1.herokuapp.com/api/v1/instructor?name=${name}`;
     console.log("getting data...");
-    let headers = new HttpHeaders({
+    this.headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer '+token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
   })    
-  return this.http.get<Array<Instructor>>(this.instructorLoad_URL,{headers:headers})
+  return this.http.get<Array<Instructor>>(instructorLoad_URL,{headers:this.headers})
 
   
   }
+
+
+  // searchInstructor(name:string,token:string){
+  //   this.instructorName = name;
+  //   this.headers = new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     'Authorization': 'Bearer '+token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+  // })
+  //   return this.http.get<Array<Instructor>>(this.instructorLoad_URL,{headers:this.headers})
+  // }
+
+  
 
 
 

@@ -16,8 +16,10 @@ export class HeaderComponent implements OnInit {
   @Input() SearchBarVisible: boolean;
   @Input() title:string;
   @Input() showTitle:boolean;
+  public name:string;
   @Output() switchView=new EventEmitter<boolean>();
   @Output() onActivateCalendar=new EventEmitter<boolean>();
+  @Output() sendName=new EventEmitter<string>();
   flag : boolean;
   calendar_is_active:boolean
   ngOnInit() {
@@ -45,6 +47,11 @@ export class HeaderComponent implements OnInit {
     this.flag = true; 
     this.switchView.emit(this.flag);
     console.log("event fired");
+  }
+
+  search(){
+    console.log(name);
+    this.sendName.emit(name);
   }
 //   async openCalendar(){
 //     const options: CalendarModalOptions = {

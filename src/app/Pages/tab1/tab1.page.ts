@@ -5,6 +5,7 @@ import { GetScheduledLessons } from 'src/app/scheduledlessons/actions/scheduledl
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.states';
 import { ModalController } from '@ionic/angular';
+import { ScheduledlessonsService } from 'src/app/services/scheduledlessons.service';
 // import { CalendarModal, CalendarModalOptions } from 'ion2-calendar';
 // import { App } from '@ionic/angular'
 
@@ -21,8 +22,9 @@ export class Tab1Page {
   public showBackButton:boolean;
   public calendar_is_active:boolean
   public id?:string;
-  
-  constructor(private router: Router, private navController: NavController, private store:Store<AppState>) {}
+  public weekViewLessons:Array<Object>;
+  public dayViewLessons:Array<Object>;
+  constructor(private router: Router, private navController: NavController, private store:Store<AppState>,private scheduledLessonsService:ScheduledlessonsService) {}
 
   ngOnInit(){ 
     this.flag = true;
@@ -35,10 +37,24 @@ export class Tab1Page {
   setFlag(event){
     this.flag = event;
     console.log(event);
+    this.store.select<any>('users').subscribe(data=>{
+      this.scheduledLessonsService.getDayView(data.authState.user.token,"day","2","1")
+      .subscribe(data=>{
+        this.dayViewLessons = data
+        console.log(this.dayViewLessons);
+      })
+    })
   }
 
   unsetFlag(event){
     this.flag = event;
+    this.store.select<any>('users').subscribe(data=>{
+    this.scheduledLessonsService.getweekView(data.authState.user.token,"week","2")
+    .subscribe(data=>{
+      this.weekViewLessons = data.data
+      console.log(this.weekViewLessons);
+    })
+  })
   }
 
   activateCalendar(event){
@@ -53,4 +69,8 @@ export class Tab1Page {
   // this.date = new Date($event);
   // console.log(this.date);    
   // }
+
+  getweekLessons(){
+
+  }  
 }

@@ -1,4 +1,4 @@
-<ion-grid *ngIf="InstructorDescription.length!=0">
+<ion-grid>
   <ion-row>
     <ion-col>
       <ion-card (click)="goToLessonRequest(description)" *ngFor="let description of InstructorDescription">
@@ -28,7 +28,7 @@
 </ion-row>
 
 
-<ion-row>
+<!-- <ion-row>
 <ion-col>
   <ion-card>
 <ion-card-content>
@@ -47,5 +47,5 @@
 </ion-card-content>
 </ion-card>
 </ion-col>
-</ion-row>
+</ion-row> -->
 </ion-grid>

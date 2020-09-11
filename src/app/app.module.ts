@@ -24,6 +24,10 @@ import { StudentEffects } from './studentstore/effects/student.effects';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TeacherFieldsModule } from './components/teacherfields/teacherfields.module';
 
+// import { CalendarModule } from 'ion2-calendar';
+
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [

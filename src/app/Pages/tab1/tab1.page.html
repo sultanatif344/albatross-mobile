@@ -39,7 +39,19 @@
   <app-weeklessonsbar *ngIf="!flag"></app-weeklessonsbar>
   <ion-grid *ngIf="flag">
 
-<app-dayview (navigateToLessonDetails_Event)="navigateToLessonDetailPage()"></app-dayview>
+<app-dayview [dayLessons]="dayViewLessons" (navigateToLessonDetails_Event)="navigateToLessonDetailPage()"></app-dayview>
+<!-- <calendar 
+  [eventSource]="eventSource" 
+  [calendarMode]="day" 
+  [currentDate]="calendar.currentDate"
+  (onEventSelected)="onEventSelected($event)"
+  (onTitleChanged)="onViewTitleChanged($event)"
+  (onTimeSelected)="onTimeSelected($event)" 
+  startHour="6"
+  endHour="20"
+  step="30"
+  startingDayWeek="1">
+  </calendar> -->
 <app-requestnotifications></app-requestnotifications>
 
 </ion-grid>
@@ -55,7 +67,7 @@
 
 <ion-grid *ngIf="!flag">
 
-  <app-weekview></app-weekview>
+  <app-weekview [weekLessons]="weekViewLessons"></app-weekview>
 
   <app-requestnotifications></app-requestnotifications>
 </ion-grid>

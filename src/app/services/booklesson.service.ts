@@ -40,4 +40,12 @@ export class BooklessonService {
     return this.http.get(lessondetail_URL,{headers:this.headers})
     // 5f3fb384c1bc091d1cfcc64e
   }
+  acceptOrDeclineLesson(id:string,payload:Object,token:string):Observable<any>{
+    let lessonstatus_URL = `http://localhost:5000/api/v1/lesson/lessonstatus/${id}`
+    this.headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer '+token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+  })
+      return this.http.post(lessonstatus_URL,payload,{headers:this.headers})
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventEmitter } from '@angular/core';
 import { AppState } from 'src/app/store/app.states';
@@ -18,6 +18,7 @@ export class DayviewComponent implements OnInit {
 
   public scheduledLessons:Array<ScheduledLessons>;
   @Output() navigateToLessonDetails_Event = new EventEmitter();
+  @Input() dayLessons:Array<Object>
   id: string;
   constructor(private router: Router, private store:Store<scheduledlessonsState>) { }
 
