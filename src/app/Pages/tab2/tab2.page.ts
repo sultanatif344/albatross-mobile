@@ -18,7 +18,6 @@ export class Tab2Page {
 
   public currentUser:any;
   public Instructor:Observable<any>;
-<<<<<<< HEAD
   public InstructorDescription:Array<Object>
   public searchResult:Array<Object>;
   constructor(private navController:NavController, private router:Router,private store:Store<AppState>, private instructorService:InstructorloadService,private auth:AuthService) {
@@ -35,11 +34,6 @@ export class Tab2Page {
         // return of([]);)
     )})
   }
-=======
-  public InstructorDescription:Array<any>;
-  public instructorName:string
-  constructor(private navController:NavController, private router:Router,private store:Store<AppState>, private instructorService:InstructorloadService) {}
->>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
 
 
   // goBack(){
@@ -48,24 +42,7 @@ export class Tab2Page {
 
 
   ngOnInit(){
-<<<<<<< HEAD
     
-=======
-    this.store.dispatch(new LoadInstructorList())
-    this.store.select<any>(store => store).subscribe(data=>{
-      // this.instructorService.loadInstructor(data.users.authState.user.token)
-      console.log(data);
-      this.currentUser = data.users.authState.user
-      // this.instructorService.loadInstructor(data.users.authState.user.token);
-    })
-    this.instructorService.loadInstructor("",this.currentUser.token).subscribe(data=>{
-      this.store.dispatch(new LoadInstructorListSuccess(data))
-      catchError((err)=>{
-        this.store.dispatch(new LoadInstructorListFailure(err));
-        return of([]);
-    })
-    });
->>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
 
 
     this.Instructor=this.store.select<any>("Instructors")
@@ -83,17 +60,10 @@ export class Tab2Page {
     this.router.navigateByUrl("lessonrequest");
   }
 
-<<<<<<< HEAD
   loadSearchResults($event){
     console.log($event)
     this.searchResult= $event;
     this.InstructorDescription = this.searchResult;
     console.log(this.searchResult);
-=======
-  searchInstructor(event){
-    this.instructorService.loadInstructor(event,this.currentUser.token).subscribe(data=>{
-      this.InstructorDescription = data.data
-    })
->>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
   }
 }

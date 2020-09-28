@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
-<<<<<<< HEAD
 import { NavController } from '@ionic/angular';
 import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
@@ -9,11 +8,6 @@ import { InstructorloadService } from 'src/app/services/instructorload.service';
 import { AppState } from 'src/app/store/app.states';
 import { LoadInstructorListSuccess } from 'src/app/studentstore/actions/student.actions';
 import { LoadInstructorListFailure } from 'src/app/studentstore/actions/student.actions';
-=======
-import { NavController,ModalController } from '@ionic/angular';
-// import { CalendarModal,CalendarModalOptions } from 'ion2-calendar';
-
->>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
 
 @Component({
   selector: 'app-header',
@@ -21,6 +15,7 @@ import { NavController,ModalController } from '@ionic/angular';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  calendar_is_active: boolean;
 
   constructor(private navController:NavController, private instructorService:InstructorloadService, private auth:AuthService,private store:Store<AppState>) { }
   @Input() showScheduleBar:boolean; 
@@ -30,18 +25,11 @@ export class HeaderComponent implements OnInit {
   @Input() showTitle:boolean;
   public name:string;
   @Output() switchView=new EventEmitter<boolean>();
-<<<<<<< HEAD
   @Output() searchResultEvent = new EventEmitter<Array<Object>>();
   @Output() calendarModalDisplayEvent = new EventEmitter<boolean>();
+  @Output() onActivateCalendar = new EventEmitter<boolean>();
   flag : boolean;
-  public name:string;
   overlayHidden:boolean;
-=======
-  @Output() onActivateCalendar=new EventEmitter<boolean>();
-  @Output() sendName=new EventEmitter<string>();
-  flag : boolean;
-  calendar_is_active:boolean
->>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
   ngOnInit() {
     this.calendar_is_active = false;
   }
@@ -69,7 +57,6 @@ export class HeaderComponent implements OnInit {
     console.log("event fired");
   }
 
-<<<<<<< HEAD
   displayCalendar(){
     this.overlayHidden = false;
     console.log("Calendar Showing");
@@ -83,24 +70,4 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-=======
-  search(){
-    console.log(name);
-    this.sendName.emit(name);
-  }
-//   async openCalendar(){
-//     const options: CalendarModalOptions = {
-//       pickMode:'single',
-//       title: 'BASIC',
-//       color:'success'
-//     };
-
-//   let myCalendar =  await this.modalCtrl.create({
-//     component: CalendarModal,
-//     componentProps: { options }
-//   });
-
-//   myCalendar.present();
-// }
->>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
 }

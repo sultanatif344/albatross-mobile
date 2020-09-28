@@ -18,7 +18,6 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class DayviewComponent implements OnInit {
 
-<<<<<<< HEAD
   @Input()scheduledLessons:Array<ScheduledLessons>=[];
   private startTime: string;
   private endTime:string;
@@ -38,18 +37,9 @@ export class DayviewComponent implements OnInit {
   // ionViewWillEnter(){
   //   this.user= this.auth.getUser();
   // }
-=======
-  public scheduledLessons:Array<ScheduledLessons>;
-  @Output() navigateToLessonDetails_Event = new EventEmitter();
-  @Input() dayLessons:Array<Object>
-  id: string;
-  constructor(private router: Router, private store:Store<scheduledlessonsState>) { }
-
->>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
   ngOnInit() {
     this.user = this.auth.getUser();
       // console.log(data.authState.user.token)
-<<<<<<< HEAD
 
     // this.scheduledLessons.subscribe(data=>{
     //   data.forEach(lesson=>{
@@ -57,13 +47,6 @@ export class DayviewComponent implements OnInit {
     //   })
     // })
     // console.log(this.startTime);
-=======
-      this.store.dispatch(new GetScheduledLessons())
-    this.store.select<any>('scheduledlessons').subscribe(data=>{
-      this.scheduledLessons = data.list;
-      console.log(this.scheduledLessons);
-    });
->>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
     // this.scheduledLessons.subscribe(data=>{
     //   console.log(data);
     // })
@@ -76,16 +59,10 @@ export class DayviewComponent implements OnInit {
     this.router.navigateByUrl(`/lessondetails/${this.id}`);
   }
 
-<<<<<<< HEAD
-  goToLessonRequest(event){
-    this.id = event._id
-    console.log(this.id);    
-    this.router.navigateByUrl(`/lessondetails/${this.id}`);
-  }
-=======
-  // onClick(){
-  //   this.navigateToLessonDetails_Event.emit()
+  // goToLessonRequest(event){
+  //   this.id = event._id
+  //   console.log(this.id);    
+  //   this.router.navigateByUrl(`/lessondetails/${this.id}`);
   // }
->>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
   
 }

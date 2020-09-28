@@ -21,11 +21,7 @@
     </ion-grid>
   </ion-title> -->
 
-<<<<<<< HEAD
   <app-header [showScheduleBar]="true" [showTitle]="false" (switchView)="setFlag($event)" (switchView)="unsetFlag($event)" [SearchBarVisible]="false" [showBackButton]="false" (calendarModalDisplayEvent)="displayCalendarModal($event)"></app-header>
-=======
-  <app-header [showScheduleBar]="true" [showTitle]="false" (switchView)="setFlag($event)" (switchView)="unsetFlag($event)" [SearchBarVisible]="false" [showBackButton]="false" (onActivateCalendar)="activateCalendar($event)"></app-header>
->>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
 
   
 
@@ -59,22 +55,6 @@
 
 <app-dayview [scheduledLessons]="dayArray" (navigateToLessonDetails_Event)="navigateToLessonDetailPage()"></app-dayview>
 
-<<<<<<< HEAD
-=======
-<app-dayview [dayLessons]="dayViewLessons" (navigateToLessonDetails_Event)="navigateToLessonDetailPage()"></app-dayview>
-<!-- <calendar 
-  [eventSource]="eventSource" 
-  [calendarMode]="day" 
-  [currentDate]="calendar.currentDate"
-  (onEventSelected)="onEventSelected($event)"
-  (onTitleChanged)="onViewTitleChanged($event)"
-  (onTimeSelected)="onTimeSelected($event)" 
-  startHour="6"
-  endHour="20"
-  step="30"
-  startingDayWeek="1">
-  </calendar> -->
->>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
 <app-requestnotifications></app-requestnotifications>
 
 </ion-grid>
@@ -89,12 +69,7 @@
 
 
 <ion-grid *ngIf="!flag">
-<<<<<<< HEAD
   <app-weekview></app-weekview>
-=======
-
-  <app-weekview [weekLessons]="weekViewLessons"></app-weekview>
->>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
 
   <app-requestnotifications></app-requestnotifications>
 </ion-grid>

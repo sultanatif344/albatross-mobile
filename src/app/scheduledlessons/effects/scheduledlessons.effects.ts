@@ -41,11 +41,7 @@ export class ScheduledLessonsEffects{
         //     }),
         //     catchError(error => of(new GetScheduledLessonsFailure(error)))
         //   )
-      ),
-      map(data=>{
-          return new GetScheduledLessonsSuccess(data)
-      }),
-      catchError(error=>of(new GetScheduledLessonsFailure(error)))
+      )
   )
     // @Effect()
     // pollingStarted$ = () =>
