@@ -4,6 +4,7 @@ import { User } from '../models/user';
 import { AppState } from '../store/app.states';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { retry, retryWhen } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,9 +18,12 @@ export class AuthService {
   getToken(){
     return localStorage.getItem('token');
   }
+  getUser(){
+    return JSON.parse(localStorage.getItem('user'));
+  }
 
-  logIn(email:string,password:string,role:string):Observable<any>{
-      return this.http.post<User>(this.Login_URL,{email,password,role});
+  logIn(email:string,password:string):Observable<any>{
+      return this.http.post<User>(this.Login_URL,{email,password})
   }
 
   signUp(name:string,mobilenumber:string,email:string, password:string,role:string):Observable<User>{

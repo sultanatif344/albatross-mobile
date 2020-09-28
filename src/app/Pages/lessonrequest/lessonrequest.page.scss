@@ -7,3 +7,41 @@ ion-card{
 }
 
 
+.calendar-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+
+  ngb-datepicker {
+      top: 140px;
+      position: absolute;
+      left: 70px;    
+      z-index: 2;
+      background: white;
+  }
+
+
+
+.timer-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+
+  app-timepicker {
+      width: 300px;
+      top: 140px;
+      position: absolute;
+      left: 30px;    
+      z-index: 2;
+      background: white;
+  }

@@ -1,4 +1,5 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-details-oflessons',
@@ -9,6 +10,16 @@ export class DetailsOflessonsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  @Input() lessonDetail:Observable<Array<any>>;
+  @Output() callingEvent = new EventEmitter<boolean>();
+  public callScreenIsActive:boolean;
+  ngOnInit() {
+    this.callScreenIsActive = false;
+  }
+
+  displayCallOverlay(){
+    this.callScreenIsActive = true;
+    this.callingEvent.emit(this.callScreenIsActive);
+  }
 
 }

@@ -12,7 +12,7 @@
               <img class="ion-margin-end" src="description.photo" width="50px" height="50px"/>
             </ion-col>
             <ion-col size="5">
-          <h1 class="ion-margin-start">{{description.user.name}}</h1>
+          <h1 *ngIf="description.user.name!=null" class="ion-margin-start">{{description.user.name}}</h1>
         </ion-col>
         </ion-row>
         </ion-card-title>
@@ -28,24 +28,33 @@
 </ion-row>
 
 
-<ion-row>
-<ion-col>
-  <ion-card>
-<ion-card-content>
-<ion-card-subtitle>
-  <h6 style="font-size: small;">Online Lessons Available > OBS >Verified</h6>
-</ion-card-subtitle>
-<ion-card-title>
-<h1 class="ion-margin-start">Jessica Haines</h1>
-</ion-card-title>
-<ion-text>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-  </p>
-</ion-text>
-<ion-button slot="end" style="margin-left: 160px;" color="success">$10 - $20</ion-button>
-</ion-card-content>
-</ion-card>
+<ion-grid *ngIf="searchResult.length!=0">
+  <ion-row>
+    <ion-col>
+      <ion-card (click)="goToLessonRequest(result)" *ngFor="let result of searchResult">
+        <ion-card-content>
+          <ion-card-subtitle>
+            <h6 style="font-size: small;">Online Lessons Available > OBS >Verified</h6>
+          </ion-card-subtitle>
+          <ion-card-title>
+          <ion-row>
+            <ion-col size="2">
+              <img class="ion-margin-end" src="description.photo" width="50px" height="50px"/>
+            </ion-col>
+            <ion-col size="5">
+          <h1 *ngIf="description.user.name!=null" class="ion-margin-start">{{result.name}}</h1>
+        </ion-col>
+        </ion-row>
+        </ion-card-title>
+          <ion-text>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+            </p>
+          </ion-text>
+          <ion-button slot="end" style="margin-left: 160px;" color="success">$10 - $20</ion-button>
+        </ion-card-content>
+      </ion-card>
 </ion-col>
 </ion-row>
-</ion-grid>
+
+

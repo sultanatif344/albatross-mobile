@@ -4,6 +4,7 @@ import { NavController } from '@ionic/angular';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.states';
 import { Logout } from 'src/app/store/actions/auth.actions';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-tab3',
@@ -12,11 +13,16 @@ import { Logout } from 'src/app/store/actions/auth.actions';
 })
 export class Tab3Page {
 
-  title:string
-  constructor(private router: Router,private navController:NavController,private store:Store<AppState>) {}
+  title:string;
+  private user:Object;
+  constructor(private router: Router,private navController:NavController,private store:Store<AppState>,private auth:AuthService) {}
 
 ngOnInit(){
   this.title = "Account";
+  this.user = this.auth.getUser();
+  this.store.select<any>('users').subscribe(data=>{
+    console.log(data);
+  })
 }  
   goBack(){
     this.navController.back();

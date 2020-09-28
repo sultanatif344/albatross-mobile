@@ -1,0 +1,25 @@
+  <ion-header class="ion-no-margin"><ion-text color="light" class="ion-text-center"><h1 class="ion-no-margin">Select Time</h1></ion-text></ion-header>
+  <ion-row class="ion-no-margin">
+    <ion-col class="ion-no-margin" size="3"></ion-col>
+  <ion-col size="7">
+  <ngb-timepicker [(ngModel)]="startTime" [seconds]="startSeconds"></ngb-timepicker>
+</ion-col>
+</ion-row>
+<ion-row class="ion-no-margin">
+  <ion-col class="ion-no-margin" size="5"></ion-col>
+  <ion-col size="3">
+<h4>-TO-</h4>
+  </ion-col>
+</ion-row>
+<ion-row class="ion-no-margin">
+<ion-col class="ion-no-margin" size="3"></ion-col>
+  <ion-col size="7">
+  <ngb-timepicker [(ngModel)]="endTime" [seconds]="endSeconds"></ngb-timepicker>
+  </ion-col>
+</ion-row>
+<ion-row class="ion-no-margin">
+  <ion-col class="ion-no-margin" size="3"></ion-col>
+    <ion-col size="6">
+    <ion-button expand="block" shape="round" color="primary" size="medium" (click)="onClick()">Done</ion-button>
+    </ion-col>
+  </ion-row>

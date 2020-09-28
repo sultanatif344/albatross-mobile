@@ -4,6 +4,7 @@
     </ion-col>
     <ion-col size="8">
       <img src="../../../assets/images/img4.png" width="250px" height="200px"/>
+      <input type="file" (change)="onFileSelected($event)">
 </ion-col>
 
 </ion-row>
@@ -155,6 +156,6 @@
 
     
   </ion-grid>
-  <ion-button expand="full" size="medium" class="ion-padding-horizontal ion-margin-top" color="success" (click)="UpdateProfile()"><ion-text style="font-weight: lighter; font-style: normal;" >Update Profile</ion-text></ion-button>
+  <ion-button expand="full" size="medium" class="ion-padding-horizontal ion-margin-top" color="success" (click)="UploadImageAndUpdateProfile()"><ion-text style="font-weight: lighter; font-style: normal;" >Update Profile</ion-text></ion-button>
   <!-- <ion-button expand="block" size="large" class="ion-padding-horizontal ion-margin-top" shape="round" color="success"><ion-text style="font-weight: lighter; font-style: normal;">Sign in</ion-text></ion-button> -->
   </div>

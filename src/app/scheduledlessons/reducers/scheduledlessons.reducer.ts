@@ -16,6 +16,13 @@ export const InitialState: scheduledlessonsState = {
 }
 
 
+export const RequestLessonInitialState: scheduledlessonsState = {
+    list:[],
+    loading:false,
+    error: undefined
+}
+
+
 export function scheduledLessonsReducer(state:scheduledlessonsState = InitialState,actions:ScheduledLessonsActions){
 
 

@@ -11,7 +11,7 @@
 
     
       <!----Render for only student---->
-    <ion-tab-button tab="discover" *ngIf="currentUser.role=='student'">
+    <ion-tab-button tab="discover" *ngIf="currentUser?.role=='student'">
       <!-- <ion-icon name="ellipse"></ion-icon> -->
      <img src="../../assets/images/search.png" width="30px" height="30px"/>
       <ion-label>Discover</ion-label>
@@ -33,7 +33,7 @@
     </ion-tab-button>
 
     <!-----Render for only teacher------>
-    <ion-tab-button tab="instructorlessonrequest" *ngIf="currentUser.role=='instructor'">
+    <ion-tab-button tab="instructorlessonrequest" *ngIf="currentUser?.role=='instructor'">
       <!-- <ion-icon name="ellipse"></ion-icon> -->
      <img src="../../assets/images/search.png" width="30px" height="30px"/>
       <ion-label>LessonRequest</ion-label>

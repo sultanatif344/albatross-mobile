@@ -45,3 +45,56 @@
 .bold{
  font-weight: bold;   
 }
+
+
+ngb-datepicker {
+    position: absolute;
+    background-color: white;
+
+    .ngb-dp-header {
+        background-color: #146545;
+    }
+
+    // select {
+    //     background-color: yellow;
+    //     color:yellow ;
+    // }
+    .ngb-dp-weekdays{
+        background-color: #146545;
+    }
+    .small{
+        color: yellow;
+    }
+    .ngb-dp-navigation-chevron{
+        background-color: #146545;
+    }
+    .btn-link{
+        color: yellow;
+    }
+    .btn-white{
+        background-color: yellow;
+    }
+}
+
+.custom-day:hover {
+    background-color: yellow;
+  }
+
+.bg-primary{
+    background-color: yellow;
+}
+
+
+[ngbDatepickerDayView] {
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: .25rem;
+    background: 0 0;
+    .bg-primary{
+        background-color: yellow;
+    }
+}
+
+

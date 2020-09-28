@@ -6,18 +6,24 @@ import { StudentfieldsComponent } from '../components/studentfields/studentfield
 import { TeacherfieldsComponent } from '../components/teacherfields/teacherfields.component';
 import { DetailsOflessonsComponent } from '../components/details-oflessons/details-oflessons.component';
 import { InstructordescriptionComponent } from '../components/instructordescription/instructordescription.component';
+import { CalendarComponentModule } from '../components/calendar/calendar.module';
+import { CalendarComponent } from '../components/calendar/calendar.component';
+import { CalendarModule } from 'ion2-calendar';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStruct, NgbCalendar, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
 // import { CustomerComponent } from './customer.component';
 // import { NewItemDirective } from './new-item.directive';
 // import { OrdersPipe } from './orders.pipe';
 
 @NgModule({
- imports:      [ CommonModule ],
+ imports:      [ CommonModule],
  declarations: [
      HeaderComponent,
     StudentfieldsComponent,
     TeacherfieldsComponent,
     DetailsOflessonsComponent,
-    InstructordescriptionComponent
+    InstructordescriptionComponent,
+    CalendarComponent,
 ],
 
  exports:[ 

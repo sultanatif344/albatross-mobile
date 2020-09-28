@@ -1,0 +1,36 @@
+<div class="ion-margin-top ion-margin-left ion-padding">
+  <ion-grid>
+    <ion-label fill="clear" class="ion-margin-bottom" style="color:darkgrey">Your Name</ion-label>
+  <ion-row class="ion-margin-left">
+    
+    <ion-icon color="success" name="person-outline" class="ion-margin-top"></ion-icon><ion-input class="border-top border-bottom" placeholder="Your Name" [(ngModel)]="user.name"></ion-input>
+  </ion-row>
+  <ion-label fill="clear" class="ion-margin-top" style="color:darkgrey">Phone Number</ion-label>
+  <ion-row class="ion-margin-top ion-margin-left">
+    <ion-icon name="phone-portrait-outline" color="success" class="ion-margin-top"></ion-icon>
+    <ion-input placeholder="Number" [(ngModel)]="user.mobilenumber"></ion-input>
+  </ion-row>
+
+  <ion-label fill="clear" class="ion-margin-bottom" style="color:darkgrey">Email</ion-label>
+  <ion-row class="ion-margin-top ion-margin-left">
+    <ion-icon name="mail-outline" color="success" class="ion-margin-top"></ion-icon>
+    <ion-input placeholder="Email" [(ngModel)]="user.email"></ion-input>
+  </ion-row>
+
+  <ion-label fill="clear" class="ion-margin-bottom" style="color:darkgrey">Password</ion-label>
+  <ion-row class="ion-margin-top ion-margin-left">
+    <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon>
+    <ion-input placeholder="Password" [(ngModel)]="user.password"></ion-input>
+  </ion-row>
+</ion-grid>
+<ion-row class="ion-margin-top ion-margin-left">
+  <ion-item>
+    <ion-label fill="clear" class="ion-margin-top" style="color:darkgrey">Choose Position</ion-label>
+  <ion-select value="03" [(ngModel)]="user.role">
+    <ion-select-option value="instructor">Instructor</ion-select-option>
+    <ion-select-option value="student">Student</ion-select-option>
+  </ion-select>  
+</ion-item>
+</ion-row>
+</div>
+<ion-button expand="block" size="large" class="ion-padding-horizontal ion-margin-bottom" shape="round" color="success" (click)="signUp()"><ion-text style="font-weight: lighter; font-style: normal;">Sign Up</ion-text></ion-button>

@@ -9,14 +9,13 @@
     <ion-grid>
       <ion-row>
         <!-- <app-dayview></app-dayview> -->
-        <ion-col size="4">
-          <ion-icon name="arrow-back" color="success" class="ion-margin-top" (click)="goBack()"></ion-icon>
-        </ion-col>
              <!-- <ion-input placeholder="Search For Instructors" class="ion-margin-bottom ion-margin-bottom"></ion-input>
              <ion-button fill="clear">
              <ion-icon name="search" color="success"></ion-icon>  
             </ion-button> -->
-            <ion-text color="success" class="ion-text-start ion-no-margin"><h1>Edit Profile</h1></ion-text>
+            <ion-col>
+            <app-header [showScheduleBar]="false" [SearchBarVisible]="false" [showTitle]="true" [title]="title" [showBackButton]="true"></app-header>
+          </ion-col>
       </ion-row>
     </ion-grid>
   </ion-title>

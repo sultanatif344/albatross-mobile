@@ -13,11 +13,19 @@ export class EditProfileService {
 
   private editProfile_URL = 'https://albatross-v1.herokuapp.com/api/v1/instructor/editprofile'
 
-  EditProfile(teacherFields:Instructor,token:string):Observable<any>{
+  EditTeacherProfile(teacherFields:Instructor,token:string):Observable<any>{
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer '+token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
   })    
     return this.http.put(this.editProfile_URL,teacherFields,{headers:headers})
+  }
+
+  EditStudentProfile(studentFields:Object,token:string):Observable<any>{
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer '+token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+  })    
+    return this.http.put(this.editProfile_URL,studentFields,{headers:headers})
   }
 }

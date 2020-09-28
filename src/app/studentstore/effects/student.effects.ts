@@ -16,19 +16,19 @@ export class StudentEffects{
     constructor(private actions$:Actions,private InstructorloadService:InstructorloadService,private store:Store<AppState>){}
 
     
-    @Effect() instructorload$ = this.actions$.pipe(
-        ofType(StudentActionTypes.LOAD_INSTRUCTOR_LIST),
-        mergeMap(
-            ()=> this.InstructorloadService.loadInstructor(this.token)
-            .pipe(  
-                map(data=>{
-                    console.log(data);
-                    return new LoadInstructorListSuccess(data)
-                }),
-                catchError(error=> of(new LoadInstructorListFailure(error)))
-            )
-        )
-    )
+    // @Effect() instructorload$ = this.actions$.pipe(
+    //     ofType(StudentActionTypes.LOAD_INSTRUCTOR_LIST),
+    //     mergeMap(
+    //         ()=> this.InstructorloadService.loadInstructor(this.token,'')
+    //         .pipe(  
+    //             map(data=>{
+    //                 console.log(data);
+    //                 return new LoadInstructorListSuccess(data)
+    //             }),
+    //             catchError(error=> of(new LoadInstructorListFailure(error)))
+    //         )
+    //     )
+    // )
 
 
     token:any = () => {

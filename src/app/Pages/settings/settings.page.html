@@ -4,11 +4,11 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-content>
+<ion-content content-id="content">
   <app-header [showScheduleBar]="false" [SearchBarVisible]="false" [showBackButton]="true" [showTitle]="true" [title]="title"></app-header>
   <ion-grid>
   <ion-row>
-    <ion-col size="4">
+    <ion-col size="8">
       <ion-text color="dark"><h5>Notifications</h5></ion-text>
     </ion-col>
   </ion-row>
@@ -20,7 +20,7 @@
     <ion-card>
       <ion-row>
         <ion-col size="8">
-          <p>Allow Push Notifications</p>
+          <p style="margin-top:10px;">Allow Push Notifications</p>
         </ion-col>
         <ion-col size="4">
             <ion-toggle style="margin-top:10px;" name="kiwi" color="success"></ion-toggle>
@@ -28,7 +28,7 @@
       </ion-row>
       <ion-row>
         <ion-col size="8">
-          <p>Recommendations</p>
+          <p style="margin-top:10px;">Recommendations</p>
         </ion-col>
         <ion-col size="4">
             <ion-toggle style="margin-top:10px;" name="kiwi" color="success"></ion-toggle>
@@ -36,7 +36,7 @@
       </ion-row>
       <ion-row>
         <ion-col size="8">
-          <p>Special Communication & offers</p>
+          <p style="margin-top:10px;">Special Communication & offers</p>
         </ion-col>
         <ion-col size="4">
             <ion-toggle style="margin-top:10px;" name="kiwi" color="success"></ion-toggle>
@@ -49,6 +49,26 @@
   
 
 
+  <ion-grid>
+    <ion-row>
+      <ion-col size="8">
+        <ion-text color="dark"><h5>Connect Accounts</h5></ion-text>
+      </ion-col>
+    </ion-row>
+        <ion-row>
+          <!-- <ion-col size="8">
+            <p style="margin-top:10px;">Connect With Google</p>
+          </ion-col> -->
+          <ion-col size="4">
+              <!-- <ion-toggle style="margin-top:10px;" [(ngModel)]="flag" [checked]="flag" name="kiwi" color="success"></ion-toggle> -->
+              <ion-button color="danger" (click)="connectWithGoogle()">
+                Connect With Google
+              </ion-button>
+          </ion-col>
+        </ion-row>
+  </ion-grid>
+  
+
     <!-- <ion-col size="4">
       <ion-text color="dark"><h5>Notifications</h5></ion-text>
     </ion-col> -->
@@ -60,7 +80,7 @@
     <ion-card (click)="goToChangePassword()">
       <ion-row>
       <ion-col size="6">
-        <p>Change Password</p>
+        <p style="margin-top:10px;">Change Password</p>
       </ion-col>
       <ion-col size="6">
         <ion-icon name="chevron-forward-outline" color="success" class="ion-margin-top" style="margin-left:100px;"></ion-icon>
@@ -76,7 +96,7 @@
     <ion-card>
       <ion-row>
       <ion-col size="8">
-        <p>Activities</p>
+        <p style="margin-top:10px;">Activities</p>
       </ion-col>
       <ion-col size="4">
         <ion-toggle style="margin-top:10px;" name="kiwi" color="success"></ion-toggle>
@@ -86,7 +106,7 @@
 
     <ion-row>
       <ion-col size="8">
-        <p>Help</p>
+        <p style="margin-top:10px;">Help</p>
       </ion-col>
       <ion-col size="4">
         <ion-toggle style="margin-top:10px;" name="kiwi" color="success"></ion-toggle>
@@ -94,10 +114,12 @@
     </ion-row>
     </ion-card>
 
+    <!-- <ion-button color="danger" (click)="connectWithGoogle()">Connect With Google</ion-button> -->
+
     <ion-card (click)="logout()">
       <ion-row>
         <ion-col size="8">
-          <ion-text color="dark"><p>Logout</p></ion-text>
+          <ion-text color="dark"><p style="margin-top:10px;">Logout</p></ion-text>
         </ion-col>
       </ion-row>
     </ion-card>

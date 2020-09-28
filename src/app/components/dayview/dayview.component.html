@@ -1,33 +1,38 @@
-<ion-row>
-  <ion-text><h6 class="ion-margin-start bold">Todays Lessons</h6></ion-text> 
-</ion-row>
-<ion-card *ngFor="let scheduledlessons of scheduledLessons | async" (click)="onClick()">
+<div *ngFor="let scheduledlessons of scheduledLessons">
+  <ion-row>
+    <ion-text><h6 class="ion-margin-start bold">{{scheduledlessons.lessonDate | date: "MMM, d,y"}}</h6></ion-text> 
+  </ion-row>  
+<ion-card (click)="goToLessonRequest(scheduledlessons)">
   <ion-card-content>
     <ion-row>
-      <ion-col>
+      
+    <ion-col>
       <ion-text color="dark"><h2 class="bold">{{scheduledlessons.lessonStartTime}}</h2></ion-text>
     </ion-col>
-
     <ion-col size="8">
-      <ion-text color="dark"><p class="bold">{{scheduledlessons.lessonDate}}</p></ion-text>
+      <ion-text color="dark" *ngIf="user?.role === 'student'"><p class="bold">{{scheduledlessons.lessonAssignedTo.name}}</p></ion-text>
+      <ion-text color="dark" *ngIf="user?.role === 'instructor'"><p class="bold">{{scheduledlessons.lessonAssignedBy.name}}</p></ion-text>
     </ion-col>
+
     </ion-row>
 
+
+    
     <ion-row>
       <ion-col>
       <ion-text color="dark"><h2 class="bold">{{scheduledlessons.lessonEndTime}}</h2></ion-text>
     </ion-col>
 
     <ion-col size="8">
-      <ion-text color="dark"><p class="bold">The Basics of Typography</p></ion-text>
+      <ion-text color="dark"><p class="bold">{{scheduledlessons.description}}</p></ion-text>
     </ion-col>
       
     </ion-row>
   </ion-card-content>
 </ion-card>
+</div>
 
-
-<ion-card>
+<!-- <ion-card>
   <ion-card-content>
     <ion-row>
       <ion-col >
@@ -51,5 +56,5 @@
     </ion-col>
     </ion-row>
   </ion-card-content>
-</ion-card>
+</ion-card> -->
 

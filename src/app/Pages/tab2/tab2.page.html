@@ -1,7 +1,7 @@
 
 
 <ion-content [fullscreen]="true">
-  <app-header [showScheduleBar]="false" [SearchBarVisible]="true" [showBackButton]="true"></app-header>
+  <app-header [showScheduleBar]="false" [SearchBarVisible]="true" [showBackButton]="true" (searchResultEvent)="loadSearchResults($event)"></app-header>
           
   <!-- <ion-header collapse="condense">
     <ion-toolbar>
@@ -9,7 +9,7 @@
     </ion-toolbar>
   </ion-header> -->
 
-  <app-recommendations [InstructorDescription]="InstructorDescription"></app-recommendations>
+  <app-recommendations [InstructorDescription]="InstructorDescription" [searchResult]="searchResult"></app-recommendations>
 
   <app-explore-container name="Tab 2 page"></app-explore-container>
 </ion-content>

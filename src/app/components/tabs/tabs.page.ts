@@ -6,6 +6,8 @@ import { User } from 'src/app/models/user';
 import { map, take } from 'rxjs/operators';
 import {selectAuthStatusState} from '../../../app/store/app.states';
 import { UserState } from 'src/app/store/reducers/auth.reducers';
+import { AuthService } from 'src/app/services/auth.service';
+import { GetScheduledLessons } from 'src/app/scheduledlessons/actions/scheduledlessons.actions';
 
 @Component({
   selector: 'app-tabs',
@@ -19,21 +21,32 @@ export class TabsPage {
   public state:AppState;
   public currentUser:any;
   public userItem: User; 
-  constructor(private store:Store<AppState>) {
+  constructor(private store:Store<AppState>, private auth:AuthService) {
     // this.roleState$ = this.store.pipe(select('authState','user','role'));
+  //   this.store.select<any>('users').subscribe(data=>{
+  //     this.currentUser = data.authState.user
+  // })
+  
   }
 
+  ionViewWillEnter(){
+    this.currentUser = this.auth.getUser();
+  }
+
+  ionViewDidEnter(){
+    this.store.dispatch(new GetScheduledLessons())  
+  }
 
   ngOnInit(){
 
-
-  this.store.select<any>('users').subscribe(data=>{
-      this.currentUser = data.authState.user;
-      console.log(this.currentUser);
-      console.log(data.authState);
-    });
-
     
+  // this.store.select<any>('users').subscribe(data=>{
+  //     this.currentUser = data.authState.user;
+  //     console.log(this.currentUser);
+  //     console.log(data.authState);
+  //   });
+  
+
 
     
 

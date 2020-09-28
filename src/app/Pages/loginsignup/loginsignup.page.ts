@@ -3,8 +3,11 @@ import { Router } from '@angular/router';
 import { AppState, selectAuthState } from 'src/app/store/app.states';
 import { Store } from '@ngrx/store';
 import { User } from 'src/app/models/user';
-import { LogIn, SignUp } from 'src/app/store/actions/auth.actions';
-import { Observable } from 'rxjs';
+import { LogIn, LogInFailure, SignUp } from 'src/app/store/actions/auth.actions';
+import { Observable, of } from 'rxjs';
+import { catchError, retryWhen } from 'rxjs/operators';
+import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 // import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -16,25 +19,34 @@ export class LoginsignupPage implements OnInit {
 
   public flag: boolean;
   public position:string;
-  user:User = new User();
+  
   getState:Observable<any>;
-  username:string;
-  password:string;
-  public isError:boolean;
+
+  public isError:string;
   // @Output() onSignIn = new EventEmitter<string>();
-  constructor(private router: Router,private store:Store<AppState>) {}
-
-  ngOnInit() {
-    this.flag = true;
-    console.log(this.position);
-    console.log(this.user.role);
-
+  constructor(private router: Router,private store:Store<AppState>) {
     this.store.select<any>('users').subscribe(data=>{
       // this.currentUser = data.authState.user;
       // console.log(this.currentUser);
       console.log(data.authState);
       this.isError = data.authState.errorMessage;
+      console.log(this.isError);
+      if(this.isError!=null){
+      Swal.fire({
+        title:'Authentication Failed',
+        text:this.isError,
+        icon:'error'
+      }).then((val)=>{
+        console.log(val);
+      })
+    }
     });
+  }
+
+  ngOnInit() {
+    this.flag = true;
+    console.log(this.position);
+    
   };
 
   switchToSignUp(){
@@ -45,28 +57,12 @@ export class LoginsignupPage implements OnInit {
   }
 
 
-  login(){
-    const payload = {
-      email: this.user.email,
-      password:this.user.password,
-      role:this.user.role
-    }
-    this.store.dispatch(new LogIn(payload))
-  }
+  
 
 // login(){
 //   this.router.navigateByUrl('');
 // }
-  signUp(){
-    const payload = {
-      name: this.user.name,
-      mobilenumber:this.user.mobilenumber,
-      email:this.user.email,
-      password:this.user.password,
-      role:this.user.role
-    }
-    this.store.dispatch(new SignUp(payload))
-  }
+  
 
   // signUp(){
   //   const payload = {
@@ -97,13 +93,7 @@ export class LoginsignupPage implements OnInit {
   //   this.router.navigateByUrl('welcome');
   // }
 
-  selectposition(){
-    console.log(this.user.role);
-    console.log(this.user.name);
-    console.log(this.user.mobilenumber);
-    console.log(this.user.email);
-    console.log(this.user.password);
-  }
+  
 
 
 

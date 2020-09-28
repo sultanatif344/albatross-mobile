@@ -5,7 +5,6 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DayviewComponent } from './components/dayview/dayview.component';
@@ -23,19 +22,33 @@ import { InstructorloadService } from './services/instructorload.service';
 import { StudentEffects } from './studentstore/effects/student.effects';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TeacherFieldsModule } from './components/teacherfields/teacherfields.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools/src/instrument';
+import { environment } from 'src/environments/environment';
+import {TokenInterceptorService} from '../app/services/token-interceptor.service';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [
     // DayviewComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
     HttpClientModule,
     TeacherFieldsModule,
     EffectsModule.forRoot([StudentEffects]),   
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(reducers),
+    NgbModule
+    // StoreDevtoolsModule.instrument({
+    //   maxAge: 25, // Retains last 25 states
+    //   logOnly: environment.production, // Restrict extension to log-only mode
+    // })
   ],
   providers: [
     StatusBar,
@@ -46,8 +59,13 @@ import { TeacherFieldsModule } from './components/teacherfields/teacherfields.mo
     FormsModule,
     ReactiveFormsModule,
     authGuard,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:TokenInterceptorService,
+      multi:true
+    },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-
+    InAppBrowser    
   ],
   bootstrap: [AppComponent]
 })

@@ -8,7 +8,9 @@ import { LessonrequestPageRoutingModule } from './lessonrequest-routing.module';
 
 import { LessonrequestPage } from './lessonrequest.page';
 import { InstructordescriptionComponent } from 'src/app/components/instructordescription/instructordescription.component';
+import {TimepickerComponent} from '../../components/timepicker/timepicker.component'
 import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
+import {NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
   imports: [
@@ -16,8 +18,9 @@ import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
     FormsModule,
     IonicModule,
     LessonrequestPageRoutingModule,
+    NgbModule,
     SharedModule
   ],
-  declarations: [LessonrequestPage]
+  declarations: [LessonrequestPage, TimepickerComponent]
 })
 export class LessonrequestPageModule {}

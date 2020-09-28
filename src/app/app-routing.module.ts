@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'loginsignup',
-    loadChildren: () => import('../app/Pages/loginsignup/loginsignup.module').then( m => m.LoginsignupPageModule)
+    loadChildren: () => import('../app/Pages/loginsignup/loginsignup.module').then( m => m.LoginsignupPageModule),
   },
   {
     path: 'welcome',
@@ -37,7 +37,7 @@ const routes: Routes = [
     canActivate:[AuthGuard]
   },
   {
-    path: 'lessondetails',
+    path: 'lessondetails/:id',
     loadChildren: () => import('../app/Pages/lessondetails/lessondetails.module').then( m => m.LessondetailsPageModule),
     canActivate:[AuthGuard]
   },
@@ -81,7 +81,7 @@ const routes: Routes = [
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules,onSameUrlNavigation:"reload" })
   ],
   exports: [RouterModule] 
 })

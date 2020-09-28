@@ -43,7 +43,7 @@ export class RequestInstructor implements Action{
 
 export class RequestInstructorSuccess implements Action{
     readonly type = StudentActionTypes.REQUEST_INSTRUCTOR_SUCCESS
-    constructor(public payload:ScheduledLessons){}
+    constructor(public payload:Array<ScheduledLessons>){}
 }
 
 

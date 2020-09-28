@@ -25,3 +25,7 @@ ion-icon{
 .small-size{
     font-size: x-small;
 }
+
+.no-shadow{
+    --box-shadow: none;
+}

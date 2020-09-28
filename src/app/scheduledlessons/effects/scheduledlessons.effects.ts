@@ -1,34 +1,39 @@
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { ScheduledlessonsService } from 'src/app/services/scheduledlessons.service';
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { GetScheduledLessons, ScheduledLessonActionTypes, GetScheduledLessonsSuccess, GetScheduledLessonsFailure, ScheduledLessonsActions } from '../actions/scheduledlessons.actions';
 import { mergeMap, map, catchError, switchMap, take } from 'rxjs/operators';
 import { pipe, of, Observable } from 'rxjs';
 import { AppState } from '../../store/app.states';
 import { Store, select } from '@ngrx/store';
 import { ScheduledLessons } from 'src/app/models/scheduledlessons';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Injectable()
 
 export class ScheduledLessonsEffects{
-    token:any = () => {
-        let token;
-        this.store.select<any>('users').subscribe(data=>{
-            console.log(data.authState.user.token)
-            token = data.authState.user.token
-        })
-        return token
-    }
+    // token:any = () => {
+    //     let token;
+    //     this.store.select<any>('users').subscribe(data=>{
+    //         console.log(data.authState.user.token)
+    //         token = data.authState.user.token
+    //     })
+    //     return token
+    // }
     @Effect() getScheduledLessons$ = this.actions$
     .pipe(
       ofType(ScheduledLessonActionTypes.GET_LESSONS),
       mergeMap(
         () =>{  
             let test;
-            console.log(this.token(),'dsadsadsa')
-            test = this.scheduledLessonsService.getLessons(this.token())
-            console.log(test)
-            return test
+            // console.log(this.token(),'dsadsadsa')
+            return this.scheduledLessonsService.getLessons(this.auth.getToken())
+            .pipe(
+                map(data=>{
+                    return new GetScheduledLessonsSuccess(data)
+                }),
+                catchError(error=>of(new GetScheduledLessonsFailure(error)))
+            )
         } 
         //   .pipe(
         //      map(data => {
@@ -92,7 +97,7 @@ export class ScheduledLessonsEffects{
     // )
     
     constructor(private actions$:Actions,
-        private scheduledLessonsService:ScheduledlessonsService,private store:Store<AppState>){}
+        private scheduledLessonsService:ScheduledlessonsService,private store:Store<AppState>,private auth:AuthService, private zone:NgZone){}
 }
 
 

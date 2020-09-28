@@ -9,6 +9,8 @@ import { LoginsignupPageRoutingModule } from './loginsignup-routing.module';
 import { LoginsignupPage } from './loginsignup.page';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from 'src/app/store/effects/auth.effects';
+import { LoginComponent } from 'src/app/components/login/login.component';
+import { SignupComponent } from 'src/app/components/signup/signup.component';
 
 @NgModule({
   imports: [
@@ -18,6 +20,6 @@ import { AuthEffects } from 'src/app/store/effects/auth.effects';
     LoginsignupPageRoutingModule,
     EffectsModule.forFeature([AuthEffects]),
   ],
-  declarations: [LoginsignupPage]
+  declarations: [LoginsignupPage,LoginComponent,SignupComponent]
 })
 export class LoginsignupPageModule {}

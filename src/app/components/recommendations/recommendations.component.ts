@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { InstructorloadService } from 'src/app/services/instructorload.service';
@@ -14,12 +14,16 @@ import { Observable } from 'rxjs';
 export class RecommendationsComponent implements OnInit {
   currentUser: any;
   Instructor: Observable<any>;
-  @Input() InstructorDescription: Array<any>;
   id:string;
+  @Input() InstructorDescription:Array<any>;
+  @Input() searchResult: Array<any>;
   @Output() emittedId = new EventEmitter<string>()
-  constructor(private router:Router, private store:Store,private instructorService:InstructorloadService) { }
+  constructor(private router:Router, private store:Store,private instructorService:InstructorloadService) { 
+    console.log(this.InstructorDescription);
+  }
 
   ngOnInit() {
+    console.log(this.InstructorDescription);
   //   this.store.dispatch(new LoadInstructorList())
   //   this.store.select<any>(store => store).subscribe(data=>{
   //     // this.instructorService.loadInstructor(data.users.authState.user.token)
@@ -39,6 +43,14 @@ export class RecommendationsComponent implements OnInit {
   //     this.InstructorDescription=data.list.data
   //     console.log(this.InstructorDescription)
   //   })
+  }
+
+  ngOnChanges(){
+    // if(this.searchResult.length!=0){
+    //   this.InstructorDescription = this.searchResult
+    // }
+    // this.InstructorDescription = changes.;
+    // console.log(changes)
   }
 
 

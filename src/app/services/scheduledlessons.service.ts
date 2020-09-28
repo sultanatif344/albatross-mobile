@@ -13,7 +13,7 @@ export class ScheduledlessonsService {
 
   
   private LESSONS_URL ="https://albatross-v1.herokuapp.com/api/v1/lesson/getscheduledlesson"; 
-
+  private headers:HttpHeaders;
   constructor(private http: HttpClient, private store: Store<AppState>) {}
 
   token:any = () => {
@@ -30,18 +30,55 @@ export class ScheduledlessonsService {
     console.log(token, 'token')
     console.log('comning here')
           
-      let headers = new HttpHeaders({
+      this.headers = new HttpHeaders({
           'Content-Type': 'application/json',
           'Authorization': 'Bearer '+token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
       })    
-      const test = this.http.post<Array<ScheduledLessons>>(this.LESSONS_URL,null,{headers:headers})
-      console.log(test)
+      return this.http.post<Array<ScheduledLessons>>(this.LESSONS_URL,null,{headers:this.headers})
     //   var reqHeader = new HttpHeaders({ 
     //     'Content-Type': 'application/json',
     //     'Authorization': 'Bearer ' + )
     //  });
-      return test
+}
+
+getlessondetail(id:string,token:string):Observable<any>{
+  let lessondetail_URL = `https://albatross-v1.herokuapp.com/api/v1/lesson/${id}`
+  this.headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer '+token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+})
+  return this.http.get(lessondetail_URL,{headers:this.headers})
+  // 5f3fb384c1bc091d1cfcc64e
+}
+
+acceptOrDeclineLesson(id:string,payload:Object,token:string):Observable<any>{
+  let lessonstatus_URL = `https://albatross-v1.herokuapp.com/api/v1/lesson/lessonstatus/${id}`
+  this.headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer '+token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+})
+    return this.http.post(lessonstatus_URL,payload,{headers:this.headers})
+}
+
+
+getweekView(token:string,view:string,weekNo:Number):Observable<any>{
+  let lessonByWeek_URL = 'https://albatross-v1.herokuapp.com/api/v1/lesson/getlessonsbyView';
+  this.headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer '+token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+})
+return this.http.post<Array<Object>>(lessonByWeek_URL,{view:view,weekNo:weekNo},{headers:this.headers})
+}
+
+getDayView(token:string,view:string,dayNo:string,monthNo:string){
+  let lessonByWeek_URL = 'https://albatross-v1.herokuapp.com/api/v1/lesson/getlessonsbyView';
+  this.headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer '+token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+})
+return this.http.post<Array<Object>>(lessonByWeek_URL,{view:view,dayNo:dayNo,monthNo:monthNo},{headers:this.headers})
 }  
 }
+
 // data.authState.user.token   
 

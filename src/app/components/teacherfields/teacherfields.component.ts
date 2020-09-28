@@ -8,6 +8,8 @@ import { map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { convertActionBinding } from '@angular/compiler/src/compiler_util/expression_converter';
+import { AuthService } from 'src/app/services/auth.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import { } from 'protractor';
 
 @Component({
@@ -33,8 +35,8 @@ export class TeacherfieldsComponent implements OnInit {
   public slots:string;
   public timeslots:Array<string>=[];
   public instructorDescription:any;
-
-  constructor(private EditProfileService:EditProfileService,private store:Store<AppState>) { }
+  private selectedfile:File = null;
+  constructor(private EditProfileService:EditProfileService,private store:Store<AppState>, private auth:AuthService, private http:HttpClient) { }
 
   // @Output() nameEv=new EventEmitter<string>();
   // @Output() TimezoneEv=new EventEmitter<string>();
@@ -50,6 +52,47 @@ export class TeacherfieldsComponent implements OnInit {
   ngOnInit() {
     this.store.select<any>('instructor').subscribe(data=>{
       console.log(data)
+    })
+
+    
+  }
+
+  onFileSelected(event){
+    this.selectedfile = <File> event.target.files[0];
+      console.log(event)
+  }
+
+  UploadImageAndUpdateProfile(){
+    this.UploadFile();
+    // this.UpdateProfile();
+  }
+
+  UploadFile(){
+  //   const headers = new HttpHeaders( {
+  //     'Content-Type': 'application/json',
+  //     'Authorization': 'Bearer '+this.auth.getToken(),                    
+  //     'Access-Control-Allow-Origin': 'https://albatross-v1.herokuapp.com/api/v1/user/photo',
+  //     'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,PUT,PATCH,DELETE',
+  //     'Access-Control-Allow-Headers':  'X-Requested-With,content-type'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+  // })
+  let headers = new HttpHeaders();
+    headers = headers.set('Content-Type','application/json').set('Authorization','Bearer '+this.auth.getToken()).set('Access-Control-Allow-Origin','https://albatross-v1.herokuapp.com/api/v1/user/photo').set('Access-Control-Allow-Methods','GET,POST,OPTIONS,PUT,PATCH,DELETE').set('Access-Control-Allow-Headers','X-Requested-With,content-type');
+  // headers_object.append('Content-Type','application/json');
+  // headers_object.append('Authorization-Bearer',this.auth.getToken());
+  // headers_object.append('Access-Control-Allow-Origin','https://albatross-v1.herokuapp.com/api/v1/user/photo');
+  // headers_object.append('Access-Control-Allow-Methods','GET,POST,OPTIONS,PUT,PATCH,DELETE');
+  // headers_object.append('Access-Control-Allow-Headers','X-Requested-With,content-type')
+
+  console.log(this.auth.getToken());
+  // const httpOptions = {
+  //   headers:headers
+  // }
+    const fd = new FormData();
+    fd.append('file',this.selectedfile,this.selectedfile.name)
+    console.log(fd);
+    return this.http.put('https://albatross-v1.herokuapp.com/api/v1/user/photo',fd,{headers:headers})
+    .subscribe(res =>{
+      console.log(res);
     })
   }
   // /api/v1/instructor/:id
@@ -118,14 +161,13 @@ export class TeacherfieldsComponent implements OnInit {
       rate:parseInt(this.rates)
       }
     }
-    this.store.select<any>('users').subscribe(data=>{
-      this.EditProfileService.EditProfile(this.instructorDescription,data.authState.user.token)
+    this.store.select<any>('users').subscribe(data=>{})
+      this.EditProfileService.EditTeacherProfile(this.instructorDescription,this.auth.getToken())
       .subscribe(data=>{
         console.log(data);
         this.store.dispatch(new EditInstructorProfileSuccessAction(data))
       })
       catchError(error=>of(new EditInstructorProfileFailureAction(error))) 
-    })
     
   }
 

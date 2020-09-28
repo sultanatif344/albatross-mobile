@@ -28,11 +28,7 @@ export function AuthReducer(state:UserState = initialState,action:AuthActions){
             
             return{
                 ...state,
-                isAuthenticated:true,
-                user:{
-                    token: action.payload.token,
-                    email: action.payload.email
-                },
+                isAuthenticated:false,
                 errorMessage: null
             }
 
@@ -53,8 +49,7 @@ export function AuthReducer(state:UserState = initialState,action:AuthActions){
         case AuthActionTypes.LOGIN_FAILURE:{
             return{
                 ...state,
-                isAuthenticated:false,
-                errorMessage: 'Incorrect email or password'
+                errorMessage: action.payload.error.error,
             }
         }
 
@@ -85,6 +80,14 @@ export function AuthReducer(state:UserState = initialState,action:AuthActions){
             },
             errorMessage:null
         }
+        }
+
+        case AuthActionTypes.SIGNUP_FAILURE:{
+            return{
+                ...state,
+                isAuthenticated:false,
+                errorMessage:action.payload.error.error,
+            }
         }
         default:{
             return state;
