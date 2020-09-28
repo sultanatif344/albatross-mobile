@@ -4,10 +4,16 @@ import { NavController } from '@ionic/angular';
 import { GetScheduledLessons } from 'src/app/scheduledlessons/actions/scheduledlessons.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.states';
+<<<<<<< HEAD
 import { NgbCalendar, NgbDate, NgbDatepicker, NgbDatepickerConfig, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
 import { ScheduledlessonsService } from 'src/app/services/scheduledlessons.service';
 import { AuthService } from 'src/app/services/auth.service';
+=======
+import { ModalController } from '@ionic/angular';
+import { ScheduledlessonsService } from 'src/app/services/scheduledlessons.service';
+// import { CalendarModal, CalendarModalOptions } from 'ion2-calendar';
+>>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
 // import { App } from '@ionic/angular'
 
 @Component({
@@ -25,6 +31,7 @@ export class Tab1Page {
   public showScheduleBar:boolean;
   public SearchBarVisible:boolean;
   public showBackButton:boolean;
+<<<<<<< HEAD
   public selectedDays: Array<number>;
   public fromDate: NgbDate;
   public toDate: NgbDate;
@@ -53,6 +60,13 @@ export class Tab1Page {
     }
 
 
+=======
+  public calendar_is_active:boolean
+  public id?:string;
+  public weekViewLessons:Array<Object>;
+  public dayViewLessons:Array<Object>;
+  constructor(private router: Router, private navController: NavController, private store:Store<AppState>,private scheduledLessonsService:ScheduledlessonsService) {}
+>>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
 
 
   public hideOverlay() {
@@ -66,6 +80,7 @@ export class Tab1Page {
   ngOnInit(){
     this.flag = true;
     this.showScheduleBar = true;
+<<<<<<< HEAD
      
     console.log(this.date)
     this.setView();
@@ -85,19 +100,40 @@ export class Tab1Page {
     // this.scheduledLessonsService.getLessons(this.auth.getToken()).subscribe(data=>{
     //   this.dayArray = data;
     // })    
+=======
+      this.store.dispatch(new GetScheduledLessons())
+    // this.calendar_is_active
+    // console.log(this.date);
+>>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
   }
   setFlag(event){
     this.flag = event;
     this.view = 'day';
     console.log(event);
+    this.store.select<any>('users').subscribe(data=>{
+      this.scheduledLessonsService.getDayView(data.authState.user.token,"day","2","1")
+      .subscribe(data=>{
+        this.dayViewLessons = data
+        console.log(this.dayViewLessons);
+      })
+    })
   }
   unsetFlag(event){
     this.view = 'week';
     this.flag = event;
+    this.store.select<any>('users').subscribe(data=>{
+    this.scheduledLessonsService.getweekView(data.authState.user.token,"week","2")
+    .subscribe(data=>{
+      this.weekViewLessons = data.data
+      console.log(this.weekViewLessons);
+    })
+  })
   }
-  navigateToLessonDetailPage(){
-    this.router.navigateByUrl("lessondetails");
+
+  activateCalendar(event){
+    this.calendar_is_active = event;
   }
+<<<<<<< HEAD
 
   navigateEvent($event){
     console.log(this.date);
@@ -201,4 +237,19 @@ getDates(startDate, endDate) {
   //     day:selectedDay
   //   }
   // }
+=======
+ 
+  // navigateToLessonDetailPage(id:string){
+  //   this.router.navigateByUrl(`/lessondetails/${id}`);
+  // }
+
+  // onChange($event) {
+  // this.date = new Date($event);
+  // console.log(this.date);    
+  // }
+
+  getweekLessons(){
+
+  }  
+>>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
 }

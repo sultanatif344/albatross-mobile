@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/app.states';
 import { ScheduledLessons } from '../models/scheduledlessons';

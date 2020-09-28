@@ -16,8 +16,15 @@ import { ScheduledLessonsEffects } from 'src/app/scheduledlessons/effects/schedu
 import { StoreModule } from '@ngrx/store';
 import { scheduledLessonsReducer } from 'src/app/scheduledlessons/reducers/scheduledlessons.reducer';
 import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
+<<<<<<< HEAD
 import { CalendarModule } from 'ion2-calendar';
 import { NgbDateStruct, NgbCalendar, NgbDatepicker, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+=======
+import { CalendarComponent } from 'src/app/components/calendar/calendar.component';
+// import { CalendarModule } from 'ion2-calendar';
+// import {CalendarModule} from 'ion2-calendar'
+
+>>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
 // import { DayviewComponent } from '../components/dayview/dayview.component';
 
 @NgModule({
@@ -28,10 +35,15 @@ import { NgbDateStruct, NgbCalendar, NgbDatepicker, NgbModule } from '@ng-bootst
     // ExploreContainerComponentModule,
     CalendarModule,
     Tab1PageRoutingModule,
+    // CalendarModule,
     StoreModule.forFeature('scheduledlessons',scheduledLessonsReducer),
     EffectsModule.forFeature([ScheduledLessonsEffects]),
     SharedModule,
+<<<<<<< HEAD
     NgbModule
+=======
+    // CalendarModule
+>>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
   ],
   // entryComponents:[DayviewComponent],
   declarations: [Tab1Page,
@@ -41,6 +53,10 @@ import { NgbDateStruct, NgbCalendar, NgbDatepicker, NgbModule } from '@ng-bootst
     RequestnotificationsComponent,
     DayviewComponent,
     WeekviewComponent,
+<<<<<<< HEAD
+=======
+    CalendarComponent
+>>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
   ]
 })
 export class Tab1PageModule {}

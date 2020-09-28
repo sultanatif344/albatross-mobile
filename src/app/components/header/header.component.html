@@ -7,6 +7,7 @@
           <ion-icon class="ion-margin-top space-between primary" name="calendar"></ion-icon>
           <ion-text class=" text-primary space-between"><h1>July</h1></ion-text>
           <ion-text class="text-primary ion-margin-top"><h6>2020</h6></ion-text>
+          <!-- <ion-button color="light" class="ion-margin-vertical" (click)="ActivateCalendar()"></ion-button> -->
         </ion-row>
       </ion-col>
       <ion-col>
@@ -32,7 +33,11 @@
       <ion-card style=" width:250px; height:40px;" class="ion-margin-top" *ngIf="SearchBarVisible">
         <ion-row>
            <ion-input placeholder="Search For Instructors" class="ion-margin-bottom" [(ngModel)]="name" ngDefaultControl></ion-input>
+<<<<<<< HEAD
            <ion-button fill="clear" (click)="SearchInstructor()">
+=======
+           <ion-button fill="clear" (click)="search()">
+>>>>>>> 4c48c2352ffab196cd42a3aa6952defc6c84529c
            <ion-icon name="search" color="success" style="margin-bottom:25px"></ion-icon>  
           </ion-button>
           </ion-row>
