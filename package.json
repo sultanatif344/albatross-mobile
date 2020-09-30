@@ -33,8 +33,9 @@
     "@ngrx/store-devtools": "^10.0.0",
     "angularfire2": "^5.4.2",
     "bootstrap": "^4.5.0",
-    "cordova-android": "9.0.0",
+    "cordova-android": "^8.1.0",
     "cordova-plugin-inappbrowser": "^4.0.0",
+    "cordova-support-google-services": "1.4.1",
     "firebase": "^7.21.1",
     "ion2-calendar": "^3.0.0-rc.0",
     "jquery": "^3.5.1",
@@ -90,7 +91,8 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-inappbrowser": {}
+      "cordova-plugin-inappbrowser": {},
+      "cordova-support-google-services": {}
     },
     "platforms": [
       "android"

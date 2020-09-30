@@ -36,6 +36,7 @@ export class TeacherfieldsComponent implements OnInit {
   public timeslots:Array<string>=[];
   public instructorDescription:any;
   private selectedfile:File = null;
+  public image_source:string;
   constructor(private EditProfileService:EditProfileService,private store:Store<AppState>, private auth:AuthService, private http:HttpClient) { }
 
   // @Output() nameEv=new EventEmitter<string>();
@@ -50,7 +51,7 @@ export class TeacherfieldsComponent implements OnInit {
  
 
   ngOnInit() {
-    this.store.select<any>('instructor').subscribe(data=>{
+    this.store.select(store=>store).subscribe(data=>{
       console.log(data)
     })
 
@@ -76,7 +77,10 @@ export class TeacherfieldsComponent implements OnInit {
   //     'Access-Control-Allow-Headers':  'X-Requested-With,content-type'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
   // })
   let headers = new HttpHeaders();
-    headers = headers.set('Content-Type','application/json').set('Authorization','Bearer '+this.auth.getToken()).set('Access-Control-Allow-Origin','https://albatross-v1.herokuapp.com/api/v1/user/photo').set('Access-Control-Allow-Methods','GET,POST,OPTIONS,PUT,PATCH,DELETE').set('Access-Control-Allow-Headers','X-Requested-With,content-type');
+    headers = headers
+      .set('Content-Type','multipart/form-data')
+      .set('Authorization','Bearer '+this.auth.getToken());
+      //.set('Accept', '');
   // headers_object.append('Content-Type','application/json');
   // headers_object.append('Authorization-Bearer',this.auth.getToken());
   // headers_object.append('Access-Control-Allow-Origin','https://albatross-v1.herokuapp.com/api/v1/user/photo');
@@ -87,12 +91,15 @@ export class TeacherfieldsComponent implements OnInit {
   // const httpOptions = {
   //   headers:headers
   // }
+  console.log(this.selectedfile);
     const fd = new FormData();
-    fd.append('file',this.selectedfile,this.selectedfile.name)
+    console.log(this.selectedfile);
+    fd.append('file',this.selectedfile)
     console.log(fd);
-    return this.http.put('https://albatross-v1.herokuapp.com/api/v1/user/photo',fd,{headers:headers})
-    .subscribe(res =>{
-      console.log(res);
+    // this.http.get("https://albatross-v1.herokuapp.com/api/v1/instructor", {headers: headers}).subscribe(r=>console.log(r));
+    return this.http.post('https://albatross-v1.herokuapp.com/api/v1/user/photo',fd)
+    .subscribe((res:any) =>{
+      this.image_source = res.url;
     })
   }
   // /api/v1/instructor/:id

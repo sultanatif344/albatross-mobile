@@ -24,10 +24,7 @@ export class LessondetailsPage implements OnInit {
 
   ngOnInit() {
     this.router.params.subscribe(async data=>{
-      console.log(data);
-      this.callerId = data.id;
-      console.log(this.callerId);
-    this.displaylessonsdetails(this.callerId)
+    this.displaylessonsdetails(data.id)
     })
     
     this.callIsActive = false;
@@ -46,6 +43,13 @@ export class LessondetailsPage implements OnInit {
     .subscribe( data=>{
       this.selectedLessonDetail= data.data;
       console.log(this.selectedLessonDetail);
+      if(this.auth.getUser().role==="instructor"){
+        this.callerId = this.selectedLessonDetail.lessonAssignedTo._id
+        console.log(this.callerId);
+      }
+      else if(this.auth.getUser().role==="student"){
+        this.callerId = this.selectedLessonDetail.lessonAssignedBy._id
+      }
     })
   }
 

@@ -39,17 +39,18 @@ export class VideocallComponent implements OnInit {
     this.friendsVideo = document.querySelector('#friendsVideo');
     this.yourVideo  = document.querySelector('#yourVideo');
 
-    
+    this.showMyFace()
+    this.showFriendsFace(this.pc);
   }
 
   ngOnInit() {
     console.log(this.id); 
-    this.servers = {'iceServers': [{'urls': 'stun:stun.services.mozilla.com'}, {'urls': 'stun:stun.l.google.com:19302'}]};
+    this.servers = {'iceServers': [{'urls': 'stun:stun.services.mozilla.com'}, {'urls': 'stun:stun.l.google.com:19302'},{'urls': 'turn:numb.viagenie.ca','credential': 'webrtc','username': 'websitebeaver@mail.com'}]};
     console.log(this.servers);
     console.log(this.id);
     this.yourId = this.id;
     console.log(this.yourId);
-     this.pc = new RTCPeerConnection(this.servers);
+    this.pc = new RTCPeerConnection(this.servers);
     this.pc.onicecandidate = (event => event.candidate?this.sendMessage(this.yourId, JSON.stringify({'ice': event.candidate})):console.log('Sent all Ice'))
     // this.pc.ontrack = (stream => this.friendsVideo.srcObject = stream[0] )
     this.pc.ontrack = e => this.friendsVideo.srcObject = e.streams[0];
@@ -59,8 +60,8 @@ export class VideocallComponent implements OnInit {
     console.log(senderId);
     this.database.push({ sender: senderId, message: data})
     .then(()=>console.log("data sent"))
-    // .then(()=>this.database.remove())
-    // .then(()=> console.log("child removed"))
+    .then(()=>this.database.remove())
+    .then(()=> console.log("child removed"))
   }
 
 
@@ -101,9 +102,13 @@ export class VideocallComponent implements OnInit {
   
 showMyFace(){
   navigator.mediaDevices.getUserMedia({audio:true, video:true})
-  .then(stream => this.yourVideo.srcObject = stream)
+  .then(stream => {
+    this.yourVideo.srcObject = stream
+    for(const track of stream.getTracks()){
+      this.pc.addTrack(track)
+    }
+  })
   .then(()=>console.log("code being called"))
-  .then(stream => this.pc.addTrack(stream[0]));
 }
 
 showFriendsFace(pc:RTCPeerConnection){
@@ -124,7 +129,7 @@ showFriendsFace(pc:RTCPeerConnection){
     this.yourId =  id;
     console.log(this.yourId);
     console.log(id);
-    // {'urls': 'turn:numb.viagenie.ca','credential': 'webrtc','username': 'websitebeaver@mail.com'}
+
     
       
     

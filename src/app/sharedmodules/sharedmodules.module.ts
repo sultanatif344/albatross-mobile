@@ -8,7 +8,7 @@ import { DetailsOflessonsComponent } from '../components/details-oflessons/detai
 import { InstructordescriptionComponent } from '../components/instructordescription/instructordescription.component';
 import { CalendarComponentModule } from '../components/calendar/calendar.module';
 import { CalendarComponent } from '../components/calendar/calendar.component';
-import { CalendarModule } from 'ion2-calendar';
+// import { CalendarModule } from 'ion2-calendar';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgbDateStruct, NgbCalendar, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
 // import { CustomerComponent } from './customer.component';

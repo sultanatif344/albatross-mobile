@@ -22,5 +22,5 @@
   </ion-title>
 <!-- <app-lessondetails></app-lessondetails> -->
 <app-details-oflessons [lessonDetail]="selectedLessonDetail" (callingEvent)="setCallActiveState($event)"></app-details-oflessons>
-<app-videocall [callIsActive]="callIsActive" [id]="callerId"></app-videocall>
+<app-videocall *ngIf="callIsActive" [id]="callerId"></app-videocall>
 </ion-content>
