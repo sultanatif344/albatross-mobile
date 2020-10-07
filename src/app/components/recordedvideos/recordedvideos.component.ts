@@ -29,11 +29,11 @@ export class RecordedvideosComponent implements OnInit {
 
   getVideos(){
     if(this.auth.getUser().role==="instructor"){
-      this.firebaseService.filterByName('VideoBy',this.auth.getUser().name,this.lessonDetail);
+      this.firebaseService.filterByName('VideoBy',this.auth.getUser().id,this.lessonDetail);
       console.log(this.lessonDetail);
     }
     else{
-      var studentVideos = this.firebaseService.filterByName("VideoFor",this.auth.getUser().name,this.lessonDetail);
+      var studentVideos = this.firebaseService.filterByName("VideoFor",this.auth.getUser().id,this.lessonDetail);
     }
   }
   

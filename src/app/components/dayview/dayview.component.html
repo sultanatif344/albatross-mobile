@@ -7,7 +7,7 @@
     <ion-row>
       
     <ion-col>
-      <ion-text color="dark"><h2 class="bold">{{scheduledlessons.lessonStartTime}}</h2></ion-text>
+      <ion-text color="dark"><h2 class="bold">{{scheduledlessons.lessonStartTime | date: "h:mm a"}}</h2></ion-text>
     </ion-col>
     <ion-col size="8">
       <ion-text color="dark" *ngIf="user?.role === 'student'"><p class="bold">{{scheduledlessons.lessonAssignedTo.name}}</p></ion-text>
@@ -20,7 +20,7 @@
     
     <ion-row>
       <ion-col>
-      <ion-text color="dark"><h2 class="bold">{{scheduledlessons.lessonEndTime}}</h2></ion-text>
+      <ion-text color="dark"><h2 class="bold">{{scheduledlessons.lessonEndTime | date: "h:mm a"}}</h2></ion-text>
     </ion-col>
 
     <ion-col size="8">
