@@ -23,6 +23,10 @@ const routes: Routes = [
         path: 'settings',
         loadChildren: () => import('../../Pages/settings/settings.module').then(m => m.SettingsPageModule)
       },
+      {
+        path: 'recordedlectures',
+        loadChildren: () => import('../../Pages/recordedlectures/recordedlectures.module').then(m => m.RecordedlecturesPageModule)
+      },
       // {
       //   path: 'instructor-dashboard',
       //   loadChildren: () => import('../../Pages/instructor-dashboard/instructor-dashboard.module').then(m => m.InstructorDashboardPageModule)

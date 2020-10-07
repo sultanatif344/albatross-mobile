@@ -7,14 +7,18 @@ import { IonicModule } from '@ionic/angular';
 import { RecordedlecturesPageRoutingModule } from './recordedlectures-routing.module';
 
 import { RecordedlecturesPage } from './recordedlectures.page';
+import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
+import { RecordedvideosComponent } from 'src/app/components/recordedvideos/recordedvideos.component';
+import { CommentsComponent } from 'src/app/components/comments/comments.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RecordedlecturesPageRoutingModule
+    RecordedlecturesPageRoutingModule,
+    SharedModule,
   ],
-  declarations: [RecordedlecturesPage]
+  declarations: [RecordedlecturesPage,RecordedvideosComponent,CommentsComponent]
 })
 export class RecordedlecturesPageModule {}

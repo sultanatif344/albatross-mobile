@@ -40,7 +40,9 @@ export function AuthReducer(state:UserState = initialState,action:AuthActions){
             user:{
                 token:action.payload.token,
                 email: action.payload.email,
-                role:action.payload.role
+                role:action.payload.role,
+                name:action.payload.name,
+                id:action.payload._id
             },
             errorMessage:null
         }
@@ -64,7 +66,7 @@ export function AuthReducer(state:UserState = initialState,action:AuthActions){
                     email:action.payload.email,
                     role:action.payload.role,
                     password:action.payload.password,
-                    name:action.payload.name,
+                    name:action.payload.name
                 
                 }
             }
@@ -76,7 +78,9 @@ export function AuthReducer(state:UserState = initialState,action:AuthActions){
             user:{
                 token:action.payload.token,
                 email: action.payload.email,
-                role:action.payload.role
+                role:action.payload.role,
+                name:action.payload.name,
+                id:action.payload._id
             },
             errorMessage:null
         }

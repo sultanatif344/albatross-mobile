@@ -1,0 +1,20 @@
+<ion-grid>
+  <ion-row *ngFor="let recordings of lessonDetail;let i = index">
+    <ion-col>
+      <div id="video_container">
+        <ion-text color="success"><h1>{{recordings.CreatedDate}}</h1></ion-text>
+    <ion-card>
+      <video src="{{recordings.VideoLink}}" controls></video>
+      <ion-card-header>
+        <!-- <a>{{lessonDetail.length}} Comments</a> -->
+      </ion-card-header>
+      <ion-card-content class="ion-no-padding">
+        <ion-button size="small" color="light" (click)="unhideCommentSection(recordings)">Comment</ion-button>
+        <ion-button size="small" color="light">Download</ion-button>
+      </ion-card-content>
+      <app-comments *ngIf="videoId===recordings.VideoId"[videoId]="videoId"></app-comments>
+    </ion-card>
+    </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

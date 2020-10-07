@@ -57,4 +57,8 @@ export class LessondetailsPage implements OnInit {
     this.callIsActive = event;
   }
 
+  onCallEnded(event){
+      this.callIsActive = event;
+  }
+
 }

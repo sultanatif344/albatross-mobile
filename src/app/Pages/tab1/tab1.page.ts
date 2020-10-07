@@ -79,6 +79,7 @@ export class Tab1Page {
     this.toDate = new NgbDate(year,month,day+5);
     // console.log(this.calendar.getWeekNumber();
     this.dates = this.getDates(new Date(this.fromDate.year,this.fromDate.month-1,this.fromDate.day), new Date(this.toDate.year,this.toDate.month-1,this.toDate.day));
+    
     this.store.select<any>('scheduledlessons').subscribe((data)=>{
       this.dayArray = data.list.data
       console.log(this.dayArray);

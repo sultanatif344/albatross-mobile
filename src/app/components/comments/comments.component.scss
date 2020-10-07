@@ -1,0 +1,19 @@
+ion-card{
+    background: white;
+}
+ion-input{
+    background-color: whitesmoke;
+    border: none;
+    border-radius: 5%;
+}
+
+ion-icon{
+    position: absolute;
+    left: 250px;
+    z-index: 3;
+}
+
+#no-shadow{
+    box-shadow:none;
+    background-color: whitesmoke;
+}

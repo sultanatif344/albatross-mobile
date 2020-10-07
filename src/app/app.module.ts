@@ -29,6 +29,7 @@ import { environment } from 'src/environments/environment';
 import {TokenInterceptorService} from '../app/services/token-interceptor.service';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import {AngularFireStorageModule} from 'angularfire2/storage';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [
@@ -44,7 +45,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     TeacherFieldsModule,
     EffectsModule.forRoot([StudentEffects]),   
     StoreModule.forRoot(reducers),
-    NgbModule
+    NgbModule,
+    AngularFireStorageModule
     // StoreDevtoolsModule.instrument({
     //   maxAge: 25, // Retains last 25 states
     //   logOnly: environment.production, // Restrict extension to log-only mode

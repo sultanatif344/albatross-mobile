@@ -65,11 +65,12 @@ const routes: Routes = [
     loadChildren: () => import('./instructoraccounts/instructoraccounts.module').then( m => m.InstructoraccountsPageModule),
     canActivate:[AuthGuard]
   },
+
   // {
   //   path: 'recordedlectures',
   //   loadChildren: () => import('./pages/recordedlectures/recordedlectures.module').then( m => m.RecordedlecturesPageModule),
   //   canActivate:[AuthGuard]
-  // },
+  // }
   // {
   //   path: 'tabs',
   //   loadChildren: () => import('tabs.module').then( m => m.TabsPageModule)

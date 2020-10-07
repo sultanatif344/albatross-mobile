@@ -9,7 +9,9 @@ export class RecordedlecturesPage implements OnInit {
 
   constructor() { }
 
+  title:string;
   ngOnInit() {
+    this.title = "Recordings";
   }
 
 }

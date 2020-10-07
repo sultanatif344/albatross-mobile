@@ -23,7 +23,7 @@ LogIn:Observable<any> = this.actions.pipe(
         return this.authService.logIn(payload.email,payload.password).pipe(
         map((user:any)=>{
             console.log(user);
-            return new LogInSuccess({token: user.token,email:user.user.email, role:user.user.role})
+            return new LogInSuccess({token: user.token,email:user.user.email, role:user.user.role, name:user.user.name, id:user.user._id})
         }),
         catchError(err=>{
             console.log(err)
@@ -76,7 +76,7 @@ SignUp:Observable<any> = this.actions.pipe(
             map(
                 ((user:any)=>{
                     console.log(user);
-                    return new SignUpSuccess({token:user.token,email:user.user.email,role:user.user.role});
+                    return new SignUpSuccess({token:user.token,email:user.user.email,role:user.user.role,name:user.user.name, id:user.user._id});
                 })
             ),
             catchError(err=>{

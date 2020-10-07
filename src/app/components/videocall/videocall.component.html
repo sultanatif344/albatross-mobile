@@ -1,9 +1,21 @@
 <div>
-  <video  id="yourVideo" autoPlay muted="true"></video>
-  <video id="friendsVideo" autoplay>
+  <video id="me" controls autoplay #remote></video>
+  <video id="remote" controls autoplay #me>
       
   </video>
   <br />
-  <ion-button color="danger"><ion-icon name="call-outline"></ion-icon></ion-button>
+  <ion-row>
+    <ion-col>
+      <ion-button color="danger" *ngIf="role==='instructor'&&!recordingActive" (click)="successCallback(localStream);activateRecording()">Record</ion-button>
+      <ion-button color="success" *ngIf="recordingActive" (click)="stopRecording()">Stop Recording</ion-button>   
+    </ion-col>
+    <ion-col>
+      <ion-icon name="videocam-outline" id="VideoOn" (click)="turnOnVideo()"></ion-icon>    
+    </ion-col>
+  <ion-button color="danger" (click)="endCall()"><ion-icon name="call-outline" id="CallOn"></ion-icon></ion-button>
+  <ion-col>
+  <ion-icon name="mic-outline" id="AudioOn" (click)="turnOnAudio()"></ion-icon>
+</ion-col>
+</ion-row>
   <!-- <ion-button (click)="showFriendsFace()" type="button"> Call</ion-button> -->
 </div>
