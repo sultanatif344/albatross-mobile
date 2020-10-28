@@ -12,14 +12,16 @@ export class CommentsComponent implements OnInit {
   public message:string;
   @Input() videoId:string;
   public comments:Array<Object>=[{}];
+  public newComments:Array<Object>=[{}];
   constructor(private firebaseService:FirebaseService,private authService:AuthService) { 
+    
   }
 
   ngOnInit() {
     if(this.videoId!=undefined){
-    this.firebaseService.filterCommentsByVideo('videoId',this.videoId,this.comments);
-    console.log(this.comments);
-  }
+      this.firebaseService.filterCommentsByVideo('videoId',this.videoId,this.comments);
+      this.newComments = this.comments.filter(val=>Object.keys(val).length!=0);
+    }
   }
 
    AddComments(){

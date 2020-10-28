@@ -20,12 +20,15 @@ export class Tab2Page {
   public Instructor:Observable<any>;
   public InstructorDescription:Array<Object>
   public searchResult:Array<Object>;
+  public loading:boolean;
   constructor(private navController:NavController, private router:Router,private store:Store<AppState>, private instructorService:InstructorloadService,private auth:AuthService) {
     this.store.dispatch(new LoadInstructorList())
     this.store.select<any>(store => store).subscribe(data=>{
       // this.instructorService.loadInstructor(data.users.authState.user.token)
       console.log(data);
       this.currentUser = this.auth.getUser();
+      this.loading = data.scheduledlessons.loading;
+      console.log();
       // this.instructorService.loadInstructor(data.users.authState.user.token);
     })
     this.instructorService.loadInstructor(this.currentUser.token,'').subscribe(data=>{

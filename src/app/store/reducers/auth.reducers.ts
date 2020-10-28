@@ -7,6 +7,7 @@ export interface UserState{
     isAuthenticated:boolean;
     user?: User;
     token:string;
+    loading:boolean;
     errorMessage?:string;
 }
 
@@ -14,6 +15,7 @@ export const initialState:UserState = {
     isAuthenticated:false,
     user:null,
     token:null,
+    loading:false,
     errorMessage:null
 }
 
@@ -29,6 +31,7 @@ export function AuthReducer(state:UserState = initialState,action:AuthActions){
             return{
                 ...state,
                 isAuthenticated:false,
+                loading:true,
                 errorMessage: null
             }
 
@@ -42,8 +45,10 @@ export function AuthReducer(state:UserState = initialState,action:AuthActions){
                 email: action.payload.email,
                 role:action.payload.role,
                 name:action.payload.name,
-                id:action.payload._id
+                id:action.payload._id,
+                photo:action.payload.photo
             },
+            loading:false,
             errorMessage:null
         }
 
@@ -68,7 +73,8 @@ export function AuthReducer(state:UserState = initialState,action:AuthActions){
                     password:action.payload.password,
                     name:action.payload.name
                 
-                }
+                },
+                loading: true
             }
         }
         case AuthActionTypes.SIGNUP_SUCCESS:{
@@ -80,8 +86,10 @@ export function AuthReducer(state:UserState = initialState,action:AuthActions){
                 email: action.payload.email,
                 role:action.payload.role,
                 name:action.payload.name,
-                id:action.payload._id
+                id:action.payload._id,
+                photo:action.payload.photo
             },
+            loading: false,
             errorMessage:null
         }
         }

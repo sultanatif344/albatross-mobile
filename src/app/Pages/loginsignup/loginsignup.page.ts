@@ -19,17 +19,20 @@ export class LoginsignupPage implements OnInit {
 
   public flag: boolean;
   public position:string;
-  
+  public loading:boolean;
   getState:Observable<any>;
 
   public isError:string;
   // @Output() onSignIn = new EventEmitter<string>();
   constructor(private router: Router,private store:Store<AppState>) {
+    this.loading = false;
     this.store.select<any>('users').subscribe(data=>{
       // this.currentUser = data.authState.user;
       // console.log(this.currentUser);
       console.log(data.authState);
       this.isError = data.authState.errorMessage;
+      this.loading = data.authState.loading;
+      console.log(this.loading);
       console.log(this.isError);
       if(this.isError!=null){
       Swal.fire({
@@ -88,6 +91,10 @@ export class LoginsignupPage implements OnInit {
       this.router.navigateByUrl('welcome')
 }
 
+
+showLoadingOverlay(loading:boolean){
+  return loading
+}
   // navigateToWelcome(){
   //   this.onSignIn.emit(this.position);
   //   this.router.navigateByUrl('welcome');

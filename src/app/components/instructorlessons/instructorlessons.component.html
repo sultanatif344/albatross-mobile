@@ -1,19 +1,52 @@
 <ion-grid>
-  <ion-row *ngFor="let lessons of requestedlessons">
-    <ion-col>
+  <div>
+  <ion-row>
+    <ion-col  *ngFor="let lessons of requestedlessons">
       <ion-card *ngIf="lessons!=null">
   <ion-card-content>
     <ion-card-subtitle>
-      <h6 style="font-size: small;">Online Lessons Available > OBS >Verified</h6>
+      <ion-text>
+        <h4>
+         Lesson Date: {{lessons.lessonDate | date:"dd-mm-yyyy"}}
+         </h4>
+      </ion-text>  
     </ion-card-subtitle>
     <ion-card-title>
+    <ion-row class="ion-margin-vertical">
+      <img src="{{lessons.lessonAssignedBy.photo}}" width="30px" height="30px"/>
     <h1 class="ion-margin-start">{{lessons.lessonAssignedBy.name}}</h1>
+  </ion-row>
   </ion-card-title>
+  <ion-row class="ion-margin-vertical">
     <ion-text>
       <p>
+       Details:
+      </p>
+    </ion-text>
+
+    <ion-text>
+      <p style="margin-left: 5px;">
        {{lessons.description}}
       </p>
     </ion-text>
+  </ion-row>
+  <ion-row class="ion-margin-vertical">
+    <ion-text>
+      <p>
+       Time:
+      </p>
+    </ion-text>
+    <ion-text style="margin-left: 5px;">
+      <p>
+       {{lessons.lessonStartTime | date: "h:mm a"}} To
+      </p>
+    </ion-text>
+    <ion-text>
+      <p style="margin-left: 2px;">
+        {{lessons.lessonEndTime | date: "h:mm a"}}
+      </p>
+    </ion-text>
+  </ion-row>
     <ion-row>
       <ion-button color="success"(click)="acceptLesson(lessons)">Accept</ion-button>
       <ion-button color="danger"(click)="declineLesson(lessons)">Reject</ion-button>
@@ -24,31 +57,5 @@
 </ion-card>
 </ion-col>
 </ion-row>
-
-
-<!-- <ion-row>
-<ion-col>
-<ion-card>
-<ion-card-content>
-<ion-card-subtitle>
-<h6 style="font-size: small;">Online Lessons Available > OBS >Verified</h6>
-</ion-card-subtitle>
-<ion-card-title>
-<h1 class="ion-margin-start">Jessica Haines</h1>
-</ion-card-title>
-<ion-text>
-<p>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-</p>
-</ion-text>
-<ion-row>
-<ion-button color="success">Accept</ion-button>
-<ion-button color="danger">Reject</ion-button>
-<ion-label style="margin-left: 160px; background: darkgreen;" color="light">$20</ion-label> -->
-
-<!-- </ion-row>
-</ion-card-content>
-</ion-card>
-</ion-col>
-</ion-row>  -->
+</div>
 </ion-grid>

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
+
 
 @Component({
   selector: 'app-recordedvideos',
@@ -10,9 +11,11 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 })
 export class RecordedvideosComponent implements OnInit {
 
-  lessonDetail:Array<Object>=[{}];
+  public lessonDetail:Array<Object>=[{}];
+  public videoDetail:Array<Object>=[{}];
   unHideComments:Boolean;
   videoId:string;
+  @Output() saveEvent = new EventEmitter<any>();
   constructor(private firebaseService:FirebaseService,private auth:AuthService) {
     this.getVideos();
     this.unHideComments = false;
@@ -23,18 +26,24 @@ export class RecordedvideosComponent implements OnInit {
   }
 
   unhideCommentSection(VideoId:any){
+    console.log(VideoId);
     this.videoId = VideoId.VideoId
     this.unHideComments = !this.unHideComments;
   }
 
   getVideos(){
     if(this.auth.getUser().role==="instructor"){
-      this.firebaseService.filterByName('VideoBy',this.auth.getUser().id,this.lessonDetail);
+      this.firebaseService.filterByName('VideoBy',this.auth.getUser().id,this.lessonDetail)
       console.log(this.lessonDetail);
     }
     else{
       var studentVideos = this.firebaseService.filterByName("VideoFor",this.auth.getUser().id,this.lessonDetail);
     }
+    console.log(this.videoDetail);
+  }
+
+  SaveFileToDisk(Recording:any){
+    this.saveEvent.emit(Recording);
   }
   
 

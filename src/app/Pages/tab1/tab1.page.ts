@@ -20,7 +20,6 @@ export class Tab1Page {
   model: NgbDateStruct;
   date: { year: number, month: number, };
   @ViewChild('dp') dp: NgbDatepicker;
-
   public flag: boolean;
   public showScheduleBar:boolean;
   public SearchBarVisible:boolean;
@@ -34,6 +33,9 @@ export class Tab1Page {
   private dayNo:string;
   private monthNo:string;
   public calendar_is_active:boolean;
+  public weeks:Array<Object>=[{}];
+  public weekArray:Array<object>=[{}];
+  public loading:boolean;
   // private weekNo:Number;
   
 
@@ -50,11 +52,25 @@ export class Tab1Page {
     private zone:NgZone
     ) 
     {
-      this.store.dispatch(new GetScheduledLessons())     
+      var date = new Date() 
+    var year = date.getFullYear();
+    var month = date.getMonth()+1;
+    var day = date.getDate();
+    this.fromDate = new NgbDate(year,month,day);
+    this.toDate = new NgbDate(year,month,day+5);
+    // console.log(this.calendar.getWeekNumber();
+    this.dates = this.getDates(new Date(this.fromDate.year,this.fromDate.month-1,this.fromDate.day), new Date(this.toDate.year,this.toDate.month-1,this.toDate.day));
+    this.weeks = this.getWeeks(this.fromDate);
+    this.store.select<any>('scheduledlessons').subscribe(data=>{
+      this.loading = data.loading;
+      console.log(data);
+    })
     }
 
 
-
+    ionViewDidEnter(){
+      this.store.dispatch(new GetScheduledLessons());     
+    }
 
   public hideOverlay() {
     this.overlayHidden = true;
@@ -70,20 +86,14 @@ export class Tab1Page {
      
     console.log(this.date)
     this.setView();
-   
-    var date = new Date() 
-    var year = date.getFullYear();
-    var month = date.getMonth()+1;
-    var day = date.getDate();
-    this.fromDate = new NgbDate(year,month,day);
-    this.toDate = new NgbDate(year,month,day+5);
-    // console.log(this.calendar.getWeekNumber();
-    this.dates = this.getDates(new Date(this.fromDate.year,this.fromDate.month-1,this.fromDate.day), new Date(this.toDate.year,this.toDate.month-1,this.toDate.day));
-    
     this.store.select<any>('scheduledlessons').subscribe((data)=>{
       this.dayArray = data.list.data
       console.log(this.dayArray);
     })
+    
+    
+    
+    
     // this.scheduledLessonsService.getLessons(this.auth.getToken()).subscribe(data=>{
     //   this.dayArray = data;
     // })    
@@ -153,7 +163,9 @@ export class Tab1Page {
     this.dates = this.getDates(new Date(this.fromDate.year,this.fromDate.month-1,this.fromDate.day), new Date(this.toDate.year,this.toDate.month-1,this.toDate.day));                                                                                                           
   }
   
-  
+  if(this.view == 'week'){
+    this.weeks =this.getWeeks($event);                                                           
+  }
 }
     
 
@@ -171,6 +183,49 @@ getDates(startDate, endDate) {
       }
       return dates;
       
+}
+
+
+
+getWeeks(startDate){
+
+  var week1StartDate = moment(startDate).toDate();
+  var week1EndDate = moment(week1StartDate).add(1,'week').toDate();
+
+  var week2StartDate = week1EndDate;
+  var week2EndDate = moment(week2StartDate).add(1,'week').toDate();
+
+  var week3StartDate = week2EndDate;
+  var week3EndDate = moment(week3StartDate).add(1,'week').toDate();
+
+  var week4StartDate = week3EndDate;
+  var week4EndDate = moment(week4StartDate).add(1,'week').toDate();
+
+  var weeks = [
+    {
+      week1StartDate:week1StartDate,
+      week1EndDate:week1EndDate,
+      weekNo:"1"
+    },
+    {
+      week2StartDate:week2StartDate,
+      week2EndDate:week2EndDate,
+      weekNo:"2"
+    },
+    {
+      week3StartDate:week3StartDate,
+      week3EndDate:week3EndDate,
+      weekNo:"3"
+    },
+    {
+      week4StartDate:week4StartDate,
+      week4EndDate:week4EndDate,
+      weekNo:"4"
+    }
+]
+
+return weeks;
+
 }
 
 
@@ -194,10 +249,10 @@ getDates(startDate, endDate) {
     }
   }
 
-  getWeeks(startDate:Date , n){
-    var date = new Date(startDate.setDate(startDate.getDate()+(n * 7)));
-    return date
-  }
+  // getWeeks(startDate:Date , n){
+  //   var date = new Date(startDate.setDate(startDate.getDate()+(n * 7)));
+  //   return date
+  // }
 
   getDayData(event){
     console.log(event)
@@ -205,6 +260,16 @@ getDates(startDate, endDate) {
    this.scheduledLessonsService.getDayView(this.auth.getToken(),this.view,event.dayNo,event.monthNo).subscribe((data:any)=>{
      this.dayArray = data.data;
    }) 
+  }
+
+
+  getWeekData(view:string,weekNo:string){
+    console.log(view);
+    console.log(weekNo);
+    this.scheduledLessonsService.getweekView(this.auth.getUser().token,view,weekNo).subscribe((data:any)=>{
+      this.weekArray = data.data;
+      console.log(this.weekArray);
+    })
   }
   
   // onNavigate(event) {

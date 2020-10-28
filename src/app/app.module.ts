@@ -30,6 +30,8 @@ import {TokenInterceptorService} from '../app/services/token-interceptor.service
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import {AngularFireStorageModule} from 'angularfire2/storage';
+import {AndroidPermissions} from '@ionic-native/android-permissions/ngx';
+import { SkeletonscreenComponent } from './components/skeletonscreen/skeletonscreen.component';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [
@@ -61,6 +63,7 @@ import {AngularFireStorageModule} from 'angularfire2/storage';
     FormsModule,
     ReactiveFormsModule,
     authGuard,
+    AndroidPermissions,
     {
       provide:HTTP_INTERCEPTORS,
       useClass:TokenInterceptorService,

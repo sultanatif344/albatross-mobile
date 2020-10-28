@@ -1,9 +1,9 @@
-<div class="ion-margin-top ion-margin-left ion-padding">
+<div class="ion-margin-top ion-margin-left ion-padding centeritems">
   <ion-grid>
-    <ion-label fill="clear" class="ion-margin-bottom" style="color:darkgrey">Username or email</ion-label>
+    <ion-label fill="clear" class="ion-margin-bottom ion-no-border" style="color:darkgrey">Username or email</ion-label>
   <ion-row class="ion-margin-left">
     
-    <ion-icon color="success" name="person-outline" class="ion-margin-top"></ion-icon><ion-input class="border-top border-bottom" placeholder="Your email" [(ngModel)]="user.email"></ion-input>
+    <ion-icon color="success" name="person-outline" class="ion-margin-top"></ion-icon><ion-input class="border-bottom" placeholder="Your email" [(ngModel)]="user.email"></ion-input>
   </ion-row>
   <ion-label fill="clear" class="ion-margin-top" style="color:darkgrey">Password</ion-label>
   <ion-row class="ion-margin-top ion-margin-left">
@@ -20,13 +20,9 @@
     </ion-select>  
   </ion-item>
   </ion-row> -->
-  
+  <a class="ion-margin-right alignright" style="color: #146545; margin-bottom:5%; margin-left: 150px;" [routerLink]="['verification']">Forgot Password?</a>
 </ion-grid>
-<ion-item class="ion-margin-top" slot="start" style="margin-right:15%;">
-  <ion-label class="ion-margin-bottom" color="success" style="margin-bottom:10%;">Remind Me</ion-label>
-  <ion-toggle slot="start" name="Kiwi" color="success"></ion-toggle>
-  <ion-text class="ion-margin-right" style="margin-bottom:5%;"><a style="color: #146545">Forget?</a></ion-text>
-</ion-item>
+  
 <!-- <ion-button expand="block" size="large" class="ion-padding-horizontal ion-margin-top" shape="round" color="success"><ion-text style="font-weight: lighter; font-style: normal;">Sign in</ion-text></ion-button> -->
 </div>
 

@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
+ion-content{
+    --ion-background-color:whitesmoke;
+    font-family: 'Montserrat';
+}
+
+ion-card{
+    background: white;
+    box-shadow:2px 2px 2px 7px rgba(196, 209, 196, 0.05);
+}
+
+ion-button{
+    font-family: 'Montserrat';
+}
+
+.rounded{
+--border-color: var(--ion-color-medium-shade);
+  --border-radius: 3px;
+  --border-width: 1px;
+  --box-shadow: 2px gray;
+  --highlight-height: 0;
+  --background: #f8f9fa;
+}
+
+a{
+    font-family: 'Montserrat';
+}
+
+
+@media(min-width:768px) and (max-width:1455px){
+   div{
+       width: 30%;
+       margin-left: 480px;
+       margin-top: 50px;
+       box-shadow: 12px 11px 25px 25px rgba(0,128,0,0.05); 
+   }
+   
+   .spacing{
+       margin-left: 330px;
+   }
+}

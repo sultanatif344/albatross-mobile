@@ -9,10 +9,10 @@
           <ion-card-title>
           <ion-row>
             <ion-col size="2">
-              <img class="ion-margin-end" src="description.photo" width="50px" height="50px"/>
+              <img class="ion-margin-end" src="{{description.photo}}" width="50px" height="50px"/>
             </ion-col>
             <ion-col size="5">
-          <h1 *ngIf="description.user.name!=null" class="ion-margin-start">{{description.user.name}}</h1>
+          <h1 *ngIf="description.user?.name!=null" class="ion-margin-start">{{description.user?.name}}</h1>
         </ion-col>
         </ion-row>
         </ion-card-title>
@@ -28,7 +28,7 @@
 </ion-row>
 
 
-<ion-grid *ngIf="searchResult.length!=0">
+<!-- <ion-grid *ngIf="searchResult.length!=0">
   <ion-row>
     <ion-col>
       <ion-card (click)="goToLessonRequest(result)" *ngFor="let result of searchResult">
@@ -55,6 +55,6 @@
         </ion-card-content>
       </ion-card>
 </ion-col>
-</ion-row>
+</ion-row> -->
 
 

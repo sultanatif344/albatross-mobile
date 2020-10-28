@@ -8,7 +8,8 @@
     <ion-col size="2">
     </ion-col>
     <ion-col size="8">
-      <img src="../../../assets/images/img4.png" width="250px" height="200px"/>
+      <img src="{{image_source}}" width="250px" height="200px"/>
+      <input type="file" (change)="onFileSelected($event)">
 </ion-col>
 
 </ion-row>
@@ -21,7 +22,7 @@
     <ion-row class="ion-margin-left">
       <ion-col size="12">
       <ion-card>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]="name" ngDefaultControl></ion-input>
     </ion-card>
   </ion-col>
     </ion-row>
@@ -30,7 +31,7 @@
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
       <ion-card>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]="timeZone" ngDefaultControl></ion-input>
     </ion-card>
   </ion-col>
     </ion-row>
@@ -40,9 +41,21 @@
     <ion-row class="ion-margin-left">
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
-      <ion-card>
-      <ion-input></ion-input>
-    </ion-card>
+        <ion-card>
+          <ion-row>
+            <ion-col>
+              <ion-input [(ngModel)]="language" ngDefaultControl></ion-input>
+            </ion-col>
+            <ion-col size="12" class="ion-no-padding">
+            <ion-button color="success" (click)="AddLanguage(language)">Add Field</ion-button>
+          </ion-col>
+          <ion-item-group *ngIf="languageArr.length">
+            <ion-item *ngFor="let language of languageArr">
+                  <ion-label>{{language}}</ion-label>
+            </ion-item>
+          </ion-item-group>
+      </ion-row>
+      </ion-card>
   </ion-col>
 
     </ion-row>
@@ -51,7 +64,7 @@
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
       <ion-card>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]="handicap" ngDefaultControl></ion-input>
     </ion-card>
   </ion-col>
     </ion-row>
@@ -60,29 +73,24 @@
     <ion-row class="ion-margin-left">
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
-      <ion-card>
-      <ion-input></ion-input>
-    </ion-card>
+        <ion-card>
+          <ion-row>
+            <ion-col>
+              <ion-input [(ngModel)]="areasOfFocus" ngDefaultControl></ion-input>
+            </ion-col>
+            <ion-col size="12" class="ion-no-padding">
+            <ion-button color="success" (click)="AddAreasOfFocus(areasOfFocus)">Add Field</ion-button>
+          </ion-col>
+          <ion-item-group *ngIf="areasOfFocusArr.length">
+            <ion-item *ngFor="let areasOfFocus of areasOfFocusArr">
+                  <ion-label>{{areasOfFocus}}</ion-label>
+            </ion-item>
+          </ion-item-group>
+      </ion-row>
+      </ion-card>
   </ion-col>
    </ion-row>
-
-
-
-    <ion-label fill="clear" class="ion-margin-top" style="color:darkgrey"><ion-text color="dark">Contact Information</ion-text></ion-label>
-    <ion-row class="ion-margin-left">
-      <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
-      <ion-col size="3">
-        <ion-card>
-        <ion-input placeholder="+1"></ion-input>
-      </ion-card>
-    </ion-col>
-      <ion-col size="9">
-      <ion-card>
-      <ion-input placeholder="123-456-7890"></ion-input>
-    </ion-card>
-  </ion-col>
-    </ion-row>
   </ion-grid>
-  <ion-button expand="full" size="medium" class="ion-padding-horizontal ion-margin-top" color="success"><ion-text style="font-weight: lighter; font-style: normal;">Update Profile</ion-text></ion-button>
+  <ion-button expand="full" size="medium" class="ion-padding-horizontal ion-margin-top" color="success" (click)="UploadImageAndUpdateProfile()"><ion-text style="font-weight: lighter; font-style: normal; text-transform: none;">Update Profile</ion-text></ion-button>
   <!-- <ion-button expand="block" size="large" class="ion-padding-horizontal ion-margin-top" shape="round" color="success"><ion-text style="font-weight: lighter; font-style: normal;">Sign in</ion-text></ion-button> -->
   </div>

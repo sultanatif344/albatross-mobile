@@ -11,14 +11,15 @@ export class EditProfileService {
 
   constructor(private http:HttpClient) { }
 
-  private editProfile_URL = 'https://albatross-v1.herokuapp.com/api/v1/instructor/editprofile'
+  private editProfileInstructor_URL = 'https://albatross-v1.herokuapp.com/api/v1/instructor/editprofile'
+  private editProfileStudent_URL = 'https://albatross-v1.herokuapp.com/api/v1/student/editprofile'
 
   EditTeacherProfile(teacherFields:Instructor,token:string):Observable<any>{
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer '+token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
   })    
-    return this.http.put(this.editProfile_URL,teacherFields,{headers:headers})
+    return this.http.put(this.editProfileInstructor_URL,teacherFields,{headers:headers})
   }
 
   EditStudentProfile(studentFields:Object,token:string):Observable<any>{
@@ -26,6 +27,6 @@ export class EditProfileService {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer '+token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
   })    
-    return this.http.put(this.editProfile_URL,studentFields,{headers:headers})
+    return this.http.put(this.editProfileStudent_URL,studentFields,{headers:headers})
   }
 }

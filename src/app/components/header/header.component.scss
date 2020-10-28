@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
 ion-card{
     --ion-background-color:white;
 }
@@ -40,6 +41,10 @@ ion-header{
     // margin-left: 20px;
 }
 
+ion-title{
+    font-family: 'Montserrat';
+}
+
 ion-toolbar{
     --ion-background-color:whitesmoke;
     z-index: -1;
@@ -61,4 +66,48 @@ h6{
 .no-shadow{
     --box-shadow:none;
     
+}
+
+div{
+    margin-top: 15px;
+}
+
+ion-text{
+    font-size: medium;
+    text-transform: none;
+}
+
+ion-button{
+    font-family: 'Montserrat';
+}
+
+.buttonActive{
+    background-color: #146545;
+    border: none;
+    border-radius: 40%;
+ 
+}
+.switchViewText{
+    color: yellow;
+}
+
+p{
+    font-size: x-small;
+}
+@media(min-width:768px) and (max-width:1455px){
+#dayBtn{
+    margin-left: 400px;
+}
+
+p{
+    font-size: small;
+}
+
+#weekBtn{
+    margin-left: 500px;
+}
+#pagetitle{
+   margin-right: 500px; 
+   margin-bottom: 8px;
+}
 }

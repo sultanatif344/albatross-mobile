@@ -11,6 +11,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from 'src/app/store/effects/auth.effects';
 import { LoginComponent } from 'src/app/components/login/login.component';
 import { SignupComponent } from 'src/app/components/signup/signup.component';
+import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
+import { LoaderComponent } from 'src/app/components/loader/loader.component';
 
 @NgModule({
   imports: [
@@ -18,6 +20,7 @@ import { SignupComponent } from 'src/app/components/signup/signup.component';
     FormsModule,
     IonicModule,
     LoginsignupPageRoutingModule,
+    SharedModule,
     EffectsModule.forFeature([AuthEffects]),
   ],
   declarations: [LoginsignupPage,LoginComponent,SignupComponent]

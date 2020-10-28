@@ -1,12 +1,13 @@
 <ion-grid *ngIf="lessonDetail!=null">
-  <ion-row>
+  <ion-row class="alignright">
     <ion-col size="3">
-    <img src="../../assets/images/img4.png" width="100px" height="60px"/>
+    <img class="resize" src="{{lessonDetail.lessonAssignedTo.photo}}" width="60px" height="60px"/>
   </ion-col>
   
-  <ion-col size="8">
+  <ion-col size="8" class="spaceabove">
     <ion-text color="success"><p class="ion-no-margin bold">Verified</p></ion-text>  
-    <ion-text *ngIf="lessonDetail.lessonAssignedTo!=null"><h3 class="ion-no-margin">{{lessonDetail.lessonAssignedTo.name}}</h3></ion-text> 
+    <ion-text *ngIf="lessonDetail.lessonAssignedTo!=null&&role=='student'"><h3 class="ion-no-margin">{{lessonDetail.lessonAssignedTo.name}}</h3></ion-text> 
+    <ion-text *ngIf="lessonDetail.lessonAssignedBy!=null&&role=='instructor'"><h3 class="ion-no-margin">{{lessonDetail.lessonAssignedBy.name}}</h3></ion-text> 
     <ion-text><p class="ion-no-margin bold">{{lessonDetail.description}}</p></ion-text> 
   </ion-col>
   </ion-row>
@@ -25,11 +26,11 @@
       <ion-card class="ion-padding">
           <ion-row>
         <ion-text color="dark"><h6 class="ion-margin-top">{{lessonDetail.lessonStartTime | date:"h:mm a"}} - {{lessonDetail.lessonEndTime | date:"h:mm a"}}</h6></ion-text>
-        <img src="../../assets/images/img3.png" width="50px" height="50px" style="margin-left: 100px;"/>
+        <img class="alignright" src="../../assets/images/img3.png" width="50px" height="50px" style="margin-left: 90px;"/>
         <!-- <ion-datetime value="1990-02-19" placeholder="Select Date"></ion-datetime> -->
       </ion-row>
       </ion-card>
     </ion-col>
   </ion-row>
-  <ion-button expand="block" size="large" class="ion-padding-horizontal ion-margin-top" shape="round" color="success" (click)="displayCallOverlay()"><ion-text style="font-weight: lighter; font-style: normal;">Start</ion-text></ion-button>
+  <ion-button expand="block" size="large" class="ion-padding-horizontal ion-margin-top" shape="round" color="success" (click)="displayCallOverlay()"><ion-text style="font-weight: lighter; font-style: normal; text-transform: none;">Start</ion-text></ion-button>
 </ion-grid>

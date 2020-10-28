@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ScheduledLessons } from 'src/app/models/scheduledlessons';
 
 @Component({
   selector: 'app-weeklessonsbar',
@@ -7,8 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeeklessonsbarComponent implements OnInit {
 
-  constructor() { }
+  @Input()weekDates:Array<Object>=[{}];
 
-  ngOnInit() {}
+  @Output() emitWeekNo = new EventEmitter<string>();
+  weekNo:string;
+  constructor() {}
+
+  
+  ngOnInit() {
+    console.log(this.weekDates);
+  }
+
+  getWeekNo(event){
+    this.weekNo = event;
+    console.log(this.weekNo);
+    this.emitWeekNo.emit(this.weekNo);
+  }
 
 }

@@ -1,3 +1,32 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
+
 ion-card{
     background-color: white;
+    font-family: 'Montserrat';
+    box-shadow: 2px 2px 2px 7px rgba(196, 209, 196, 0.05);
+    padding-inline-start: 40px;
+}
+
+img{
+    margin-right: 5px; 
+    border-radius: 50px; 
+    border: 1.5px solid rgba(0,129,0, 0.2);
+}
+
+ion-button{
+    font-family: 'Montserrat';
+}
+
+
+@media(min-width:768px) and (max-width:1455px){
+    ion-card{
+        background-color: white;
+        width: 300px;
+    }   
+    ion-grid{
+        margin-left:100px;
+    }
+    div{
+        display: flex; flex-direction: row; justify-items: center;
+    }
 }

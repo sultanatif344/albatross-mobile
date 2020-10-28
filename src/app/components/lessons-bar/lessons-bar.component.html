@@ -7,7 +7,7 @@
     <ion-segment scrollable>
     <ion-button *ngFor="let date of dates" class="no-shadow" shape="rounded" size="large" color="light" (click)="catchandSendSelectedDayAndMonthNo(date)">
       <ion-text>
-        <h1 class="bold">{{date | date: "d"}}</h1>
+        <h1>{{date | date: "d"}}</h1>
         <p>{{date | date: "EEE"}}</p>
       </ion-text>
     </ion-button>

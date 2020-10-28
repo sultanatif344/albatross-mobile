@@ -19,3 +19,23 @@ ion-label{
 ion-toggle{
     margin-bottom: 5%;
 }
+ion-button{
+    text-transform: none;
+}
+
+@media(min-width:768px) and (max-width:1455px){
+    .centeritems{
+        width: 40%;
+        margin-left: 350px;
+    }
+    ion-button{
+        width: 25%;
+        margin-left: 440px;
+    }
+
+    a{
+        position: absolute;
+        left: 550px;
+        margin-bottom: 100px;
+    }
+}

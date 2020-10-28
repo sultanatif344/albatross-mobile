@@ -19,6 +19,7 @@ export class LessondetailsPage implements OnInit {
   public callIsActive:boolean;
   public callerId:string;
   public currentUser:User;
+  public popUpIsActive:boolean;
   constructor(private router: ActivatedRoute, private navController:NavController, private BookLessonService:BooklessonService, private store:Store<AppState>,private auth:AuthService) { 
   }
 
@@ -42,6 +43,7 @@ export class LessondetailsPage implements OnInit {
     this.BookLessonService.getlessondetail(id,this.auth.getToken())
     .subscribe( data=>{
       this.selectedLessonDetail= data.data;
+      this.id = data.data.lessonAssignedTo._id
       console.log(this.selectedLessonDetail);
       if(this.auth.getUser().role==="instructor"){
         this.callerId = this.selectedLessonDetail.lessonAssignedTo._id
@@ -59,6 +61,15 @@ export class LessondetailsPage implements OnInit {
 
   onCallEnded(event){
       this.callIsActive = event;
+  }
+
+  enableReviewPopUp(event){
+    this.popUpIsActive = event;
+    console.log(event);
+  }
+
+  disableReviewPopup(event){
+    this.popUpIsActive = event;
   }
 
 }

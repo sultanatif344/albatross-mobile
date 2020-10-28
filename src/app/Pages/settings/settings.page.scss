@@ -1,8 +1,53 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
+
 ion-content{
     --ion-background-color:whitesmoke;
+    font-family: 'Montserrat';
 }
-
+ion-button{
+    font-family: 'Montserrat';
+}
 ion-card{
     background: white;
+    font-family: 'Montserrat';
+    font-size: smaller;
+}
+
+.increasemargin{
+    margin-left:100px;
+}
+
+ion-icon{
+        background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+        -webkit-background-clip: text;
+        background-clip: text;
+}
+
+@media(min-width:768px) and (max-width:1455px){
+    .center{
+        width: 30%;
+        margin-left: 500px;
+        box-shadow: 12px 11px 25px 25px rgba(0,128,0,0.05);
+        padding-right: 5px;
+        padding-left: 10px;
+    }
+    .decrease{
+        width: 60%;
+        box-shadow:2px 2px 2px 7px rgba(196, 209, 196, 0.05);
+    }
+    #changepassword{
+        width: 65%;
+        box-shadow:2px 2px 2px 7px rgba(196, 209, 196, 0.05);
+    }
+    .decreasemargin{
+        margin-left: 60px;
+    }
+
+    .increasetopmargin{
+        margin-top: 5px;
+    }
+    .spacing{
+        margin-left: 80px;
+    }
 }
 

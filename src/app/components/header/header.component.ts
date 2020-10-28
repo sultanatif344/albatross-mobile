@@ -8,6 +8,7 @@ import { InstructorloadService } from 'src/app/services/instructorload.service';
 import { AppState } from 'src/app/store/app.states';
 import { LoadInstructorListSuccess } from 'src/app/studentstore/actions/student.actions';
 import { LoadInstructorListFailure } from 'src/app/studentstore/actions/student.actions';
+import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-header',
@@ -30,8 +31,10 @@ export class HeaderComponent implements OnInit {
   @Output() onActivateCalendar = new EventEmitter<boolean>();
   flag : boolean;
   overlayHidden:boolean;
+  public buttonState:boolean;
   ngOnInit() {
     this.calendar_is_active = false;
+    this.buttonState = true;
   }
 
   goBack(){
@@ -49,12 +52,14 @@ export class HeaderComponent implements OnInit {
     this.flag = false; 
     this.switchView.emit(this.flag);
     console.log("event fired");
+    this.disableBtnState();
   }
 
   switchToDayView(){
     this.flag = true; 
     this.switchView.emit(this.flag);
     console.log("event fired");
+    this.activateBtnState()
   }
 
   displayCalendar(){
@@ -68,6 +73,14 @@ export class HeaderComponent implements OnInit {
       console.log(data);
       this.searchResultEvent.emit(data.data);
     })
+  }
+
+  disableBtnState(){
+    this.buttonState=false;
+  }
+
+  activateBtnState(){
+    this.buttonState = true;
   }
 
 }

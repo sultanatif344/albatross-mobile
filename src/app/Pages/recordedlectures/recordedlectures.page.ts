@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FileSaverService } from 'ngx-filesaver';
 
 @Component({
   selector: 'app-recordedlectures',
@@ -7,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecordedlecturesPage implements OnInit {
 
-  constructor() { }
+  constructor(private fileService:FileSaverService) { }
 
   title:string;
   ngOnInit() {
     this.title = "Recordings";
+  }
+
+  onSave(event){
+    var blob = new Blob([event.VideoLink],{type:'video/mp4'})
+    this.fileService.save(blob,event.VideoId);
   }
 
 }

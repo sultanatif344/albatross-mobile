@@ -10,14 +10,16 @@
           <!-- <ion-button color="light" class="ion-margin-vertical" (click)="ActivateCalendar()"></ion-button> -->
         </ion-row>
       </ion-col>
+      <div>
       <ion-col>
-        <ion-button class="ion-margin-top no-shadow" size="small" shape="round" color="light" (click)="switchToDayView()">
-          <ion-text class="primary"><p>Day</p></ion-text>
+        <ion-button fill="clear" class="ion-margin-top no-shadow" size="small" shape="round" [ngClass]="{buttonActive:buttonState==true}" (click)="switchToDayView()">
+          <ion-text  class="primary ion-margin-top" [ngClass]="{switchViewText:buttonState==true}"><p>Day</p></ion-text>
         </ion-button>
-        <ion-button class="ion-margin-top no-shadow" size="small" shape="round" color="light" (click)="switchToWeekView()">
-          <ion-text class="primary"><p>Week</p></ion-text>
+        <ion-button fill="clear" class="ion-margin-top no-shadow" size="small" shape="round"  (click)="switchToWeekView()" [ngClass]="{buttonActive:buttonState==false,switchViewText:buttonState==false}">
+          <ion-text class="primary ion-margin-top" [ngClass]="{switchViewText:buttonState==false}"><p>Week</p></ion-text>
         </ion-button>
       </ion-col>
+    </div>
     </ion-row>
   </ion-grid>
 
@@ -38,7 +40,7 @@
           </ion-button>
           </ion-row>
     </ion-card>
-    <ion-text color="success" class="ion-text-start ion-no-margin"><h1 *ngIf="showTitle" style="margin-right:100px; margin-top: 20px;">{{title}}</h1></ion-text>
+    <ion-text color="success" class="ion-text-start ion-no-margin" id="pagetitle"><h1 *ngIf="showTitle" style="margin-right:100px; margin-top: 20px;">{{title}}</h1></ion-text>
     </ion-row>
   </ion-grid>
 </ion-title>

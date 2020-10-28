@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-weekview',
@@ -8,8 +9,15 @@ import { Component, OnInit,Input } from '@angular/core';
 export class WeekviewComponent implements OnInit {
 
   @Input() weekLessons:Array<Object>
-  constructor() { }
+  public user:string;
+  constructor(private auth:AuthService) {
+    this.user = this.auth.getUser().role;
+   }
 
-  ngOnInit() {}
+  ngOnInit() {
+   
+    console.log(this.weekLessons);
+    console.log(this.user);
+  }
 
 }

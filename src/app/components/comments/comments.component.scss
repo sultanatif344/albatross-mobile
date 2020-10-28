@@ -7,13 +7,17 @@ ion-input{
     border-radius: 5%;
 }
 
-ion-icon{
-    position: absolute;
-    left: 250px;
-    z-index: 3;
-}
+
+
 
 #no-shadow{
     box-shadow:none;
     background-color: whitesmoke;
+}
+
+
+@media(min-width:768px) and (max-width:1455px){
+    ion-button{
+        margin-left: 300px;
+    }
 }

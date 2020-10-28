@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-details-oflessons',
@@ -9,10 +10,13 @@ import { Observable } from 'rxjs';
 export class DetailsOflessonsComponent implements OnInit {
 
   // @Input() lessonDetail:any;
-  constructor() { }
+  constructor(private auth: AuthService) { 
+    this.role=this.auth.getUser().role;
+  }
 
   @Input() lessonDetail:Observable<Array<any>>;
   @Output() callingEvent = new EventEmitter<boolean>();
+  public role:string;
   public callScreenIsActive:boolean;
   ngOnInit() {
     this.callScreenIsActive = false;

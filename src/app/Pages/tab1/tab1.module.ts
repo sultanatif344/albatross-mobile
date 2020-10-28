@@ -18,6 +18,7 @@ import { scheduledLessonsReducer } from 'src/app/scheduledlessons/reducers/sched
 import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
 // import { CalendarModule } from 'ion2-calendar';
 import { NgbDateStruct, NgbCalendar, NgbDatepicker, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SkeletonscreenComponent } from '../../components/skeletonscreen/skeletonscreen.component'
 // import { DayviewComponent } from '../components/dayview/dayview.component';
 
 @NgModule({

@@ -1,60 +1,25 @@
-<div *ngFor="let scheduledlessons of scheduledLessons">
-  <ion-row>
+<div *ngFor="let scheduledlessons of scheduledLessons" class="centeritems">
     <ion-text><h6 class="ion-margin-start bold">{{scheduledlessons.lessonDate | date: "MMM, d,y"}}</h6></ion-text> 
-  </ion-row>  
+  <ion-row>
+    <ion-col size="12">
 <ion-card (click)="goToLessonRequest(scheduledlessons)">
   <ion-card-content>
     <ion-row>
       
-    <ion-col>
+    <ion-col  size='2' class="right-border">
       <ion-text color="dark"><h2 class="bold">{{scheduledlessons.lessonStartTime | date: "h:mm a"}}</h2></ion-text>
     </ion-col>
-    <ion-col size="8">
-      <ion-text color="dark" *ngIf="user?.role === 'student'"><p class="bold">{{scheduledlessons.lessonAssignedTo.name}}</p></ion-text>
-      <ion-text color="dark" *ngIf="user?.role === 'instructor'"><p class="bold">{{scheduledlessons.lessonAssignedBy.name}}</p></ion-text>
-    </ion-col>
-
-    </ion-row>
-
-
-    
-    <ion-row>
-      <ion-col>
-      <ion-text color="dark"><h2 class="bold">{{scheduledlessons.lessonEndTime | date: "h:mm a"}}</h2></ion-text>
-    </ion-col>
 
     <ion-col size="8">
-      <ion-text color="dark"><p class="bold">{{scheduledlessons.description}}</p></ion-text>
+      <img *ngIf="user?.role === 'student'" class="alignRight" src="{{scheduledlessons.lessonAssignedTo.photo}}" width="30px" height="30px">
+      <img *ngIf="user?.role === 'instructor'" class="alignRight" src="{{scheduledlessons.lessonAssignedBy.photo}}" width="30px" height="30px">
+      <ion-text color="dark" *ngIf="user?.role === 'student'"><p class="bold" style="margin-top:0px; height:0px; margin-left: 50px; position: relative; bottom: 23px;">{{scheduledlessons.lessonAssignedTo.name}}</p></ion-text>
+      <ion-text color="dark" *ngIf="user?.role === 'instructor'"><p class="bold" style="margin-top:0px; height:0px; margin-left: 50px; position: relative; bottom: 23px;">{{scheduledlessons.lessonAssignedBy.name}}</p></ion-text>
     </ion-col>
-      
+        <ion-text color="dark"><p class="bold aligntoBottom" style="position: relative; bottom: 5px!important; left:95px">{{scheduledlessons.description}}</p></ion-text>    
     </ion-row>
   </ion-card-content>
 </ion-card>
+</ion-col>
+</ion-row>
 </div>
-
-<!-- <ion-card>
-  <ion-card-content>
-    <ion-row>
-      <ion-col >
-      <ion-text color="dark"><h2 class="bold">9:00AM</h2></ion-text>
-    </ion-col>
-
-
-      <ion-col size="8">
-      <ion-text color="dark"><p class="bold">Design Psychology</p></ion-text>
-    </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-      <ion-text color="dark"><h2 class="bold">10:00AM</h2></ion-text>
-    </ion-col>
-
-
-      <ion-col size="8">
-      <ion-text color="dark"><p class="bold">Norma Ortiz</p></ion-text>
-    </ion-col>
-    </ion-row>
-  </ion-card-content>
-</ion-card> -->
-

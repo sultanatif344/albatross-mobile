@@ -31,14 +31,13 @@ export class DayviewComponent implements OnInit {
     //   this.scheduledLessons = data.list.data;
     //   console.log(this.scheduledLessons);
     // });
-    
+    this.user = this.auth.getUser();
   }
   
   // ionViewWillEnter(){
   //   this.user= this.auth.getUser();
   // }
   ngOnInit() {
-    this.user = this.auth.getUser();
       // console.log(data.authState.user.token)
 
     // this.scheduledLessons.subscribe(data=>{

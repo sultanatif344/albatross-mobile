@@ -12,6 +12,7 @@ export class LessonsBarComponent implements OnInit {
   @Input() dates:Array<object>;
   @Output() dateEmitEvent = new EventEmitter<Object>()
   private selectedDate:Object;
+  public flag:boolean;
   constructor() { }
 
   ngOnInit() {
@@ -20,6 +21,7 @@ export class LessonsBarComponent implements OnInit {
   }
 
   catchandSendSelectedDayAndMonthNo(date){
+    this.flag = true;
     console.log(date);
     const day = moment(date).format('DD');
     const month = moment(date).format('MM');

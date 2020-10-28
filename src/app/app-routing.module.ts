@@ -65,6 +65,11 @@ const routes: Routes = [
     loadChildren: () => import('./instructoraccounts/instructoraccounts.module').then( m => m.InstructoraccountsPageModule),
     canActivate:[AuthGuard]
   },
+  {
+    path: 'loginsignup/verification',
+    loadChildren: () => import('./pages/verification/verification.module').then( m => m.VerificationPageModule)
+  },
+
 
   // {
   //   path: 'recordedlectures',
@@ -82,7 +87,7 @@ const routes: Routes = [
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules,onSameUrlNavigation:"reload" })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules})
   ],
   exports: [RouterModule] 
 })

@@ -1,43 +1,10 @@
 <ion-content>
-  <!-- <ion-title>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-row>
-            <ion-icon class="ion-margin-top text-primary space-between" name="calendar"></ion-icon>
-            <ion-text class="text-primary space-between"><h1>July</h1></ion-text>
-            <ion-text class="text-primary ion-margin-top"><h6>2020</h6></ion-text>
-          </ion-row>
-        </ion-col>
-        <ion-col>
-          <ion-button class="ion-margin-top" size="small" shape="round" color="light" (click)="setflag()">
-            <ion-text class="text-primary"><p>Day</p></ion-text>
-          </ion-button>
-          <ion-button class="ion-margin-top" size="small" shape="round" color="light" (click)="unsetflag()">
-            <ion-text class="text-primary"><p>Week</p></ion-text>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-title> -->
 
   <app-header [showScheduleBar]="true" [showTitle]="false" (switchView)="setFlag($event)" (switchView)="unsetFlag($event)" [SearchBarVisible]="false" [showBackButton]="false" (calendarModalDisplayEvent)="displayCalendarModal($event)"></app-header>
 
   
-
-
-  <!-- <ion-calendar *ngIf="calendar_is_active" [(ngModel)]="date" (onChange)="onChange($event)"  [type]="type" [format]="'YYYY-MM-DD'">
-
-  </ion-calendar> -->
-
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
   <app-lessons-bar [dates]="dates" (dateEmitEvent)="getDayData($event)" *ngIf="flag"></app-lessons-bar>
-  <app-weeklessonsbar *ngIf="!flag"></app-weeklessonsbar>
+  <app-weeklessonsbar *ngIf="!flag" (emitWeekNo)="getWeekData(view,$event)" [weekDates]="weeks"></app-weeklessonsbar>
   <ion-grid *ngIf="flag">
   <div class="my-overlay" (click)="hideOverlay()" padding *ngIf="!overlayHidden"></div>
   <ngb-datepicker 
@@ -47,30 +14,20 @@
   (dateSelect)="onDateSelect($event)"  
   ngdefaultControl>
 </ngb-datepicker>
-    <!-- <ion-calendar *ngIf="!overlayHidden" [(ngModel)]="date"
-    (change)="onChange($event)"
-    [type]="type"
-    [format]="'YYYY-MM-DD'">
-  </ion-calendar> -->
-
 <app-dayview [scheduledLessons]="dayArray" (navigateToLessonDetails_Event)="navigateToLessonDetailPage()"></app-dayview>
-
-<app-requestnotifications></app-requestnotifications>
-
 </ion-grid>
-  
-
-
-<ion-header collapse="condense">
-  <ion-toolbar>
-    <ion-title size="large">Tab 1</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 
 <ion-grid *ngIf="!flag">
-  <app-weekview></app-weekview>
-
-  <app-requestnotifications></app-requestnotifications>
+  <div class="my-overlay" (click)="hideOverlay()" padding *ngIf="!overlayHidden"></div>
+  <ngb-datepicker 
+  #dp [class.bg-primary]="selected" 
+  *ngIf="!overlayHidden" 
+  [(ngModel)]="date" 
+  (dateSelect)="onDateSelect($event)"  
+  ngdefaultControl>
+</ngb-datepicker>
+<app-weekview [weekLessons]="weekArray"></app-weekview>
 </ion-grid>
+<app-loader *ngIf="loading"></app-loader>
 </ion-content>

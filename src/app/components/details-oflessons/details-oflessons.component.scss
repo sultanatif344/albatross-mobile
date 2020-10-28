@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500");
 img{
     border-radius: 50%;
     border: 5px none none
@@ -8,6 +9,10 @@ img{
     font-weight: bold;
 }
 
+p,h4,h3,h6{
+    font-family: 'Montserrat';
+}
+
 
 ion-content{
     --ion-background-color:whitesmoke;
@@ -15,4 +20,41 @@ ion-content{
 
 ion-card{
     background:white;
+    box-shadow:2px 2px 2px 7px rgba(196, 209, 196, 0.05);
+}
+
+
+@media(min-width:768px) and (max-width:1455px){
+    ion-grid{
+        width: 50%;
+        box-shadow: 12px 11px 25px 25px rgba(0,128,0,0.05); 
+        padding-left: 80px;
+    }
+    .resize{
+        width: 200px;
+        height: 120px;
+    }
+
+    .spaceabove{
+        margin-top: 40px;
+        margin-left: 30px;
+    }
+    .alignright{
+        margin-left: 50px;
+    }
+    ion-button{
+        width: 40%;
+        margin-left: 150px;
+        font-family: 'Montserrat';
+    }
+
+    ion-card{
+        width: max-content;
+        padding-left: 50px;
+        padding-right: 50px;
+        margin-left: 80px;
+    }
+    h4{
+        margin-left: 80px;
+    }
 }

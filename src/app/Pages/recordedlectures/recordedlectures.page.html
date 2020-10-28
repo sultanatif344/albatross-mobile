@@ -8,5 +8,5 @@
 <ion-content>
   <app-header [showScheduleBar]="false" [SearchBarVisible]="false" [showBackButton]="true" [showTitle]="true" [title]="title"></app-header>
 
-  <app-recordedvideos></app-recordedvideos>
+  <app-recordedvideos (saveEvent)=" onSave($event)"></app-recordedvideos>
 </ion-content>

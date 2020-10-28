@@ -4,7 +4,7 @@
     </ion-col>
     <ion-col size="8">
       <img src="{{image_source}}" width="250px" height="200px"/>
-      <input type="file" (change)="onFileSelected($event)">
+      <input id="imagepicker" type="file" (change)="onFileSelected($event)">
 </ion-col>
 
 </ion-row>
@@ -12,7 +12,7 @@
 
   <div class="ion-margin-left ion-padding">
     <ion-grid>
-      <ion-label fill="clear" class="ion-margin-bottom"><ion-text color="dark">Name</ion-text><ion-icon name="lock-open-outline"></ion-icon>
+      <ion-icon name="person-circle-outline"></ion-icon><ion-label fill="clear" class="ion-margin-bottom"><ion-text color="dark">Name</ion-text>
       </ion-label>
     <ion-row class="ion-margin-left">
       <ion-col size="12">
@@ -21,7 +21,7 @@
     </ion-card>
   </ion-col>
     </ion-row>
-    <ion-label fill="clear" class="ion-margin-top"><ion-text color="dark" >TimeZone</ion-text><ion-icon name="lock-open-outline"></ion-icon></ion-label>
+    <ion-icon name="time-outline"></ion-icon><ion-label fill="clear" class="ion-margin-top"><ion-text color="dark" >TimeZone</ion-text></ion-label>
     <ion-row class="ion-margin-left">
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
@@ -32,7 +32,7 @@
     </ion-row>
 
 
-    <ion-label fill="clear" class="ion-margin-top"><ion-text color="dark" >Language</ion-text><ion-icon name="lock-open-outline"></ion-icon></ion-label>
+    <ion-icon name="language-outline"></ion-icon><ion-label fill="clear" class="ion-margin-top"><ion-text color="dark" >Language</ion-text></ion-label>
     <ion-row class="ion-margin-left">
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
@@ -54,7 +54,7 @@
   </ion-col>
 
     </ion-row>
-    <ion-label fill="clear" class="ion-margin-top"><ion-text color="dark">Dexterity</ion-text><ion-icon name="lock-open-outline"></ion-icon></ion-label>
+    <ion-icon name="school-outline"></ion-icon><ion-label fill="clear" class="ion-margin-top"><ion-text color="dark">Dexterity</ion-text></ion-label>
     <ion-row class="ion-margin-left">
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
@@ -76,7 +76,7 @@
   </ion-col>
     </ion-row>
 
-    <ion-label fill="clear" class="ion-margin-top"><ion-text color="dark">Type of lessons offered</ion-text><ion-icon name="lock-open-outline"></ion-icon></ion-label>
+    <ion-icon name="book-outline"></ion-icon><ion-label fill="clear" class="ion-margin-top"><ion-text color="dark">Type of lessons offered</ion-text></ion-label>
     <ion-row class="ion-margin-left">
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
@@ -99,7 +99,7 @@
    </ion-row>
 
 
-   <ion-label fill="clear" class="ion-margin-top"><ion-text color="dark">Description</ion-text><ion-icon name="lock-open-outline"></ion-icon></ion-label>
+   <ion-icon name="reader-outline"></ion-icon><ion-label fill="clear" class="ion-margin-top"><ion-text color="dark">Description</ion-text></ion-label>
     <ion-row class="ion-margin-left">
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
@@ -110,7 +110,7 @@
    </ion-row>
 
 
-   <ion-label fill="clear" class="ion-margin-top"><ion-text color="dark">Course Association/Affiliation</ion-text><ion-icon name="lock-open-outline"></ion-icon></ion-label>
+   <ion-icon name="ribbon-outline"></ion-icon><ion-label fill="clear" class="ion-margin-top"><ion-text color="dark">Course Association/Affiliation</ion-text></ion-label>
     <ion-row class="ion-margin-left">
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
@@ -121,7 +121,7 @@
    </ion-row>
 
 
-   <ion-label fill="clear" class="ion-margin-top"><ion-text color="dark">Rates</ion-text><ion-icon name="lock-open-outline"></ion-icon></ion-label>
+   <ion-icon name="cash-outline"></ion-icon><ion-label fill="clear" class="ion-margin-top"><ion-text color="dark">Rates</ion-text></ion-label>
     <ion-row class="ion-margin-left">
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
@@ -131,7 +131,7 @@
   </ion-col>
    </ion-row>
 
-   <ion-label fill="clear" class="ion-margin-top"><ion-text color="dark">Available Time Slots</ion-text><ion-icon name="lock-open-outline"></ion-icon></ion-label>
+   <ion-icon name="calendar-outline"></ion-icon><ion-label fill="clear" class="ion-margin-top"><ion-text color="dark">Available Time Slots</ion-text></ion-label>
     <ion-row class="ion-margin-left">
       <!-- <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon> -->
       <ion-col size="12">
@@ -156,6 +156,6 @@
 
     
   </ion-grid>
-  <ion-button expand="full" size="medium" class="ion-padding-horizontal ion-margin-top" color="success" (click)="UploadImageAndUpdateProfile()"><ion-text style="font-weight: lighter; font-style: normal;" >Update Profile</ion-text></ion-button>
+  <ion-button expand="full" size="medium" shape="round" class="ion-padding-horizontal ion-margin-top" color="success" (click)="UploadImageAndUpdateProfile()"><ion-text style="font-weight: lighter; font-style: normal; text-transform: none;" >Update Profile</ion-text></ion-button>
   <!-- <ion-button expand="block" size="large" class="ion-padding-horizontal ion-margin-top" shape="round" color="success"><ion-text style="font-weight: lighter; font-style: normal;">Sign in</ion-text></ion-button> -->
   </div>

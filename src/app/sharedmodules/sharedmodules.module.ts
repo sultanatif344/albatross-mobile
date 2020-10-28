@@ -11,6 +11,9 @@ import { CalendarComponent } from '../components/calendar/calendar.component';
 // import { CalendarModule } from 'ion2-calendar';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgbDateStruct, NgbCalendar, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
+import { ChangepasswordComponent } from '../components/changepassword/changepassword.component';
+import { LoaderComponent } from '../components/loader/loader.component';
+import { SkeletonscreenComponent } from '../components/skeletonscreen/skeletonscreen.component';
 // import { CustomerComponent } from './customer.component';
 // import { NewItemDirective } from './new-item.directive';
 // import { OrdersPipe } from './orders.pipe';
@@ -24,6 +27,8 @@ import { NgbDateStruct, NgbCalendar, NgbDatepicker } from '@ng-bootstrap/ng-boot
     DetailsOflessonsComponent,
     InstructordescriptionComponent,
     CalendarComponent,
+    ChangepasswordComponent,
+    LoaderComponent
 ],
 
  exports:[ 
@@ -34,6 +39,8 @@ import { NgbDateStruct, NgbCalendar, NgbDatepicker } from '@ng-bootstrap/ng-boot
     TeacherfieldsComponent,
     DetailsOflessonsComponent,
     InstructordescriptionComponent,
+    ChangepasswordComponent,
+    LoaderComponent
  ]
 })
 export class SharedModule { }

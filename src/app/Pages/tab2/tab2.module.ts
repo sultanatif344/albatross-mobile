@@ -14,7 +14,7 @@ import { studentreducer } from 'src/app/studentstore/reducers/student.reducers';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StudentEffects } from 'src/app/studentstore/effects/student.effects';
-
+import {LoaderComponent} from '../../components/loader/loader.component'
 @NgModule({
   imports: [
     IonicModule,
@@ -26,6 +26,7 @@ import { StudentEffects } from 'src/app/studentstore/effects/student.effects';
     EffectsModule.forFeature([StudentEffects]),
     SharedModule
   ],
-  declarations: [Tab2Page,RecommendationsComponent]
+  declarations: [Tab2Page,RecommendationsComponent],
+  entryComponents:[LoaderComponent]
 })
 export class Tab2PageModule {}

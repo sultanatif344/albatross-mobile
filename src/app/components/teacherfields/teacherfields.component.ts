@@ -37,7 +37,10 @@ export class TeacherfieldsComponent implements OnInit {
   public instructorDescription:any;
   private selectedfile:File = null;
   public image_source:string;
-  constructor(private EditProfileService:EditProfileService,private store:Store<AppState>, private auth:AuthService, private http:HttpClient) { }
+  constructor(private EditProfileService:EditProfileService,private store:Store<AppState>, private auth:AuthService, private http:HttpClient) { 
+    this.image_source = this.auth.getUser().photo;
+    console.log(this.image_source);
+  }
 
   // @Output() nameEv=new EventEmitter<string>();
   // @Output() TimezoneEv=new EventEmitter<string>();
@@ -54,8 +57,6 @@ export class TeacherfieldsComponent implements OnInit {
     this.store.select(store=>store).subscribe(data=>{
       console.log(data)
     })
-
-    
   }
 
   onFileSelected(event){
@@ -65,76 +66,27 @@ export class TeacherfieldsComponent implements OnInit {
 
   UploadImageAndUpdateProfile(){
     this.UploadFile();
-    // this.UpdateProfile();
   }
 
   UploadFile(){
-  //   const headers = new HttpHeaders( {
-  //     'Content-Type': 'application/json',
-  //     'Authorization': 'Bearer '+this.auth.getToken(),                    
-  //     'Access-Control-Allow-Origin': 'https://albatross-v1.herokuapp.com/api/v1/user/photo',
-  //     'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,PUT,PATCH,DELETE',
-  //     'Access-Control-Allow-Headers':  'X-Requested-With,content-type'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-  // })
   let headers = new HttpHeaders();
     headers = headers
       .set('Content-Type','multipart/form-data')
       .set('Authorization','Bearer '+this.auth.getToken());
-      //.set('Accept', '');
-  // headers_object.append('Content-Type','application/json');
-  // headers_object.append('Authorization-Bearer',this.auth.getToken());
-  // headers_object.append('Access-Control-Allow-Origin','https://albatross-v1.herokuapp.com/api/v1/user/photo');
-  // headers_object.append('Access-Control-Allow-Methods','GET,POST,OPTIONS,PUT,PATCH,DELETE');
-  // headers_object.append('Access-Control-Allow-Headers','X-Requested-With,content-type')
 
   console.log(this.auth.getToken());
-  // const httpOptions = {
-  //   headers:headers
-  // }
+  
   console.log(this.selectedfile);
     const fd = new FormData();
     console.log(this.selectedfile);
     fd.append('file',this.selectedfile)
     console.log(fd);
-    // this.http.get("https://albatross-v1.herokuapp.com/api/v1/instructor", {headers: headers}).subscribe(r=>console.log(r));
+  
     return this.http.post('https://albatross-v1.herokuapp.com/api/v1/user/photo',fd)
     .subscribe((res:any) =>{
       this.image_source = res.url;
     })
   }
-  // /api/v1/instructor/:id
-  // ngOnChanges(){
-  //   console.log(this.instructorDescription)
-  // }
-
-  // EmitName(){
-  //   this.nameEv.emit(this.name);
-  // }
-  // EmitTimezone(){
-  //   this.TimezoneEv.emit(this.timeZone);
-  // }
-  // EmitLangauge(){
-  //   this.LanguageEv.emit(this.language);
-  // }
-  // EmitDexterity(){
-  //   this.DexterityEv.emit(this.dexterity);
-  // }
-  // EmitTypeofLessons(){
-  //   this.Type_of_lessons_offeredEv.emit(this.type_of_lessons_offered);
-  // }
-  // EmitDescription(){
-  //   this.DescriptionEv.emit(this.description);
-  // }
-  // Emitaffiliation(){
-  //   this.AffiliationEv.emit(this.affiliation);
-  // }
-  // EmitRates(){
-  //   this.RatesEv.emit(this.rates);
-  // }
-  // EmitTimeslots(){
-  //   this.TimeslotsEv.emit(this.timeslots);
-  // }
-
 
   AddLessons(dexterity:string){
     this.dexterityArr.push(dexterity);

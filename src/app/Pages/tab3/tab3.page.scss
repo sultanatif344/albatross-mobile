@@ -1,6 +1,7 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
 img{
     border-radius: 50%;
-    border: 5px solid #146545;
+    border: 2.5px solid #146545;
 }
 
 a{
@@ -14,8 +15,49 @@ ion-icon{
 
 ion-content{
     --ion-background-color: whitesmoke;
+    font-family: 'Montserrat';
 }
 
 ion-card{
     background: white;
+    font-family: 'Montserrat';
+}
+
+#passwordicon{
+    position: relative; 
+    bottom: 40px; 
+    right: 15px;
+}
+
+@media(min-width:768px) and (max-width:1455px){
+    img{
+        margin-left:80px;
+        width: 220px;
+        height: 200px;
+    }
+
+    #name{
+        margin-top: 50px;
+        margin-left: 50px;
+    }
+    #email{
+        margin-top: 10px;
+        margin-left: 50px;
+    }
+    .decreasewidth{
+        width: 300px;
+        margin-left: 120px;
+        box-shadow:2px 2px 2px 7px rgba(196, 209, 196, 0.05);
+    }
+    div{
+        width: 40%;
+        margin-left: 480px;
+        box-shadow: 12px 11px 25px 25px rgba(0,128,0,0.05); 
+    }
+    #passowrdicon{
+        position: relative; 
+        bottom: 40px; 
+        right: 15px;
+    }
+
 }

@@ -15,7 +15,10 @@ export class Tab3Page {
 
   title:string;
   private user:Object;
-  constructor(private router: Router,private navController:NavController,private store:Store<AppState>,private auth:AuthService) {}
+  public photo_URL:string;
+  constructor(private router: Router,private navController:NavController,private store:Store<AppState>,private auth:AuthService) {
+    this.photo_URL = this.auth.getUser().photo;
+  }
 
 ngOnInit(){
   this.title = "Account";

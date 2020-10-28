@@ -6,7 +6,12 @@
 ion-content{
    --ion-background-color: whitesmoke;
 }
-
+img{
+    margin-left: 10%;
+}
+ion-button{
+    text-transform: none;
+}
 .active{
     background: #146545;
     border: none;
@@ -15,6 +20,16 @@ ion-content{
     width: 90px;
     ion-text{
         color: white;
+    }
+}
+
+@media(min-width:768px) and (max-width:1455px){
+    .center{
+        margin-left: 500px; 
+    }
+    div{
+        margin-right: 10%;
+        margin-top:1%;
     }
 }
 

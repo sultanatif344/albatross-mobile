@@ -101,6 +101,17 @@ ion-button{
       background-color: #4bb543;
   }
 
+
+  @media(min-width:768px) and (max-width:1455px){
+    ngb-datepicker {
+        top: 140px;
+        position: absolute;
+        left: 500px;    
+        z-index: 2;
+        background: white;
+    } 
+}
+
   
 
   

@@ -6,50 +6,13 @@
 
 <ion-content content-id="content">
   <app-header [showScheduleBar]="false" [SearchBarVisible]="false" [showBackButton]="true" [showTitle]="true" [title]="title"></app-header>
-  <ion-grid>
-  <ion-row>
-    <ion-col size="8">
-      <ion-text color="dark"><h5>Notifications</h5></ion-text>
-    </ion-col>
-  </ion-row>
 
 
-    <!-- <ion-col size="4">
-      <ion-text color="dark"><h5>Notifications</h5></ion-text>
-    </ion-col> -->
-    <ion-card>
-      <ion-row>
-        <ion-col size="8">
-          <p style="margin-top:10px;">Allow Push Notifications</p>
-        </ion-col>
-        <ion-col size="4">
-            <ion-toggle style="margin-top:10px;" name="kiwi" color="success"></ion-toggle>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="8">
-          <p style="margin-top:10px;">Recommendations</p>
-        </ion-col>
-        <ion-col size="4">
-            <ion-toggle style="margin-top:10px;" name="kiwi" color="success"></ion-toggle>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="8">
-          <p style="margin-top:10px;">Special Communication & offers</p>
-        </ion-col>
-        <ion-col size="4">
-            <ion-toggle style="margin-top:10px;" name="kiwi" color="success"></ion-toggle>
-        </ion-col>
-      </ion-row>
-    </ion-card>
-</ion-grid>
-
-<ion-grid>
+<ion-grid class="center">
   
 
-
-  <ion-grid>
+  <div class="spacing">
+  <ion-grid class="options-container">
     <ion-row>
       <ion-col size="8">
         <ion-text color="dark"><h5>Connect Accounts</h5></ion-text>
@@ -62,6 +25,7 @@
           <ion-col size="4">
               <!-- <ion-toggle style="margin-top:10px;" [(ngModel)]="flag" [checked]="flag" name="kiwi" color="success"></ion-toggle> -->
               <ion-button color="danger" (click)="connectWithGoogle()">
+                <ion-icon name="logo-google" class="ion-margin-right"></ion-icon>
                 Connect With Google
               </ion-button>
           </ion-col>
@@ -72,38 +36,28 @@
     <!-- <ion-col size="4">
       <ion-text color="dark"><h5>Notifications</h5></ion-text>
     </ion-col> -->
-    <ion-row>
+    <ion-row class="options-container">
       <ion-col size="8">
         <ion-text color="dark"><h5>Privacy</h5></ion-text>
       </ion-col>        
     </ion-row>
-    <ion-card (click)="goToChangePassword()">
+    <ion-card class="options-container" (click)="goToChangePassword()" id="changepassword">
       <ion-row>
       <ion-col size="6">
-        <p style="margin-top:10px;">Change Password</p>
+        <p style="margin-top:10px; margin-left: 5px; font-weight: bold;">Change Password</p>
       </ion-col>
-      <ion-col size="6">
-        <ion-icon name="chevron-forward-outline" color="success" class="ion-margin-top" style="margin-left:100px;"></ion-icon>
+      <ion-col size="6" class="increasetopmargin">
+        <ion-icon name="chevron-forward-outline" color="success" class="ion-margin-top decreasemargin increasemargin"></ion-icon>
       </ion-col>
     </ion-row>
     </ion-card>
 
-    <ion-row>
+    <ion-row class="options-container">
       <ion-col size="8">
         <ion-text color="dark"><h5>Other</h5></ion-text>
       </ion-col>        
     </ion-row>
-    <ion-card>
-      <ion-row>
-      <ion-col size="8">
-        <p style="margin-top:10px;">Activities</p>
-      </ion-col>
-      <ion-col size="4">
-        <ion-toggle style="margin-top:10px;" name="kiwi" color="success"></ion-toggle>
-      </ion-col>
-    </ion-row>
-    
-
+    <!-- <ion-card>
     <ion-row>
       <ion-col size="8">
         <p style="margin-top:10px;">Help</p>
@@ -112,16 +66,18 @@
         <ion-toggle style="margin-top:10px;" name="kiwi" color="success"></ion-toggle>
       </ion-col>
     </ion-row>
-    </ion-card>
+    </ion-card> -->
 
     <!-- <ion-button color="danger" (click)="connectWithGoogle()">Connect With Google</ion-button> -->
 
-    <ion-card (click)="logout()">
+    <ion-card (click)="logout()" class="decrease options-container">
       <ion-row>
         <ion-col size="8">
-          <ion-text color="dark"><p style="margin-top:10px;">Logout</p></ion-text>
+          <ion-text color="dark"><p style="margin-top:10px; margin-left: 5px; font-weight: bold;">Logout</p></ion-text>
         </ion-col>
       </ion-row>
     </ion-card>
+  </div>
 </ion-grid>
+
 </ion-content>

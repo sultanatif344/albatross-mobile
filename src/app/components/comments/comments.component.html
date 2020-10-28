@@ -1,16 +1,16 @@
 <ion-card class="ion-no-margin">
   <ion-card-content>
     <ion-input placeholder="Write a Comment" [(ngModel)]="message">
-      <ion-button (click)="AddComments()" color="light">
+      <ion-button (click)="AddComments()" fill="clear" style="position: absolute; left: 230px;">
       <ion-icon name="add-circle" size="large"></ion-icon>
     </ion-button>
     </ion-input>
-    <ion-card id="no-shadow" *ngFor="let comment of comments">
-      <ion-card-header>
-
-      </ion-card-header>
-      <ion-card-content>
+    <ion-card id="no-shadow" *ngFor="let comment of newComments">
+      <ion-card-content class="ion-no-margin">
+        <ion-text color="dark" style="font-size: small; font-weight: bold;">{{comment.senderName}}</ion-text>
+        <ion-row>
         <ion-text color="dark">{{comment.message}}</ion-text>
+      </ion-row>
       </ion-card-content>
     </ion-card>
   </ion-card-content>

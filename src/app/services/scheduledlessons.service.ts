@@ -61,7 +61,7 @@ acceptOrDeclineLesson(id:string,payload:Object,token:string):Observable<any>{
 }
 
 
-getweekView(token:string,view:string,weekNo:Number):Observable<any>{
+getweekView(token:string,view:string,weekNo:string):Observable<any>{
   let lessonByWeek_URL = 'https://albatross-v1.herokuapp.com/api/v1/lesson/getlessonsbyView';
   this.headers = new HttpHeaders({
     'Content-Type': 'application/json',

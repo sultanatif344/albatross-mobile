@@ -1,0 +1,6 @@
+<ion-content>
+  <app-header [showTitle]="true" [SearchBarVisible]="false" [showBackButton]="true" [title]="title"></app-header>
+
+  <app-verficationform (verficationSuceededEvent)="resetPasswordActive($event)" *ngIf="!resetPasswordComponentActive"></app-verficationform>
+  <app-changepasswordform *ngIf="resetPasswordComponentActive" [verificationActive]="resetPasswordComponentActive"></app-changepasswordform>
+</ion-content>
