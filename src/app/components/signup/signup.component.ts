@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Platform } from '@ionic/angular';
 import { Store } from '@ngrx/store';
 import { User } from 'src/app/models/user';
 import { SignUp } from 'src/app/store/actions/auth.actions';
@@ -12,7 +13,16 @@ import { AppState } from 'src/app/store/app.states';
 export class SignupComponent implements OnInit {
 
   user:User = new User();
-  constructor(private store:Store<AppState>) { }
+  public instructorOnly:boolean;
+  constructor(private store:Store<AppState>,private platform:Platform) { 
+    if(this.platform.is('pwa')){
+      this.instructorOnly = true
+    }
+    else{
+      this.instructorOnly = false;
+    }
+    console.log(this.instructorOnly);
+  }
 
   ngOnInit() {}
 

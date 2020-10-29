@@ -24,7 +24,7 @@
   </ion-row>
 </ion-grid>
 <ion-row class="ion-margin-top ion-margin-left">
-  <ion-item>
+  <ion-item *ngIf="instructorOnly===false">
     <ion-label fill="clear" class="ion-margin-top" style="color:darkgrey">Choose Position</ion-label>
   <ion-select value="03" [(ngModel)]="user.role">
     <ion-select-option value="instructor">Instructor</ion-select-option>
