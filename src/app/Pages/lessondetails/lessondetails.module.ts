@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -11,6 +11,7 @@ import { DetailsOflessonsComponent } from 'src/app/components/details-oflessons/
 import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
 import { VideocallComponent } from 'src/app/components/videocall/videocall.component';
 import { ReviewpopupComponent } from 'src/app/components/reviewpopup/reviewpopup.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 
 @NgModule({
   imports: [
@@ -20,6 +21,6 @@ import { ReviewpopupComponent } from 'src/app/components/reviewpopup/reviewpopup
     LessondetailsPageRoutingModule,
     SharedModule
   ],
-  declarations: [LessondetailsPage,VideocallComponent,ReviewpopupComponent]
+  declarations: [LessondetailsPage],
 })
 export class LessondetailsPageModule {}

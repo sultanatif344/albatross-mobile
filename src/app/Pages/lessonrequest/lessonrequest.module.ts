@@ -11,6 +11,7 @@ import { InstructordescriptionComponent } from 'src/app/components/instructordes
 import {TimepickerComponent} from '../../components/timepicker/timepicker.component'
 import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
 import {NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 
 @NgModule({
   imports: [
@@ -21,6 +22,6 @@ import {NgbModule } from '@ng-bootstrap/ng-bootstrap'
     NgbModule,
     SharedModule
   ],
-  declarations: [LessonrequestPage, TimepickerComponent]
+  declarations: [LessonrequestPage],
 })
 export class LessonrequestPageModule {}

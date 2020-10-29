@@ -8,7 +8,7 @@ import { ScheduledLessons } from 'src/app/models/scheduledlessons';
 })
 export class WeeklessonsbarComponent implements OnInit {
 
-  @Input()weekDates:Array<Object>=[{}];
+  @Input()weekDates:Array<any>=[{}];
 
   @Output() emitWeekNo = new EventEmitter<string>();
   weekNo:string;

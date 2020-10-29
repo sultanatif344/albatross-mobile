@@ -6,29 +6,46 @@ import { StudentfieldsComponent } from '../components/studentfields/studentfield
 import { TeacherfieldsComponent } from '../components/teacherfields/teacherfields.component';
 import { DetailsOflessonsComponent } from '../components/details-oflessons/details-oflessons.component';
 import { InstructordescriptionComponent } from '../components/instructordescription/instructordescription.component';
-import { CalendarComponentModule } from '../components/calendar/calendar.module';
-import { CalendarComponent } from '../components/calendar/calendar.component';
-// import { CalendarModule } from 'ion2-calendar';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgbDateStruct, NgbCalendar, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
 import { ChangepasswordComponent } from '../components/changepassword/changepassword.component';
 import { LoaderComponent } from '../components/loader/loader.component';
-import { SkeletonscreenComponent } from '../components/skeletonscreen/skeletonscreen.component';
+import {IonicModule} from '@ionic/angular';
+import { TimepickerComponent } from '../components/timepicker/timepicker.component';
+import { VerificationComponent } from '../components/verification/verification.component';
+import { VideocallComponent } from '../components/videocall/videocall.component';
+import { ReviewpopupComponent } from '../components/reviewpopup/reviewpopup.component';
+import { WeeklessonsbarComponent } from '../components/weeklessonsbar/weeklessonsbar.component';
+import { DayviewComponent } from '../components/dayview/dayview.component';
+import { WeekviewComponent } from '../components/weekview/weekview.component';
+import { LessonsBarComponent } from '../components/lessons-bar/lessons-bar.component';
+import { InstructorlessonsComponent } from '../components/instructorlessons/instructorlessons.component';
 // import { CustomerComponent } from './customer.component';
 // import { NewItemDirective } from './new-item.directive';
 // import { OrdersPipe } from './orders.pipe';
 
 @NgModule({
- imports:      [ CommonModule],
+ imports:      [ CommonModule,
+    IonicModule,
+    FormsModule
+],
  declarations: [
-     HeaderComponent,
+    HeaderComponent, 
     StudentfieldsComponent,
     TeacherfieldsComponent,
     DetailsOflessonsComponent,
     InstructordescriptionComponent,
-    CalendarComponent,
     ChangepasswordComponent,
-    LoaderComponent
+    LoaderComponent,
+    TimepickerComponent,
+    VerificationComponent,
+    VideocallComponent,
+    ReviewpopupComponent,
+    WeeklessonsbarComponent,
+    LessonsBarComponent,
+    DayviewComponent,
+    WeekviewComponent,
+    InstructorlessonsComponent
 ],
 
  exports:[ 
@@ -40,7 +57,16 @@ import { SkeletonscreenComponent } from '../components/skeletonscreen/skeletonsc
     DetailsOflessonsComponent,
     InstructordescriptionComponent,
     ChangepasswordComponent,
-    LoaderComponent
+    LoaderComponent,
+    TimepickerComponent,
+    VerificationComponent,
+    VideocallComponent,
+    ReviewpopupComponent,
+    WeeklessonsbarComponent,
+    LessonsBarComponent,
+    DayviewComponent,
+    WeekviewComponent,
+    InstructorlessonsComponent
  ]
 })
 export class SharedModule { }

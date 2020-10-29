@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -31,9 +31,19 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import {AngularFireStorageModule} from 'angularfire2/storage';
 import {AndroidPermissions} from '@ionic-native/android-permissions/ngx';
-import { SkeletonscreenComponent } from './components/skeletonscreen/skeletonscreen.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { LoaderComponent } from './components/loader/loader.component';
+import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
+import { InstructordescriptionComponent } from './components/instructordescription/instructordescription.component';
+import { DetailsOflessonsComponent } from './components/details-oflessons/details-oflessons.component';
+import { TeacherfieldsComponent } from './components/teacherfields/teacherfields.component';
+import { StudentfieldsComponent } from './components/studentfields/studentfields.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SharedModule } from './sharedmodules/sharedmodules.module';
+import { DatePipe } from '@angular/common';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,
+  ],
   entryComponents: [
     // DayviewComponent
   ],
@@ -48,7 +58,8 @@ import { SkeletonscreenComponent } from './components/skeletonscreen/skeletonscr
     EffectsModule.forRoot([StudentEffects]),   
     StoreModule.forRoot(reducers),
     NgbModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     // StoreDevtoolsModule.instrument({
     //   maxAge: 25, // Retains last 25 states
     //   logOnly: environment.production, // Restrict extension to log-only mode
@@ -72,6 +83,6 @@ import { SkeletonscreenComponent } from './components/skeletonscreen/skeletonscr
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     InAppBrowser    
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

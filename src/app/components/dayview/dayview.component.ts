@@ -19,9 +19,9 @@ import { AuthService } from 'src/app/services/auth.service';
 export class DayviewComponent implements OnInit {
 
   @Input()scheduledLessons:Array<ScheduledLessons>=[];
-  private startTime: string;
-  private endTime:string;
-  private user:Object;
+  public startTime: string;
+  public endTime:string;
+  public user:any;
   id: string;
   @Output() navigateToLessonDetails_Event = new EventEmitter();
   constructor(private router: Router, private store:Store<scheduledlessonsState>,private auth:AuthService) { 

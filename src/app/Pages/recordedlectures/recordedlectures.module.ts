@@ -11,6 +11,7 @@ import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
 import { RecordedvideosComponent } from 'src/app/components/recordedvideos/recordedvideos.component';
 import { CommentsComponent } from 'src/app/components/comments/comments.component';
 import { FileSaverModule } from 'ngx-filesaver';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 
 @NgModule({
   imports: [

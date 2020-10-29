@@ -1,16 +1,7 @@
 
 
-<ion-content [fullscreen]="true">
+<ion-content>
   <app-header [showScheduleBar]="false" [SearchBarVisible]="true" [showBackButton]="true" (searchResultEvent)="loadSearchResults($event)"></app-header>
-          
-  <!-- <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header> -->
-
   <app-recommendations [InstructorDescription]="InstructorDescription" [searchResult]="searchResult"></app-recommendations>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
   <app-loader *ngIf="loading"></app-loader>
 </ion-content>

@@ -14,7 +14,7 @@ export class DetailsOflessonsComponent implements OnInit {
     this.role=this.auth.getUser().role;
   }
 
-  @Input() lessonDetail:Observable<Array<any>>;
+  @Input() lessonDetail:any;
   @Output() callingEvent = new EventEmitter<boolean>();
   public role:string;
   public callScreenIsActive:boolean;

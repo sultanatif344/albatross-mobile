@@ -50,21 +50,21 @@ const routes: Routes = [
   //   path: 'instructortabs',
   //   loadChildren: () => import('./instructortabs/instructortabs.module').then( m => m.InstructortabsPageModule)
   // },
-  {
-    path: 'instructorlessondetails',
-    loadChildren: () => import('./instructorlessondetails/instructorlessondetails.module').then( m => m.InstructorlessondetailsPageModule),
-    canActivate:[AuthGuard]
-  },
+  // {
+  //   path: 'instructorlessondetails',
+  //   loadChildren: () => import('./instructorlessondetails/instructorlessondetails.module').then( m => m.InstructorlessondetailsPageModule),
+  //   canActivate:[AuthGuard]
+  // },
   {
     path: 'instructorlessonrequest',
     loadChildren: () => import('./instructorlessonrequest/instructorlessonrequest.module').then( m => m.InstructorlessonrequestPageModule),
     canActivate:[AuthGuard]
   },
-  {
-    path: 'instructoraccounts',
-    loadChildren: () => import('./instructoraccounts/instructoraccounts.module').then( m => m.InstructoraccountsPageModule),
-    canActivate:[AuthGuard]
-  },
+  // {
+  //   path: 'instructoraccounts',
+  //   loadChildren: () => import('./instructoraccounts/instructoraccounts.module').then( m => m.InstructoraccountsPageModule),
+  //   canActivate:[AuthGuard]
+  // },
   {
     path: 'loginsignup/verification',
     loadChildren: () => import('./pages/verification/verification.module').then( m => m.VerificationPageModule)

@@ -11,8 +11,8 @@
     </ion-col>
 
     <ion-col size="8">
-      <img *ngIf="user?.role === 'student'" class="alignRight" src="{{scheduledlessons.lessonAssignedTo.photo}}" width="30px" height="30px">
-      <img *ngIf="user?.role === 'instructor'" class="alignRight" src="{{scheduledlessons.lessonAssignedBy.photo}}" width="30px" height="30px">
+      <img *ngIf="user?.role === 'student'" class="alignRight" src="{{scheduledlessons?.lessonAssignedTo?.photo}}" width="30px" height="30px">
+      <img *ngIf="user?.role === 'instructor'" class="alignRight" src="{{scheduledlessons?.lessonAssignedBy?.photo}}" width="30px" height="30px">
       <ion-text color="dark" *ngIf="user?.role === 'student'"><p class="bold" style="margin-top:0px; height:0px; margin-left: 50px; position: relative; bottom: 23px;">{{scheduledlessons.lessonAssignedTo.name}}</p></ion-text>
       <ion-text color="dark" *ngIf="user?.role === 'instructor'"><p class="bold" style="margin-top:0px; height:0px; margin-left: 50px; position: relative; bottom: 23px;">{{scheduledlessons.lessonAssignedBy.name}}</p></ion-text>
     </ion-col>

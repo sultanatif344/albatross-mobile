@@ -14,7 +14,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class Tab3Page {
 
   title:string;
-  private user:Object;
+  public user:any;
   public photo_URL:string;
   constructor(private router: Router,private navController:NavController,private store:Store<AppState>,private auth:AuthService) {
     this.photo_URL = this.auth.getUser().photo;

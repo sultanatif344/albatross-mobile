@@ -26,10 +26,8 @@
   <app-timepicker *ngIf="flag" (startAndEndTimeEmit)="selectTime($event)"></app-timepicker>
   <app-instructordescription (displayDatePickerOverlay)="unhideCalendar($event)" [instructorDescription]="selectedInstructor" [id]="instructorID" (displayTimerOverlay)="displayTimer($event)" [scheduledLessonFullStartAndEndDate]="scheduledLessonFullStartAndEndDate"></app-instructordescription>
   <div class="calendar-overlay" (click)="hideOverlay()" padding *ngIf="!overlayHidden"></div>
-  <ngb-datepicker 
-  #dp [class.bg-primary]="selected" 
-  *ngIf="!overlayHidden" 
-  [(ngModel)]="date" 
+  <ngb-datepicker  
+  *ngIf="!overlayHidden"  
   (dateSelect)="onDateSelect($event)"  
   ngdefaultControl>
 </ngb-datepicker>

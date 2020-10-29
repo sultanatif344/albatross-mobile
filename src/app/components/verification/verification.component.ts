@@ -9,7 +9,7 @@ import { ForgetpasswordService } from 'src/app/services/forgetpassword.service';
 export class VerificationComponent implements OnInit {
 
   public email:string;
-  public digits:Object={
+  public digits={
     digit1:'',
     digit2:'',
     digit3:'',

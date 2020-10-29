@@ -2,7 +2,7 @@
   <ion-row>
     <ion-text><h6 class="ion-margin-start bold">{{lessons.lessonDate | date: "MMM, d,y"}}</h6></ion-text> 
   </ion-row>  
-<ion-card (click)="goToLessonRequest(scheduledlessons)">
+<ion-card (click)="goToLessonRequest(lessons)">
   <ion-card-content>
     <ion-row>
       
@@ -10,8 +10,8 @@
       <ion-text color="dark"><h2 class="bold">{{lessons.lessonStartTime | date: "h:mm a"}}</h2></ion-text>
     </ion-col>
 
-      <img *ngIf="user === 'student'" class="alignRight rounded" src="{{lessons.lessonAssignedTo?.photo}}" width="20px" height="20px">
-      <img *ngIf="user === 'instructor'" class="alignRight rounded" src="{{lessons.lessonAssignedBy?.photo}}" width="20px" height="20px">
+      <img *ngIf="user === 'student'" class="alignRight rounded" src="{{lessons?.lessonAssignedTo?.photo}}" width="20px" height="20px">
+      <img *ngIf="user === 'instructor'" class="alignRight rounded" src="{{lessons?.lessonAssignedBy?.photo}}" width="20px" height="20px">
       <ion-text color="dark" *ngIf="user === 'student'" class="alignleft"><p class="bold" style="margin-bottom:0px; height:0px;">{{lessons.lessonAssignedTo?.name}}</p></ion-text>
       <ion-text color="dark" *ngIf="user === 'instructor'" class="alignleft"><p class="bold" style="margin-bottom:0px; height:0px;">{{lessons.lessonAssignedBy?.name}}</p></ion-text>
       <ion-col size="5" style="margin-left: 100px;">

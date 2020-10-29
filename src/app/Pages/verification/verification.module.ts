@@ -18,6 +18,6 @@ import { VerificationComponent } from 'src/app/components/verification/verificat
     VerificationPageRoutingModule,
     SharedModule
   ],
-  declarations: [VerificationPage,VerificationComponent]
+  declarations: [VerificationPage]
 })
 export class VerificationPageModule {}

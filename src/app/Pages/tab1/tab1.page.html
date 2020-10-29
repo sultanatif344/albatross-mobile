@@ -8,20 +8,18 @@
   <ion-grid *ngIf="flag">
   <div class="my-overlay" (click)="hideOverlay()" padding *ngIf="!overlayHidden"></div>
   <ngb-datepicker 
-  #dp [class.bg-primary]="selected" 
   *ngIf="!overlayHidden" 
   [(ngModel)]="date" 
   (dateSelect)="onDateSelect($event)"  
   ngdefaultControl>
 </ngb-datepicker>
-<app-dayview [scheduledLessons]="dayArray" (navigateToLessonDetails_Event)="navigateToLessonDetailPage()"></app-dayview>
+<app-dayview [scheduledLessons]="dayArray"></app-dayview>
 </ion-grid>
 
 
 <ion-grid *ngIf="!flag">
   <div class="my-overlay" (click)="hideOverlay()" padding *ngIf="!overlayHidden"></div>
   <ngb-datepicker 
-  #dp [class.bg-primary]="selected" 
   *ngIf="!overlayHidden" 
   [(ngModel)]="date" 
   (dateSelect)="onDateSelect($event)"  

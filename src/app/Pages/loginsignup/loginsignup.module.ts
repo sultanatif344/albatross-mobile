@@ -13,6 +13,7 @@ import { LoginComponent } from 'src/app/components/login/login.component';
 import { SignupComponent } from 'src/app/components/signup/signup.component';
 import { SharedModule } from 'src/app/sharedmodules/sharedmodules.module';
 import { LoaderComponent } from 'src/app/components/loader/loader.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 
 @NgModule({
   imports: [
@@ -23,6 +24,6 @@ import { LoaderComponent } from 'src/app/components/loader/loader.component';
     SharedModule,
     EffectsModule.forFeature([AuthEffects]),
   ],
-  declarations: [LoginsignupPage,LoginComponent,SignupComponent]
+  declarations: [LoginsignupPage,LoginComponent,SignupComponent],
 })
 export class LoginsignupPageModule {}
