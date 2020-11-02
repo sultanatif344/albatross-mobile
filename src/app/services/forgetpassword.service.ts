@@ -25,9 +25,9 @@ verifyresetCode(email:string,code:string){
   return this.http.post(this.url,{resetPasswordCode:code,email:email});
 }
 
-updatePasswordAfterCodeReset(password:string){
+updatePasswordAfterCodeReset(password:string,email:string){
   this.url = 'https://albatross-v1.herokuapp.com/api/v1/auth/updatepasswordaftercode'
-  return this.http.post(this.url,{newPassword:password}).pipe(
+  return this.http.post(this.url,{newPassword:password,email:email}).pipe(
     tap(()=>{
       this.router.navigateByUrl('loginsignup');
     })

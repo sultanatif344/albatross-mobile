@@ -10,6 +10,7 @@ export class VerificationPage implements OnInit {
 
   public title:string;
   public resetPasswordComponentActive:boolean;
+  public email:string;
   constructor() {
     this.title = 'Verification';
     this.resetPasswordComponentActive = false;
@@ -20,6 +21,10 @@ export class VerificationPage implements OnInit {
 
   resetPasswordActive(event){
     this.resetPasswordComponentActive = event;
+  }
+
+  setEmailId($event){
+    this.email = $event;
   }
 
 

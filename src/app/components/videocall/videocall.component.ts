@@ -56,7 +56,27 @@ export class VideocallComponent implements OnInit {
     this.audioIsOn = false;
     this.recordingActive = false;
     this.role = this.auth.getUser().role;
-      this.setupWebRtc();
+    if(this.platform.is('android')){
+      this.platform.ready().then(()=>{
+            this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.CAMERA)
+            .then(
+              (result) => {
+                console.log('Has Permission?',result.hasPermission) 
+                if(result.hasPermission == false){
+                  this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA).then(()=>{
+                    // this.showMe();
+                  }).then(()=>{
+                    this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.MODIFY_AUDIO_SETTINGS).then(()=>{
+                      this.setupWebRtc();
+                    })
+                  })
+                }
+              })
+            })
+          }
+          else if(this.platform.is('mobileweb')){
+            this.setupWebRtc();
+          }
   }
 
   ionViewDidEnter(){
@@ -109,21 +129,7 @@ export class VideocallComponent implements OnInit {
 
     this.pc.ontrack = event =>
       (this.remote.nativeElement.srcObject = event.streams[0]); 
-      if(this.platform.is('cordova')){
-        this.platform.ready().then(()=>{
-              this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.CAMERA)
-              .then(
-                (result) => {
-                  console.log('Has Permission?',result.hasPermission) 
-                  if(result.hasPermission == false){
-                    this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA).then(()=>{
-                      this.showMe();
-                    })
-                  }
-                })
-              })
-            }
-      else{
+      {
         this.showMe()
       }
   }
@@ -159,14 +165,19 @@ export class VideocallComponent implements OnInit {
   }
 
  showMe() {
-    navigator.mediaDevices.getUserMedia({ audio: true, video: true })
+   try{
+    navigator.mediaDevices.getUserMedia({audio:true,video:true})
       .then(stream => (this.me.nativeElement.srcObject = stream))
       .then(stream => {
         this.pc.addStream(stream);
         this.localStream = stream;
       })
-      .then(async ()=> await this.showRemote())
+      .then(()=>this.showRemote())
     }
+  catch(error){
+    console.log(error);
+  }
+}
     
 
   showRemote() {

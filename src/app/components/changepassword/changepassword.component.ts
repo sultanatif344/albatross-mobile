@@ -16,6 +16,7 @@ export class ChangepasswordComponent implements OnInit {
   public currentPassword:string;
   public newPassword:string;
   @Input() verificationActive:boolean;
+  @Input() email: string;
   ngOnInit() {
     console.log(this.verificationActive);
   }
@@ -30,7 +31,7 @@ export class ChangepasswordComponent implements OnInit {
       })
     }
     else{
-      this.forgetPasswordService.updatePasswordAfterCodeReset(this.newPassword)
+      this.forgetPasswordService.updatePasswordAfterCodeReset(this.newPassword,this.email)
       .subscribe((data)=>{
         console.log(data);
       })

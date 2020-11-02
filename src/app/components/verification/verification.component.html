@@ -26,8 +26,8 @@
     <ion-input style="background-color: lightgrey; border-radius: 80%; width: 80%; font-size: large;"  [(ngModel)]="digits.digit4"  ngDefaultControl></ion-input>
   </ion-col>
 </ion-row>
-<ion-row style="margin-top: 20px; margin-left: 120px;">
-  <a style="color:#146545;">Resend Code</a>
+<ion-row style="margin-top: 20px; margin-left: 110px;">
+  <a class="spacing" style="color:#146545;" (click)="getCode(email)">Resend Code</a>
 </ion-row>
 <ion-button expand="full" size="large" shape="round" class="ion-padding-horizontal ion-margin-top" color="success" (click)="verifyCode(digits,email)"><ion-text style="font-weight: lighter; font-style: normal; text-transform: none;">Verify</ion-text></ion-button>
 </div>

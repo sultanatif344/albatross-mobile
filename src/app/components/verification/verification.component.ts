@@ -17,6 +17,7 @@ export class VerificationComponent implements OnInit {
   }
   public resetPassword:boolean;
   @Output() verficationSuceededEvent = new EventEmitter<boolean>();
+  @Output() emailSent =  new EventEmitter<string>();
   constructor(private forgetPasswordService:ForgetpasswordService) { }
 
   ngOnInit() {}
@@ -34,6 +35,7 @@ export class VerificationComponent implements OnInit {
       console.log(data);
       this.resetPassword = true
       this.verficationSuceededEvent.emit(this.resetPassword);
+      this.emailSent.emit(email);
     })
   }
 }
