@@ -15,26 +15,39 @@ export class SignupComponent implements OnInit {
   user:User = new User();
   public instructorOnly:boolean;
   constructor(private store:Store<AppState>,private platform:Platform) { 
-    if(this.platform.is('pwa')){
-      this.instructorOnly = true
+  }
+
+  ngOnInit() {
+    if(this.platform.is('cordova')){
+      this.instructorOnly = false
     }
     else{
-      this.instructorOnly = false;
+      this.instructorOnly = true;
     }
     console.log(this.instructorOnly);
   }
 
-  ngOnInit() {}
-
 
   signUp(){
+    if(this.platform.is('cordova')){
+      const payload = {
+        name: this.user.name,
+        mobilenumber:this.user.mobilenumber,
+        email:this.user.email,
+        password:this.user.password,
+        role:this.user.role
+      }
+      this.store.dispatch(new SignUp(payload))
+  }
+  else{
     const payload = {
       name: this.user.name,
       mobilenumber:this.user.mobilenumber,
       email:this.user.email,
       password:this.user.password,
-      role:this.user.role
+      role:'instructor'
     }
     this.store.dispatch(new SignUp(payload))
+  }
   }
 }

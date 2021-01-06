@@ -36,20 +36,18 @@ export class Tab1Page {
   public weeks:Array<Object>=[{}];
   public weekArray:Array<object>=[{}];
   public loading:boolean;
+  public selectedDate:Object;
   // private weekNo:Number;
   
 
   @Output() dateSelect = new EventEmitter<NgbDateStruct>();
   overlayHidden: boolean = true;
   constructor(
-    private router: Router, 
-    private navController: NavController, 
     private store:Store<AppState>,
     private calendar: NgbCalendar,
     private scheduledLessonsService:ScheduledlessonsService,
     private auth:AuthService,
     private NgbDateConfig:NgbDatepickerConfig,
-    private zone:NgZone
     ) 
     {
       var date = new Date() 
@@ -65,6 +63,13 @@ export class Tab1Page {
       this.loading = data.loading;
       console.log(data);
     })
+
+    var monthInText = moment(month,'M').format('MMM');
+
+    this.selectedDate = {
+      month:monthInText,
+      year:year
+    }
     }
 
 
@@ -152,12 +157,19 @@ export class Tab1Page {
     this.toDate =this.calendar.getNext(this.fromDate,'d',6);
   let date = moment($event).toDate();
   console.log(date);
+
+
+  var monthInText = moment(this.monthNo,'M').format('MMM');
+  this.selectedDate = {
+    month:monthInText,
+    year:$event.year
+  }
   // this.weekNo = Math.ceil(date.getDate()/7)
   // this.scheduledLessonsService.getweekView(this.auth.getToken(),this.view,this.weekNo)
   //       .subscribe(data=>{
   //       console.log(data)
   //        })
-  // console.log(moment(new Date(this.NgbDateConfig.firstDayOfWeek.toLocaleString(new Date($event).toDateString()))).toDate());
+  // console.log(moment(new Date(this.NgbDateConfig.firstDayOfWeek.toLocaleString(new Date($event).toDateString()))).toDate());zz
   this.NgbDateConfig.startDate = {year:$event.year,month:$event.month}
   if(this.view == 'day'){
     this.dates = this.getDates(new Date(this.fromDate.year,this.fromDate.month-1,this.fromDate.day), new Date(this.toDate.year,this.toDate.month-1,this.toDate.day));                                                                                                           

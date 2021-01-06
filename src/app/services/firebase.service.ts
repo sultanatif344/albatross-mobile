@@ -4,6 +4,7 @@ import {AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask} 
 import { AngularFireDatabase, AngularFireDatabaseModule} from 'angularfire2/database';
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
+import * as moment from 'moment';
 @Injectable({
   providedIn: 'root'
 })
@@ -39,6 +40,26 @@ export class FirebaseService {
         console.log(snapshot.val());
         comments.push(snapshot.val());
       })
+    }
+
+    public deleteVideoRef(key:string,deletionDate:string){
+      // var currentDateTimeStamp = moment(deletionDate).format('X');
+      
+      // var database = this.initializeFirebaseRef(this.Recordingref).orderByChild(key);
+
+      // database.on('child_added',(snapshot)=>{
+      //   var DeletioDateTimeStamps:Array<any> = [];
+        
+      //   if(snapshot.val().DeletionDate === deletionDate){
+        var database = this.initializeFirebaseRef(this.Recordingref).orderByChild(key).equalTo(deletionDate);
+
+        database.on('child_added',(snapshot:any)=>{
+          snapshot.ref.remove();
+
+          this.afStorage.ref(snapshot.VideoId)
+        })
+        
+        
     }
     
 }

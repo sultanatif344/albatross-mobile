@@ -7,9 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { InstructorlessonrequestPageRoutingModule } from './instructorlessonrequest-routing.module';
 
 import { InstructorlessonrequestPage } from './instructorlessonrequest.page';
-import { HeaderComponent } from '../components/header/header.component';
-import { InstructorlessonsComponent } from '../components/instructorlessons/instructorlessons.component';
-import { SharedModule } from '../sharedmodules/sharedmodules.module';
+import { HeaderComponent } from '../../components/header/header.component';
+import { InstructorlessonsComponent } from '../../components/instructorlessons/instructorlessons.component';
+import { SharedModule } from '../../sharedmodules/sharedmodules.module';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 
 @NgModule({

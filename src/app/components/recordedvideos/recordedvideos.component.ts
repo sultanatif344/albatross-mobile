@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import * as moment from 'moment';
 import { map } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
@@ -22,7 +23,7 @@ export class RecordedvideosComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    this.deleteVideos();
   }
 
   unhideCommentSection(VideoId:any){
@@ -34,12 +35,15 @@ export class RecordedvideosComponent implements OnInit {
   getVideos(){
     if(this.auth.getUser().role==="instructor"){
       this.firebaseService.filterByName('VideoBy',this.auth.getUser().id,this.lessonDetail)
-      console.log(this.lessonDetail);
     }
     else{
-      var studentVideos = this.firebaseService.filterByName("VideoFor",this.auth.getUser().id,this.lessonDetail);
+       this.firebaseService.filterByName("VideoFor",this.auth.getUser().id,this.lessonDetail);
     }
-    console.log(this.videoDetail);
+  }
+
+  deleteVideos(){
+      var currentDate = moment().format('DD/MM/YYYY')
+      this.firebaseService.deleteVideoRef('DeletionDate',currentDate);
   }
 
   SaveFileToDisk(Recording:any){

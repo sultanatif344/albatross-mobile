@@ -1,6 +1,6 @@
 <ion-content>
 
-  <app-header [showScheduleBar]="true" [showTitle]="false" (switchView)="setFlag($event)" (switchView)="unsetFlag($event)" [SearchBarVisible]="false" [showBackButton]="false" (calendarModalDisplayEvent)="displayCalendarModal($event)"></app-header>
+  <app-header [selectedDate]="selectedDate" [showScheduleBar]="true" [showTitle]="false" (switchView)="setFlag($event)" (switchView)="unsetFlag($event)" [SearchBarVisible]="false" [showBackButton]="false" (calendarModalDisplayEvent)="displayCalendarModal($event)"></app-header>
 
   
   <app-lessons-bar [dates]="dates" (dateEmitEvent)="getDayData($event)" *ngIf="flag"></app-lessons-bar>

@@ -2,7 +2,7 @@
 <!----Will remain same for student and instructor--->
 
 
-  <ion-tab-bar slot="bottom">
+  <ion-tab-bar slot="bottom" style="padding-left: 100px;padding-right: 100px;">
     <ion-tab-button tab="dashboard">
       <!-- <ion-icon name="triangle"></ion-icon> -->
       <img src="../../assets/images/dashboard.png" width="30px" height="30px"/>
@@ -36,7 +36,7 @@
     <ion-tab-button tab="instructorlessonrequest" *ngIf="currentUser?.role=='instructor'">
       <!-- <ion-icon name="ellipse"></ion-icon> -->
      <img src="../../assets/images/search.png" width="30px" height="30px"/>
-      <ion-label>LessonRequest</ion-label>
+      <ion-label>Requests</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="recordedlectures">

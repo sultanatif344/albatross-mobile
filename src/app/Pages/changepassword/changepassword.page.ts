@@ -17,7 +17,9 @@ export class ChangepasswordPage implements OnInit {
 
   public currentPassword:string;
   public newPassword:string;
+  public title:string;
   ngOnInit() {
+    this.title = "Change Password";
   }
 
 

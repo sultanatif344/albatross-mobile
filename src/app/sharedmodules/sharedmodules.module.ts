@@ -20,9 +20,6 @@ import { DayviewComponent } from '../components/dayview/dayview.component';
 import { WeekviewComponent } from '../components/weekview/weekview.component';
 import { LessonsBarComponent } from '../components/lessons-bar/lessons-bar.component';
 import { InstructorlessonsComponent } from '../components/instructorlessons/instructorlessons.component';
-// import { CustomerComponent } from './customer.component';
-// import { NewItemDirective } from './new-item.directive';
-// import { OrdersPipe } from './orders.pipe';
 
 @NgModule({
  imports:      [ CommonModule,

@@ -24,6 +24,7 @@ export class HeaderComponent implements OnInit {
   @Input() SearchBarVisible: boolean;
   @Input() title:string;
   @Input() showTitle:boolean;
+  @Input() selectedDate:Object;
   public name:string;
   @Output() switchView=new EventEmitter<boolean>();
   @Output() searchResultEvent = new EventEmitter<Array<Object>>();

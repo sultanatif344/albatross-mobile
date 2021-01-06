@@ -5,8 +5,8 @@
       <ion-col (click)="displayCalendar()">
         <ion-row>
           <ion-icon class="ion-margin-top space-between primary" name="calendar"></ion-icon>
-          <ion-text class=" text-primary space-between"><h1>July</h1></ion-text>
-          <ion-text class="text-primary ion-margin-top"><h6>2020</h6></ion-text>
+          <ion-text class=" text-primary space-between"><h1>{{selectedDate.month}}</h1></ion-text>
+          <ion-text class="text-primary ion-margin-top"><h6>{{selectedDate.year}}</h6></ion-text>
           <!-- <ion-button color="light" class="ion-margin-vertical" (click)="ActivateCalendar()"></ion-button> -->
         </ion-row>
       </ion-col>

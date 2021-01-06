@@ -57,7 +57,7 @@ const routes: Routes = [
   // },
   {
     path: 'instructorlessonrequest',
-    loadChildren: () => import('./instructorlessonrequest/instructorlessonrequest.module').then( m => m.InstructorlessonrequestPageModule),
+    loadChildren: () => import('./pages/instructorlessonrequest/instructorlessonrequest.module').then( m => m.InstructorlessonrequestPageModule),
     canActivate:[AuthGuard]
   },
   // {
