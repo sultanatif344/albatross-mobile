@@ -21,7 +21,6 @@ export class InstructorloadService {
   
   loadInstructor(token:string,name:string):Observable<any>{
     let instructorLoad_URL = `https://albatross-v1.herokuapp.com/api/v1/instructor/?${name ? `name=${name}` : ''}`
-    console.log("getting data...");
     this.headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer '+token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       

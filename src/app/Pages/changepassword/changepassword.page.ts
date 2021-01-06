@@ -28,7 +28,7 @@ export class ChangepasswordPage implements OnInit {
       this.ChangePasswordService.UpdatePassword(
       {currentPassword:this.currentPassword,newPassword:this.newPassword},this.auth.getToken())
       .subscribe(data=>{
-        console.log(data);
+        return data;
       })
 }
 

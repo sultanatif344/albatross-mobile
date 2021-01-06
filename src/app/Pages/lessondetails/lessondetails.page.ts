@@ -37,17 +37,12 @@ export class LessondetailsPage implements OnInit {
 
 
   displaylessonsdetails(id){
-    // this.store.select<any>('users').subscribe(data =>{
-    //   console.log(data);
-    // })
     this.BookLessonService.getlessondetail(id,this.auth.getToken())
     .subscribe( data=>{
       this.selectedLessonDetail= data.data;
       this.id = data.data.lessonAssignedTo._id
-      console.log(this.selectedLessonDetail);
       if(this.auth.getUser().role==="instructor"){
         this.callerId = this.selectedLessonDetail.lessonAssignedTo._id
-        console.log(this.callerId);
       }
       else if(this.auth.getUser().role==="student"){
         this.callerId = this.selectedLessonDetail.lessonAssignedBy._id
@@ -65,7 +60,6 @@ export class LessondetailsPage implements OnInit {
 
   enableReviewPopUp(event){
     this.popUpIsActive = event;
-    console.log(event);
   }
 
   disableReviewPopup(event){

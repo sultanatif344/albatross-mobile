@@ -27,10 +27,6 @@ export const RequestInitialState: RequestState = {
     error:undefined
 }
 
-// export const RequestInitialState: StudentState = {
-//     obj: ScheduledLessons<Object>,
-// }
-
 
 export function studentreducer(state:StudentState = InitialState, 
     actions:StudentActions, 
@@ -39,7 +35,6 @@ export function studentreducer(state:StudentState = InitialState,
 
     switch(actions.type){
         case StudentActionTypes.LOAD_INSTRUCTOR_LIST:{
-            console.log("Instructor list action");
             return{
                 ...state,
                 loading:true

@@ -56,12 +56,10 @@ export class Tab1Page {
     var day = date.getDate();
     this.fromDate = new NgbDate(year,month,day);
     this.toDate = new NgbDate(year,month,day+5);
-    // console.log(this.calendar.getWeekNumber();
     this.dates = this.getDates(new Date(this.fromDate.year,this.fromDate.month-1,this.fromDate.day), new Date(this.toDate.year,this.toDate.month-1,this.toDate.day));
     this.weeks = this.getWeeks(this.fromDate);
     this.store.select<any>('scheduledlessons').subscribe(data=>{
       this.loading = data.loading;
-      console.log(data);
     })
 
     var monthInText = moment(month,'M').format('MMM');
@@ -89,56 +87,26 @@ export class Tab1Page {
     this.flag = true;
     this.showScheduleBar = true;
      
-    console.log(this.date)
     this.setView();
     this.store.select<any>('scheduledlessons').subscribe((data)=>{
       this.dayArray = data.list.data
-      console.log(this.dayArray);
     })
-    
-    
-    
-    
-    // this.scheduledLessonsService.getLessons(this.auth.getToken()).subscribe(data=>{
-    //   this.dayArray = data;
-    // })    
   }
   setFlag(event){
     this.flag = event;
     this.view = 'day';
-    console.log(event);
-    // this.store.select<any>('users').subscribe(data=>{
-    //   this.scheduledLessonsService.getDayView(data.authState.user.token,"day","2","1")
-    //   .subscribe(data=>{
-    //     this.dayViewLessons = data
-    //     console.log(this.dayViewLessons);
-    //   })
-    // })
   }
   unsetFlag(event){
     this.view = 'week';
     this.flag = event;
-  //   this.store.select<any>('users').subscribe(data=>{
-  //   this.scheduledLessonsService.getweekView(data.authState.user.token,"week","2")
-  //   .subscribe(data=>{
-  //     this.weekViewLessons = data.data
-  //     console.log(this.weekViewLessons);
-  //   })
-  // })
   }
 
   activateCalendar(event){
     this.calendar_is_active = event;
   }
 
-  navigateEvent($event){
-    console.log(this.date);
-    console.log($event);
-  }
-
 
   onDateSelect($event){
-    console.log($event);
     this.monthNo = $event.month
     this.dayNo = $event.day;
     if(parseInt(this.monthNo)<10){
@@ -147,7 +115,6 @@ export class Tab1Page {
     }
     if($event.day<10){
       this.dayNo = '0'+$event.day
-      console.log(this.dayNo);
     }
     else{
       this.monthNo = '0'+$event.month
@@ -155,8 +122,6 @@ export class Tab1Page {
     }
     this.fromDate = $event
     this.toDate =this.calendar.getNext(this.fromDate,'d',6);
-  let date = moment($event).toDate();
-  console.log(date);
 
 
   var monthInText = moment(this.monthNo,'M').format('MMM');
@@ -164,12 +129,6 @@ export class Tab1Page {
     month:monthInText,
     year:$event.year
   }
-  // this.weekNo = Math.ceil(date.getDate()/7)
-  // this.scheduledLessonsService.getweekView(this.auth.getToken(),this.view,this.weekNo)
-  //       .subscribe(data=>{
-  //       console.log(data)
-  //        })
-  // console.log(moment(new Date(this.NgbDateConfig.firstDayOfWeek.toLocaleString(new Date($event).toDateString()))).toDate());zz
   this.NgbDateConfig.startDate = {year:$event.year,month:$event.month}
   if(this.view == 'day'){
     this.dates = this.getDates(new Date(this.fromDate.year,this.fromDate.month-1,this.fromDate.day), new Date(this.toDate.year,this.toDate.month-1,this.toDate.day));                                                                                                           
@@ -261,14 +220,8 @@ return weeks;
     }
   }
 
-  // getWeeks(startDate:Date , n){
-  //   var date = new Date(startDate.setDate(startDate.getDate()+(n * 7)));
-  //   return date
-  // }
 
   getDayData(event){
-    console.log(event)
-    console.log(this.view);
    this.scheduledLessonsService.getDayView(this.auth.getToken(),this.view,event.dayNo,event.monthNo).subscribe((data:any)=>{
      this.dayArray = data.data;
    }) 
@@ -276,23 +229,8 @@ return weeks;
 
 
   getWeekData(view:string,weekNo:string){
-    console.log(view);
-    console.log(weekNo);
     this.scheduledLessonsService.getweekView(this.auth.getUser().token,view,weekNo).subscribe((data:any)=>{
       this.weekArray = data.data;
-      console.log(this.weekArray);
     })
   }
-  
-  // onNavigate(event) {
-  //   //console.log(event)
-  //   const targetMonth = event.next.month;
-  //   const targetYear = event.next.year;
-  //   const selectedDay = 1;
-  //   this.selectedDate = {
-  //     year:targetYear,
-  //     month: targetMonth,
-  //     day:selectedDay
-  //   }
-  // }
 }

@@ -22,10 +22,6 @@ export class TabsPage {
   public currentUser:any;
   public userItem: User; 
   constructor(private store:Store<AppState>, private auth:AuthService) {
-    // this.roleState$ = this.store.pipe(select('authState','user','role'));
-  //   this.store.select<any>('users').subscribe(data=>{
-  //     this.currentUser = data.authState.user
-  // })
   
   }
 
@@ -38,13 +34,6 @@ export class TabsPage {
   }
 
   ngOnInit(){
-
-    
-  // this.store.select<any>('users').subscribe(data=>{
-  //     this.currentUser = data.authState.user;
-  //     console.log(this.currentUser);
-  //     console.log(data.authState);
-  //   });
   
 
 
@@ -57,16 +46,6 @@ export class TabsPage {
     
 
 
-    // const store = new Store();
-
-    // this.userData.subscribe(data=>console.log(data));
-
-    
-
-    
-    // console.log(this.state$.subscribe(data=>{
-    //   console.log(data);
-    // }));
     
 
     

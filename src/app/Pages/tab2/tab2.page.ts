@@ -24,24 +24,14 @@ export class Tab2Page {
   constructor(private navController:NavController, private router:Router,private store:Store<AppState>, private instructorService:InstructorloadService,private auth:AuthService) {
     this.store.dispatch(new LoadInstructorList())
     this.store.select<any>(store => store).subscribe(data=>{
-      // this.instructorService.loadInstructor(data.users.authState.user.token)
-      console.log(data);
       this.currentUser = this.auth.getUser();
       this.loading = data.scheduledlessons.loading;
-      console.log();
-      // this.instructorService.loadInstructor(data.users.authState.user.token);
     })
     this.instructorService.loadInstructor(this.currentUser.token,'').subscribe(data=>{
       this.store.dispatch(new LoadInstructorListSuccess(data))
       catchError(err=>of(new LoadInstructorListFailure(err))
-        // return of([]);)
     )})
   }
-
-
-  // goBack(){
-  //   this.navController.back();
-  // }
 
 
   ngOnInit(){
@@ -51,12 +41,8 @@ export class Tab2Page {
     this.Instructor=this.store.select<any>("Instructors")
 
     this.Instructor.subscribe(data=>{
-      console.log(data);
       this.InstructorDescription=data.list.data
-      console.log(this.InstructorDescription)
     })
-
-    // console.log(this.InstructorDescription);
   
   }
   goToLessonRequest(){
@@ -64,9 +50,7 @@ export class Tab2Page {
   }
 
   loadSearchResults($event){
-    console.log($event)
     this.searchResult= $event;
     this.InstructorDescription = this.searchResult;
-    console.log(this.searchResult);
   }
 }

@@ -19,26 +19,17 @@ export class ScheduledlessonsService {
   token:any = () => {
     let token;
     this.store.select<any>('users').subscribe(data=>{
-        console.log(data.authState.user.token)
         token = data.authState.user.token
     })
     return token
 }
 
   getLessons(token:string):Observable<any>{
-    
-    console.log(token, 'token')
-    console.log('comning here')
-          
       this.headers = new HttpHeaders({
           'Content-Type': 'application/json',
           'Authorization': 'Bearer '+token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
       })    
       return this.http.post<Array<ScheduledLessons>>(this.LESSONS_URL,null,{headers:this.headers})
-    //   var reqHeader = new HttpHeaders({ 
-    //     'Content-Type': 'application/json',
-    //     'Authorization': 'Bearer ' + )
-    //  });
 }
 
 getlessondetail(id:string,token:string):Observable<any>{
@@ -48,7 +39,6 @@ getlessondetail(id:string,token:string):Observable<any>{
     'Authorization': 'Bearer '+token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 })
   return this.http.get(lessondetail_URL,{headers:this.headers})
-  // 5f3fb384c1bc091d1cfcc64e
 }
 
 acceptOrDeclineLesson(id:string,payload:Object,token:string):Observable<any>{
@@ -80,5 +70,5 @@ return this.http.post<Array<Object>>(lessonByWeek_URL,{view:view,dayNo:dayNo,mon
 }  
 }
 
-// data.authState.user.token   
+
 

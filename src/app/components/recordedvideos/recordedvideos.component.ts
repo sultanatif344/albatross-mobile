@@ -27,7 +27,6 @@ export class RecordedvideosComponent implements OnInit {
   }
 
   unhideCommentSection(VideoId:any){
-    console.log(VideoId);
     this.videoId = VideoId.VideoId
     this.unHideComments = !this.unHideComments;
   }

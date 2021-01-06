@@ -17,15 +17,11 @@ export class WeekviewComponent implements OnInit {
    }
 
   ngOnInit() {
-   
-    console.log(this.weekLessons);
-    console.log(this.user);
   }
 
 
   goToLessonRequest(event){
     this.id = event._id
-    console.log(this.id);    
     this.router.navigateByUrl(`/lessondetails/${this.id}`);
   }
 

@@ -36,12 +36,10 @@ export class LessonrequestPage implements OnInit {
     ngOnInit() {
     this.router.params.subscribe(async data=>{
       this.id = data.id;
-      console.log(data);
     this.displaydetails(data.id)
   })
   this.overlayHidden = true;
   this.instructorDetail = this.selectedInstructor
-  console.log(this.instructorDetail);
   }
    goBack(){
       this.navController.back();
@@ -52,13 +50,11 @@ export class LessonrequestPage implements OnInit {
     .subscribe( data=>{
       this.instructorID = data.data.user._id
       this.selectedInstructor= data.data;
-      console.log(this.selectedInstructor);
     })
    }
 
    displayTimer(event){
      this.flag = event;
-     console.log(this.flag);
    }
 
    public hideOverlay() {
@@ -74,11 +70,8 @@ export class LessonrequestPage implements OnInit {
   }
 
   onDateSelect(event){
-    console.log(event);
 
     this.lessonDate = moment({year:event.year,month:event.month-1,day:event.day}).format('YYYY-MM-DD');
-
-    console.log(this.lessonDate);
 
     
     

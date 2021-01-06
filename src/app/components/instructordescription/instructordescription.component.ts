@@ -32,8 +32,6 @@ export class InstructordescriptionComponent implements OnInit {
   public overlayHidden:boolean;
   
   ngOnInit() {
-    console.log(this.instructorDescription);
-    console.log(this.id);
     this.scheduledLessonFullStartAndEndDate = {
       fullStartDate:'',
       fullEndDate:''
@@ -57,11 +55,9 @@ export class InstructordescriptionComponent implements OnInit {
       }
     }
 
-    console.log(this.scheduleLesson);
     this.store.select<any>('users').subscribe(data=>{})
       this.requestlessonservice.requestlesson(this.scheduleLesson,this.auth.getToken())
       .subscribe(data=>{
-        console.log(data);
         this.store.dispatch(new RequestInstructorSuccess(data))
         catchError(error=>of(new RequestInstructorFailure(error)))
       })
@@ -71,7 +67,6 @@ export class InstructordescriptionComponent implements OnInit {
   setFlag(){
     this.flag = true;
     this.displayTimerOverlay.emit(this.flag);
-    console.log(this.flag);
   }
 
 
@@ -81,7 +76,6 @@ export class InstructordescriptionComponent implements OnInit {
 
   displayCalendar(){
     this.overlayHidden = false;
-    console.log("Calendar Showing");
     this.displayDatePickerOverlay.emit(this.overlayHidden);
   }
 

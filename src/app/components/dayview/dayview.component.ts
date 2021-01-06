@@ -25,43 +25,15 @@ export class DayviewComponent implements OnInit {
   id: string;
   @Output() navigateToLessonDetails_Event = new EventEmitter();
   constructor(private router: Router, private store:Store<scheduledlessonsState>,private auth:AuthService) { 
-    // this.store.dispatch(new GetScheduledLessons())
-    // this.store.select<any>('scheduledlessons').subscribe(data=>{
-    //   console.log(data.list);
-    //   this.scheduledLessons = data.list.data;
-    //   console.log(this.scheduledLessons);
-    // });
     this.user = this.auth.getUser();
   }
-  
-  // ionViewWillEnter(){
-  //   this.user= this.auth.getUser();
-  // }
   ngOnInit() {
-      // console.log(data.authState.user.token)
-
-    // this.scheduledLessons.subscribe(data=>{
-    //   data.forEach(lesson=>{
-    //     this.startTime = moment(lesson.lessonStartTime,).format('HH:mm');
-    //   })
-    // })
-    // console.log(this.startTime);
-    // this.scheduledLessons.subscribe(data=>{
-    //   console.log(data);
-    // })
   }
 
 
   goToLessonRequest(event){
     this.id = event._id
-    console.log(this.id);    
     this.router.navigateByUrl(`/lessondetails/${this.id}`);
   }
-
-  // goToLessonRequest(event){
-  //   this.id = event._id
-  //   console.log(this.id);    
-  //   this.router.navigateByUrl(`/lessondetails/${this.id}`);
-  // }
   
 }

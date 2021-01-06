@@ -15,18 +15,8 @@ export class WelcomePage implements OnInit {
 
   setPosition(event){
     this.position = event;
-    console.log(this.position);
   }
   navigateToDashboard(){
     this.router.navigateByUrl('');
   }
-  // navigateToDashboard(){
-  //   if(this.position === 'Student' ){
-  //     this.router.navigateByUrl('')
-  //   }
-  //   else if(this.position === 'Teacher'){
-  //   this.router.navigateByUrl('Instructortabs/instructor-dashboard');
-  // }
-  // }
-
 }

@@ -16,13 +16,11 @@ export class LessonsBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.dates);
 
   }
 
   catchandSendSelectedDayAndMonthNo(date){
     this.flag = true;
-    console.log(date);
     const day = moment(date).format('DD');
     const month = moment(date).format('MM');
     this.selectedDate ={

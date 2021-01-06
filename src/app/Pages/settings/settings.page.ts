@@ -28,8 +28,6 @@ export class SettingsPage implements OnInit {
   public flag:Boolean;
   ngOnInit() {
     this.title = "Settings";
-
-    console.log(this.flag);
   }
 
 
@@ -54,7 +52,6 @@ export class SettingsPage implements OnInit {
   })
   
     this.http.get(googleConnectURL,{headers:headers}).subscribe((data:any)=>{
-      console.log(data);
       this.iab.create(data.url);
     })
   }

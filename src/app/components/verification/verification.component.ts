@@ -25,17 +25,17 @@ export class VerificationComponent implements OnInit {
 
   getCode(email:string){
     this.forgetPasswordService.getCode(email).subscribe((data)=>{
-      console.log(data);
+      return data;
     })
   }
 
   verifyCode(digits:any,email:string){
     var code:string = digits.digit1+''+digits.digit2+''+digits.digit3+''+digits.digit4;
     this.forgetPasswordService.verifyresetCode(email,code).subscribe((data)=>{
-      console.log(data);
       this.resetPassword = true
       this.verficationSuceededEvent.emit(this.resetPassword);
       this.emailSent.emit(email);
+      return data;
     })
   }
 }

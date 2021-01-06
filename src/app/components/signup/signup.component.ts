@@ -24,7 +24,6 @@ export class SignupComponent implements OnInit {
     else{
       this.instructorOnly = true;
     }
-    console.log(this.instructorOnly);
   }
 
 

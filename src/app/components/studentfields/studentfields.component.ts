@@ -21,7 +21,6 @@ export class StudentfieldsComponent implements OnInit {
   public image_source:string;
   constructor(private EditProfileService:EditProfileService,private auth:AuthService,private http:HttpClient ) {
     this.image_source = this.auth.getUser().photo;
-    console.log(this.image_source);
    }
 
   ngOnInit() {}
@@ -37,7 +36,6 @@ export class StudentfieldsComponent implements OnInit {
 
   onFileSelected(event){
     this.selectedfile = <File> event.target.files[0];
-      console.log(event)
   }
 
   UploadImageAndUpdateProfile(){
@@ -51,9 +49,7 @@ export class StudentfieldsComponent implements OnInit {
         .set('Content-Type','multipart/form-data')
         .set('Authorization','Bearer '+this.auth.getToken());
       const fd = new FormData();
-      console.log(this.selectedfile);
       fd.append('file',this.selectedfile)
-      console.log(fd);
       return this.http.post('https://albatross-v1.herokuapp.com/api/v1/user/photo',fd)
       .subscribe((res:any) =>{
         this.image_source = res.url;
@@ -61,7 +57,6 @@ export class StudentfieldsComponent implements OnInit {
   }
 
   UpdateProfile(){
-    console.log(this.name);
     this.studentDescription = {
       user:{
       name:this.name,
@@ -72,7 +67,7 @@ export class StudentfieldsComponent implements OnInit {
     }
       this.EditProfileService.EditStudentProfile(this.studentDescription,this.auth.getToken())
       .subscribe(data=>{
-        console.log(data);
+        return data;
       })
     
   }

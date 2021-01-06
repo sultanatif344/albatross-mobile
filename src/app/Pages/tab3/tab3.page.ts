@@ -23,9 +23,6 @@ export class Tab3Page {
 ngOnInit(){
   this.title = "Account";
   this.user = this.auth.getUser();
-  this.store.select<any>('users').subscribe(data=>{
-    console.log(data);
-  })
 }  
   goBack(){
     this.navController.back();

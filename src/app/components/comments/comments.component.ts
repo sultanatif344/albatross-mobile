@@ -25,8 +25,6 @@ export class CommentsComponent implements OnInit {
   }
 
    AddComments(){
-     console.log("Triggered");
-     console.log(this.message);
      this.firebaseService.pushComments(this.message,this.authService.getUser().id,this.videoId,this.authService.getUser().name);
    } 
 

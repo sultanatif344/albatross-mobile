@@ -27,9 +27,7 @@ export class InstructorlessonsComponent implements OnInit {
   getLessons(){
     this.booklessonservice.getrequestedlesson(this.auth.getToken())
       .subscribe(data=>{
-        console.log(data);
         this.requestedlessons = data.data;
-        console.log(this.requestedlessons);
       })
   }
 
@@ -40,7 +38,6 @@ export class InstructorlessonsComponent implements OnInit {
     this.store.select<any>('users').subscribe(data=>{})
     this.booklessonservice.acceptOrDeclineLesson(event._id,this.lessonStatus,this.auth.getToken())
     .subscribe(data=>{
-      console.log(data)
       this.store.dispatch(new AcceptRequestSuccess(data))
       catchError(error=>of(new AcceptRequestFailure(error))
     )
@@ -53,7 +50,6 @@ export class InstructorlessonsComponent implements OnInit {
     }
     this.store.select<any>('users').subscribe(data=>{})
     this.booklessonservice.acceptOrDeclineLesson(event._id,this.lessonStatus,this.auth.getToken()).subscribe(data=>{
-      console.log(data);
       this.store.dispatch(new DeclineRequestSuccess(data))
       catchError(error=>of(new DeclineRequestFailure(error))
     )

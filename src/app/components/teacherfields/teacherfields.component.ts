@@ -39,29 +39,17 @@ export class TeacherfieldsComponent implements OnInit {
   public image_source:string;
   constructor(private EditProfileService:EditProfileService,private store:Store<AppState>, private auth:AuthService, private http:HttpClient) { 
     this.image_source = this.auth.getUser().photo;
-    console.log(this.image_source);
   }
-
-  // @Output() nameEv=new EventEmitter<string>();
-  // @Output() TimezoneEv=new EventEmitter<string>();
-  // @Output() LanguageEv=new EventEmitter<string[]>();
-  // @Output() DexterityEv=new EventEmitter<string[]>();
-  // @Output() Type_of_lessons_offeredEv=new EventEmitter<string[]>();
-  // @Output() DescriptionEv=new EventEmitter<string>();
-  // @Output() AffiliationEv=new EventEmitter<string>();
-  // @Output() RatesEv=new EventEmitter<string>();
-  // @Output() TimeslotsEv=new EventEmitter<string[]>();
  
 
   ngOnInit() {
     this.store.select(store=>store).subscribe(data=>{
-      console.log(data)
+      return data;
     })
   }
 
   onFileSelected(event){
     this.selectedfile = <File> event.target.files[0];
-      console.log(event)
   }
 
   UploadImageAndUpdateProfile(){
@@ -74,13 +62,9 @@ export class TeacherfieldsComponent implements OnInit {
       .set('Content-Type','multipart/form-data')
       .set('Authorization','Bearer '+this.auth.getToken());
 
-  console.log(this.auth.getToken());
   
-  console.log(this.selectedfile);
     const fd = new FormData();
-    console.log(this.selectedfile);
     fd.append('file',this.selectedfile)
-    console.log(fd);
   
     return this.http.post('https://albatross-v1.herokuapp.com/api/v1/user/photo',fd)
     .subscribe((res:any) =>{
@@ -105,8 +89,6 @@ export class TeacherfieldsComponent implements OnInit {
     this.timeslots.push(timeSlots);
   }
   UpdateProfile(){
-    console.log(this.name);
-    console.log(this.instructorDescription);
     this.instructorDescription = {
       user:{
       name:this.name,
@@ -123,7 +105,6 @@ export class TeacherfieldsComponent implements OnInit {
     this.store.select<any>('users').subscribe(data=>{})
       this.EditProfileService.EditTeacherProfile(this.instructorDescription,this.auth.getToken())
       .subscribe(data=>{
-        console.log(data);
         this.store.dispatch(new EditInstructorProfileSuccessAction(data))
       })
       catchError(error=>of(new EditInstructorProfileFailureAction(error))) 

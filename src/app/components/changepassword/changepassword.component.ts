@@ -18,7 +18,6 @@ export class ChangepasswordComponent implements OnInit {
   @Input() verificationActive:boolean;
   @Input() email: string;
   ngOnInit() {
-    console.log(this.verificationActive);
   }
 
 
@@ -27,13 +26,13 @@ export class ChangepasswordComponent implements OnInit {
       this.ChangePasswordService.UpdatePassword(
       {currentPassword:this.currentPassword,newPassword:this.newPassword},this.auth.getToken())
       .subscribe(data=>{
-        console.log(data);
+        return data;
       })
     }
     else{
       this.forgetPasswordService.updatePasswordAfterCodeReset(this.newPassword,this.email)
       .subscribe((data)=>{
-        console.log(data);
+        return data;
       })
     }
 }

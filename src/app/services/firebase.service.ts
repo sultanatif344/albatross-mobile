@@ -37,20 +37,11 @@ export class FirebaseService {
     public filterCommentsByVideo(key:string,VideoId:string,comments:Array<Object>){
       var database = this.initializeFirebaseRef(this.Recordingref).child(this.messagesRef).orderByChild(key).equalTo(VideoId);
       database.on('child_added',(snapshot)=>{
-        console.log(snapshot.val());
         comments.push(snapshot.val());
       })
     }
 
     public deleteVideoRef(key:string,deletionDate:string){
-      // var currentDateTimeStamp = moment(deletionDate).format('X');
-      
-      // var database = this.initializeFirebaseRef(this.Recordingref).orderByChild(key);
-
-      // database.on('child_added',(snapshot)=>{
-      //   var DeletioDateTimeStamps:Array<any> = [];
-        
-      //   if(snapshot.val().DeletionDate === deletionDate){
         var database = this.initializeFirebaseRef(this.Recordingref).orderByChild(key).equalTo(deletionDate);
 
         database.on('child_added',(snapshot:any)=>{

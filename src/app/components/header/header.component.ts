@@ -52,26 +52,22 @@ export class HeaderComponent implements OnInit {
   switchToWeekView(){
     this.flag = false; 
     this.switchView.emit(this.flag);
-    console.log("event fired");
     this.disableBtnState();
   }
 
   switchToDayView(){
     this.flag = true; 
     this.switchView.emit(this.flag);
-    console.log("event fired");
     this.activateBtnState()
   }
 
   displayCalendar(){
     this.overlayHidden = false;
-    console.log("Calendar Showing");
     this.calendarModalDisplayEvent.emit(this.overlayHidden);
   }
 
   SearchInstructor(){
     this.instructorService.loadInstructor(this.auth.getToken(),this.name).subscribe(data=>{
-      console.log(data);
       this.searchResultEvent.emit(data.data);
     })
   }

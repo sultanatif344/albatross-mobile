@@ -17,13 +17,11 @@ export class ReviewpopupComponent implements OnInit {
   constructor(private reviewService:ReviewService,private auth:AuthService) { }
 
   ngOnInit() {
-    console.log(this.userId);
   }
 
 
   postReview(){
     this.reviewService.postReview(this.auth.getToken(),this.userId,this.review).subscribe((data)=>{
-      console.log(data);
     });
     this.popEnabled = false;
     this.reviewFinishedEvent.emit(this.popEnabled);

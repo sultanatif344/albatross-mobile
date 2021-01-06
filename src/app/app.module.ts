@@ -15,13 +15,11 @@ import { AuthGuardService as authGuard} from './services/auth-guard.service';
 import { reducers } from './store/reducers';
 import { ScheduledlessonsService } from './services/scheduledlessons.service';
 import { InstructorloadService } from './services/instructorload.service';
-import { StudentEffects } from './studentstore/effects/student.effects';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TeacherFieldsModule } from './components/teacherfields/teacherfields.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { environment } from 'src/environments/environment';
-import {TokenInterceptorService} from '../app/services/token-interceptor.service';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import {AngularFireStorageModule} from 'angularfire2/storage';
@@ -31,7 +29,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
   declarations: [AppComponent,
   ],
   entryComponents: [
-    // DayviewComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -41,15 +38,10 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AppRoutingModule,
     HttpClientModule,
     TeacherFieldsModule,
-    EffectsModule.forRoot([StudentEffects]),   
     StoreModule.forRoot(reducers),
     NgbModule,
     AngularFireStorageModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
-    // StoreDevtoolsModule.instrument({
-    //   maxAge: 25, // Retains last 25 states
-    //   logOnly: environment.production, // Restrict extension to log-only mode
-    // })
   ],
   providers: [
     StatusBar,
@@ -61,11 +53,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     ReactiveFormsModule,
     authGuard,
     AndroidPermissions,
-    {
-      provide:HTTP_INTERCEPTORS,
-      useClass:TokenInterceptorService,
-      multi:true
-    },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     InAppBrowser    
   ],

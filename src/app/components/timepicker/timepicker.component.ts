@@ -28,24 +28,12 @@ export class TimepickerComponent{
   }
 
   onClick(){
-    // this.realEndTime = this.endTime;
     this.startAndEndTime = {
       startTime:this.startTime,
 
       endTime:this.endTime
     }
-    console.log(this.startAndEndTime);
     this.startAndEndTimeEmit.emit(this.startAndEndTime);
-    console.log('emitting');
   }
-
-
-  // setStartTime(event){
-  //   this.startTime = {hour:event.hour,minute:event.minute,second:event.second}
-  // }
-
-  // setEndTime(event){
-  //   this.endTime = {hour:event.hour,minute:event.minute,second:event.second}
-  // }
 
 }

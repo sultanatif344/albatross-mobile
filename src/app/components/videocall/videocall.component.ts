@@ -1,12 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef, NgZone, Input, Output, EventEmitter } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebase from "firebase/app";
-import { Observable } from 'rxjs';
 import * as RecordRTC from 'recordrtc';
 import { AuthService } from 'src/app/services/auth.service';
 import {AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask} from 'angularfire2/storage';
 import * as moment from 'moment';
-import { platform } from 'process';
 import { Platform } from '@ionic/angular';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 declare let RTCPeerConnection: any;
@@ -28,7 +26,6 @@ export class VideocallComponent implements OnInit {
   role:string;
   @ViewChild("me") me: any;
   @ViewChild("remote") remote: any;
-  // @Input() callRunning: boolean;
   @Output() callEnded = new EventEmitter<boolean>();
   recordingActive:boolean;
   recordRtc:any;
@@ -47,11 +44,6 @@ export class VideocallComponent implements OnInit {
     private platform:Platform,
     private androidPermissions: AndroidPermissions
   ) {
-    // if(platform.is('cordova')){
-    //   this.setupWebRtc();
-    // }
-    console.log(this.lessonAssignedBy);
-    console.log(this.lessonAssignedTo);
     this.videoIsOn = false;
     this.audioIsOn = false;
     this.recordingActive = false;
@@ -61,7 +53,6 @@ export class VideocallComponent implements OnInit {
             this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.CAMERA)
             .then(
               (result) => {
-                console.log('Has Permission?',result.hasPermission) 
                 if(result.hasPermission == false){
                   this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA).then(()=>{
                     // this.showMe();
@@ -77,10 +68,6 @@ export class VideocallComponent implements OnInit {
           else if(this.platform.is('mobileweb')){
             this.setupWebRtc();
           }
-  }
-
-  ionViewDidEnter(){
-    
   }
   ngOnInit() {
   }
@@ -109,7 +96,6 @@ export class VideocallComponent implements OnInit {
         ]
       }, { optional: [] });
     } catch (error) {
-      console.log(error);
       this.pc = new RTCPeerConnection({
         iceServers: [
           { urls: "stun:stun.services.mozilla.com" },
@@ -160,7 +146,7 @@ export class VideocallComponent implements OnInit {
         }
       }
     } catch (error) {
-      console.log(error);
+      return error;
     }
   }
 
@@ -175,7 +161,7 @@ export class VideocallComponent implements OnInit {
       .then(()=>this.showRemote())
     }
   catch(error){
-    console.log(error);
+    return error;
   }
 }
     
@@ -190,7 +176,7 @@ export class VideocallComponent implements OnInit {
         });
     } catch (error) {
       this.setupWebRtc();
-      console.log(error);
+      return error;
     }
   }
 
@@ -211,45 +197,9 @@ export class VideocallComponent implements OnInit {
   }
 
   turnOnVideo(){
-    // if(this.platform.is('cordova')){
-    //   this.platform.ready().then(()=>{
-    //     this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.CAMERA)
-    //     .then(
-    //       result => console.log('Has Permission?',result.hasPermission),
-    //       err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA).then(()=>{
-    //         this.showMe();
-    //       })
-    //     )
-    //     this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA)
-    //     .then(()=>{
-    //        this.videoIsOn = true;
-    //        navigator.mediaDevices.getUserMedia({ audio: false, video: this.videoIsOn })
-    //        .then(stream => (this.me.nativeElement.srcObject = stream))
-    //   .then(stream => {
-    //     this.pc.addStream(stream);
-    //     this.localStream = stream;
-    //   })
-    //   .then(async ()=> await this.showRemote())
-    //       // this.showMe();
-    //     })
-    //   })
-    // }
     this.videoIsOn = true;
   }
   turnOnAudio(){
-    // if(this.platform.is('cordova')){
-    //   this.platform.ready().then(()=>{
-    //     this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.MICROPHONE)
-    //     .then(
-    //       result => console.log('Has Permission?',result.hasPermission),
-    //       err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.MICROPHONE)
-    //     )
-    //     this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.MICROPHONE)
-    //     .then(()=>{
-    //       this.audioIsOn = true;
-    //     })
-    //   })
-    // }
       this.audioIsOn = true;
   }
   endCall(){
@@ -289,7 +239,9 @@ export class VideocallComponent implements OnInit {
   processVideo(audioVideoWebMURL){
     let recordRTC = this.recordRtc;
     var recordedBlob = recordRTC.getBlob();
-    recordRTC.getDataURL((dataURL)=>console.log(dataURL))
+    recordRTC.getDataURL((dataURL)=>{
+      return dataURL;
+    })
     this.upload(recordedBlob);
   }
 
@@ -305,10 +257,8 @@ export class VideocallComponent implements OnInit {
       return this.downloadLink;
     })
     .finally(()=>{
-      console.log("Pushing data");
     var refname="/recordings";
     var database = this.afDb.database.ref().child(refname)
-    console.log(this.lessonAssignedTo.lessonDate);
     var deletionDate = moment(this.lessonAssignedTo.createdAt).add(1,'week').format('DD/MM/YYYY');
     var createdDate = moment(this.lessonAssignedTo.createdAt).format('DD/MM/YYYY');
     database.push({VideoFor:this.lessonAssignedBy._id ,VideoBy:this.lessonAssignedTo._id ,VideoId:id, CreatedDate:createdDate, DeletionDate:deletionDate,VideoLink:this.downloadLink})
