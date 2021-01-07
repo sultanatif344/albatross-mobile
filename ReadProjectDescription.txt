@@ -1,6 +1,6 @@
 Albatross Mobile and web application
 
-Technologies on frontend: Angular, ionic, cordova, firebase sdk, webrtc
+Technologies on frontend: Angular, ionic, NGRX, cordova, firebase sdk, webrtc
 
 Backend Technologies used: Nodejs, Mongodb.
 
