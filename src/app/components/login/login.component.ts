@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { User } from 'src/app/models/user';
@@ -12,11 +13,11 @@ import { AppState } from 'src/app/store/app.states';
 })
 export class LoginComponent implements OnInit {
 
- 
-  constructor(private store:Store<AppState>,private router:Router) { }
-
-  user:User = new User();
-  ngOnInit() {}
+ public user:User;
+  constructor(private store:Store<AppState>,private formbuilder:FormBuilder) { }
+  ngOnInit() {
+    this.user = new User();
+  }
 
 
   login(){

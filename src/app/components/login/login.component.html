@@ -10,20 +10,8 @@
     <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon>
     <ion-input type="password" placeholder="Password" [(ngModel)]="user.password"></ion-input>
   </ion-row>
-
-  <!-- <ion-row class="ion-margin-top ion-margin-left">
-    <ion-item>
-      <ion-label fill="clear" class="ion-margin-top" style="color:darkgrey">Choose Position</ion-label>
-    <ion-select value="03" [(ngModel)]="position" (ionChange)="selectposition()">
-      <ion-select-option value="teacher">Teacher</ion-select-option>
-      <ion-select-option value="student">Student</ion-select-option>
-    </ion-select>  
-  </ion-item>
-  </ion-row> -->
   <a class="ion-margin-right alignright" style="color: #146545; margin-bottom:5%; margin-left: 150px;" [routerLink]="['verification']">Forgot Password?</a>
 </ion-grid>
-  
-<!-- <ion-button expand="block" size="large" class="ion-padding-horizontal ion-margin-top" shape="round" color="success"><ion-text style="font-weight: lighter; font-style: normal;">Sign in</ion-text></ion-button> -->
 </div>
 
 <ion-button expand="block" size="large" class="ion-padding-horizontal ion-margin-top" shape="round" color="success" (click)="login()"><ion-text style="font-weight: lighter; font-style: normal;">Sign in</ion-text></ion-button>

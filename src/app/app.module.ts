@@ -8,7 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthService } from './services/auth.service';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import {EffectsModule} from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { AuthGuardService as authGuard} from './services/auth-guard.service'; 
@@ -51,7 +51,6 @@ import { AuthEffects } from './store/effects/auth.effects';
     AuthService,
     ScheduledlessonsService,
     InstructorloadService,
-    FormsModule,
     ReactiveFormsModule,
     authGuard,
     AndroidPermissions,
