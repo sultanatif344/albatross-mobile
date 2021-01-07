@@ -59,9 +59,10 @@ export class Tab1Page {
     this.dates = this.getDates(new Date(this.fromDate.year,this.fromDate.month-1,this.fromDate.day), new Date(this.toDate.year,this.toDate.month-1,this.toDate.day));
     this.weeks = this.getWeeks(this.fromDate);
     this.store.select<any>('scheduledlessons').subscribe(data=>{
+      console.log(data);
       this.loading = data.loading;
     })
-
+    
     var monthInText = moment(month,'M').format('MMM');
 
     this.selectedDate = {
@@ -224,6 +225,7 @@ return weeks;
   getDayData(event){
    this.scheduledLessonsService.getDayView(this.auth.getToken(),this.view,event.dayNo,event.monthNo).subscribe((data:any)=>{
      this.dayArray = data.data;
+     console.log(this.dayArray);
    }) 
   }
 

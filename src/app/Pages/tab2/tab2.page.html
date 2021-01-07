@@ -1,7 +1,7 @@
 
 
 <ion-content>
-  <app-header [showScheduleBar]="false" [SearchBarVisible]="true" [showBackButton]="true" (searchResultEvent)="loadSearchResults($event)"></app-header>
+  <app-header [showTitle]="true" [showScheduleBar]="false" [SearchBarVisible]="true" [showBackButton]="true" (searchResultEvent)="loadSearchResults($event)"></app-header>
   <app-recommendations [InstructorDescription]="InstructorDescription" [searchResult]="searchResult"></app-recommendations>
   <app-loader *ngIf="loading"></app-loader>
 </ion-content>

@@ -25,6 +25,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import {AngularFireStorageModule} from 'angularfire2/storage';
 import {AndroidPermissions} from '@ionic-native/android-permissions/ngx';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { AuthEffects } from './store/effects/auth.effects';
 @NgModule({
   declarations: [AppComponent,
   ],
@@ -39,6 +40,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     HttpClientModule,
     TeacherFieldsModule,
     StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([AuthEffects]),
     NgbModule,
     AngularFireStorageModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
