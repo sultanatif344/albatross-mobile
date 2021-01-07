@@ -1,0 +1,54 @@
+Albatross Mobile and web application
+
+Technologies on frontend: Angular, ionic, cordova, firebase sdk, webrtc
+
+Backend Technologies used: Nodejs, Mongodb.
+
+Project Start Date: 22/July/2020
+
+Project End Date: 2/Nov/2020
+
+Contributors: Atif Sultan (Frontend Intern)
+	      Talal Abbas (Backend Junior Developer)	 
+
+Description:
+This is a realtime communication platform for people who want to learn golf from professional instructors. 
+There are two applications. A PWA and An android aplication. The PWA is for instructors only. Whereas, the android
+app is for both instructors and students. Students can login/signup, search for instructors and schedule an appointment
+with them which if accepted by the instructor will appear on both student and instructor dashboards. 
+The lessons can also be filtered depending on the date. 
+when it is time for the lesson the student or instructor can navigate to the 
+lesson description section by clicking on the scheduled lesson and clicking the start button. 
+At the end of the session the student must leave a textual review for the instructor 
+The Instructor can also record the lecture for the student and post it for him 
+on the recording page. The student can comment on the recorded video or express his/her views. 
+
+Instructions For Testing:
+
+1- Open Host URl: https://albatross-mobile-ui.web.app
+
+2- Signup as instructor.
+
+3- Open Android application signup as student
+
+4- Search Instructor by full name
+
+5- Click on instructor, set date and time for appointment on next page, Click Request.
+
+6- As Instructor, go to Lesson Requests Page the request should appear accept it.
+
+7- Go to the student dashboard, the lesson details will appear now.
+
+8- Click on lesson card and go to lesson descrption page click on start.
+
+9- Go back to instructor repeat step 7 and 8 the video call will start now on both end.
+
+10- (For Recording) Click on record button at bottom to start recording it will appear green. When you stop recording, it will
+    turn back red.
+
+11- (For Comment) Go to recording page, click on view comment button, write a comment and click on green plus button on 
+    right hand side.
+
+12- (For Filtering) Click on the calendar section (top left section showing currently selected date) 
+select the date for the lesson you want to view and click overlay background to exit. The navigation bar dates will change.
+Click on a date to view the lesson for that date.    
