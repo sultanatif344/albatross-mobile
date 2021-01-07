@@ -25,7 +25,8 @@ on the recording page. The student can comment on the recorded video or express 
 
 Instructions For Testing:
 
-1- Open Host URl: https://albatross-mobile-ui.web.app
+1- Open Host URl: https://albatross-mobile-ui.web.app and install apk from the following directory
+ platforms\android\app\build\outputs\apk\debug\app-debug.apk
 
 2- Signup as instructor.
 
