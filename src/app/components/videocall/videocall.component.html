@@ -1,8 +1,6 @@
 <div>
-  <video id="me" controls autoplay #remote></video>
-  <video id="remote" controls autoplay #me>
-      
-  </video>
+  <video id="remote" controls autoplay #remote></video>
+  <video id="me" controls autoplay #me></video>
   <br />
   <ion-row>
     <ion-col>
@@ -17,7 +15,5 @@
   <ion-col>
   <ion-icon name="mic-outline" id="AudioOn" (click)="turnOnAudio()"></ion-icon>
 </ion-col>
-<ion-button id="connect" color="danger" (click)="setupWebRtc()">Connect</ion-button>
 </ion-row>
-  <!-- <ion-button (click)="showFriendsFace()" type="button"> Call</ion-button> -->
 </div>

@@ -3,7 +3,7 @@
     <ion-label fill="clear" class="ion-margin-bottom ion-no-border" style="color:darkgrey">Username or email</ion-label>
   <ion-row class="ion-margin-left">
     
-    <ion-icon color="success" name="person-outline" class="ion-margin-top"></ion-icon><ion-input class="border-bottom" placeholder="Your email" [(ngModel)]="user.email"></ion-input>
+    <ion-icon color="success" name="person-outline" class="ion-margin-top"></ion-icon><ion-input class="border-bottom" type="email" placeholder="Your email" autocapitalize="off" aria-autocomplete="on" [(ngModel)]="user.email"></ion-input>
   </ion-row>
   <ion-label fill="clear" class="ion-margin-top" style="color:darkgrey">Password</ion-label>
   <ion-row class="ion-margin-top ion-margin-left">

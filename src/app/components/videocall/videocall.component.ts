@@ -54,20 +54,29 @@ export class VideocallComponent implements OnInit {
             .then(
               (result) => {
                 if(result.hasPermission == false){
-                  this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA).then(()=>{
-                    // this.showMe();
-                  }).then(()=>{
-                    this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.MODIFY_AUDIO_SETTINGS).then(()=>{
-                      this.setupWebRtc();
-                    })
+                  this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA).then((permission)=>{
+                    if(permission.hasPermission === true){
+                      this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO).then((permission)=>{
+                        if(permission.hasPermission === true){
+                          this.setupWebRtc();
+                        }
+                        else{
+                          this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO);
+                        }
+                      })
+
+                    }
                   })
+                }
+                else{
+                  this.setupWebRtc()
                 }
               })
             })
           }
-          else if(this.platform.is('mobileweb')){
-            this.setupWebRtc();
-          }
+          else{
+          this.setupWebRtc();
+        }
   }
   ngOnInit() {
   }
@@ -92,14 +101,16 @@ export class VideocallComponent implements OnInit {
       this.pc = new RTCPeerConnection({
         iceServers: [
           { urls: "stun:stun.services.mozilla.com" },
-          { urls: "stun:stun.l.google.com:19302" }
+          { urls: "stun:stun.l.google.com:19302" },
+          {urls:"turn:numb.viagenie.ca", credential:"jogong+366", username:"sultanatif30@gmail.com"}
         ]
       }, { optional: [] });
     } catch (error) {
       this.pc = new RTCPeerConnection({
         iceServers: [
           { urls: "stun:stun.services.mozilla.com" },
-          { urls: "stun:stun.l.google.com:19302" }
+          { urls: "stun:stun.l.google.com:19302" },
+          {urls:"turn:numb.viagenie.ca", credential:"jogong+366", username:"sultanatif30@gmail.com"}
         ]
       }, { optional: [] });
     }
@@ -236,7 +247,7 @@ export class VideocallComponent implements OnInit {
     // stream.getVideoTracks().forEach(track => track.stop());
   }
 
-  processVideo(audioVideoWebMURL){
+  processVideo(){
     let recordRTC = this.recordRtc;
     var recordedBlob = recordRTC.getBlob();
     recordRTC.getDataURL((dataURL)=>{

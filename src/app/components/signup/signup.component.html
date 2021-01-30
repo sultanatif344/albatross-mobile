@@ -14,13 +14,13 @@
   <ion-label fill="clear" class="ion-margin-bottom" style="color:darkgrey">Email</ion-label>
   <ion-row class="ion-margin-top ion-margin-left">
     <ion-icon name="mail-outline" color="success" class="ion-margin-top"></ion-icon>
-    <ion-input placeholder="Email" [(ngModel)]="user.email"></ion-input>
+    <ion-input type="email" placeholder="Email" [(ngModel)]="user.email"></ion-input>
   </ion-row>
 
   <ion-label fill="clear" class="ion-margin-bottom" style="color:darkgrey">Password</ion-label>
   <ion-row class="ion-margin-top ion-margin-left">
     <ion-icon color="success" name="lock-closed-outline" class="ion-margin-top"></ion-icon>
-    <ion-input placeholder="Password" [(ngModel)]="user.password"></ion-input>
+    <ion-input type="password" placeholder="Password" [(ngModel)]="user.password"></ion-input>
   </ion-row>
 </ion-grid>
 <ion-row class="ion-margin-top ion-margin-left">

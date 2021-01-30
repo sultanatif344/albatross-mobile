@@ -15,9 +15,9 @@ import { AuthGuardService as authGuard} from './services/auth-guard.service';
 import { reducers } from './store/reducers';
 import { ScheduledlessonsService } from './services/scheduledlessons.service';
 import { InstructorloadService } from './services/instructorload.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 import { TeacherFieldsModule } from './components/teacherfields/teacherfields.module';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule, NgbTimepickerModule} from '@ng-bootstrap/ng-bootstrap';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from 'angularfire2';
@@ -42,6 +42,7 @@ import { AuthEffects } from './store/effects/auth.effects';
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([AuthEffects]),
     NgbModule,
+    FormsModule,
     AngularFireStorageModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
@@ -51,7 +52,6 @@ import { AuthEffects } from './store/effects/auth.effects';
     AuthService,
     ScheduledlessonsService,
     InstructorloadService,
-    ReactiveFormsModule,
     authGuard,
     AndroidPermissions,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

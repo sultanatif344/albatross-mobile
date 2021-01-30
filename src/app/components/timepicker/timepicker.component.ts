@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -11,20 +11,17 @@ export class TimepickerComponent{
 
   public startTime:NgbTimeStruct={hour:12,minute:30,second:10};
   public endTime:NgbTimeStruct={hour:12,minute:30,second:10};
-  constructor() { }
-
-
-  public realStartTime:any;
-  public realEndTime:any;
   public startSeconds:boolean;
   
   public endSeconds:boolean;
-  @Output() startAndEndTimeEmit = new EventEmitter<Object>()
-  public startAndEndTime:Object
-
-  ngOnInit() {
+  constructor() { 
     this.startSeconds = true;
     this.endSeconds = true;
+  }
+  @Output() startAndEndTimeEmit = new EventEmitter<Object>()
+  public startAndEndTime:Object;
+
+  ngOnInit() {
   }
 
   onClick(){

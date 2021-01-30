@@ -6,7 +6,7 @@ import { StudentfieldsComponent } from '../components/studentfields/studentfield
 import { TeacherfieldsComponent } from '../components/teacherfields/teacherfields.component';
 import { DetailsOflessonsComponent } from '../components/details-oflessons/details-oflessons.component';
 import { InstructordescriptionComponent } from '../components/instructordescription/instructordescription.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule, NgbTimepickerModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgbDateStruct, NgbCalendar, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
 import { ChangepasswordComponent } from '../components/changepassword/changepassword.component';
 import { LoaderComponent } from '../components/loader/loader.component';
@@ -24,7 +24,8 @@ import { InstructorlessonsComponent } from '../components/instructorlessons/inst
 @NgModule({
  imports:      [ CommonModule,
     IonicModule,
-    FormsModule
+    FormsModule,
+    NgbTimepickerModule
 ],
  declarations: [
     HeaderComponent, 
@@ -42,7 +43,7 @@ import { InstructorlessonsComponent } from '../components/instructorlessons/inst
     LessonsBarComponent,
     DayviewComponent,
     WeekviewComponent,
-    InstructorlessonsComponent
+    InstructorlessonsComponent,
 ],
 
  exports:[ 

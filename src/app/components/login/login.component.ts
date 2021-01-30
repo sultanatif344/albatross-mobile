@@ -14,7 +14,7 @@ import { AppState } from 'src/app/store/app.states';
 export class LoginComponent implements OnInit {
 
  public user:User;
-  constructor(private store:Store<AppState>,private formbuilder:FormBuilder) { }
+  constructor(private store:Store<AppState>) { }
   ngOnInit() {
     this.user = new User();
   }
